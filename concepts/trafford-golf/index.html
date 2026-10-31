@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Trafford Golf Centre</title>
+<meta name="description" content="53 Toptracer bays, PGA Academy, Dino Falls Adventure Golf and a Bar & Kitchen next to the Trafford Centre. Open from 7am every day.">
+<meta property="og:title" content="Trafford Golf Centre — Play · Putt · Practice">
+<meta property="og:description" content="53 Toptracer bays, PGA lessons, Dino Falls Adventure Golf. Open from 7am every day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@600;700;800&family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --char:#2c2a29; --char-hi:#353230; --char-lo:#232120; --bone:#e1dfd9; --mute:#9d988f;
+  --rule:rgba(225,223,217,.13); --green:#209d50; --green-hi:#2fc46a; --green-lo:#147a3b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--char);color:var(--bone);overflow-x:hidden}
+body{font-family:"Space Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;
+  background:radial-gradient(120% 50% at 50% 0%,#3a3735 0%,var(--char) 60%) no-repeat,var(--char)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+a{color:inherit;text-decoration:none}
+.disp{font-family:"Saira Extra Condensed",Impact,sans-serif;text-transform:uppercase;letter-spacing:.01em}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase}
+.wrap{max-width:460px;margin:0 auto;padding:0 18px 36px}
+
+/* ── header ── */
+.top{position:relative;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:22px 0 16px}
+.wm{font-family:"Saira Extra Condensed",Impact,sans-serif;font-weight:700;font-size:44px;line-height:.84;text-transform:uppercase;letter-spacing:.005em}
+.wm span{color:var(--green-hi)}
+.tag{color:var(--mute);margin-top:10px}
+.pill{flex:none;max-width:56%;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--rule);border-radius:99px;
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01));white-space:nowrap}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green-hi);animation:pulse 2s infinite}
+.dot.off{background:#d9534f;animation:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,196,106,.55)}70%,100%{box-shadow:0 0 0 7px rgba(47,196,106,0)}}
+.arc{position:absolute;right:0;top:44px;width:150px;height:70px;pointer-events:none;opacity:.8}
+.arc path{fill:none;stroke:var(--green-hi);stroke-width:1.2;stroke-linecap:round;stroke-dasharray:var(--l);stroke-dashoffset:var(--l);animation:fly 4.4s cubic-bezier(.25,.7,.35,1) infinite}
+.arc path.b{animation-delay:1.5s;stroke:var(--bone);opacity:.5}
+@keyframes fly{0%{stroke-dashoffset:var(--l);opacity:1}55%{stroke-dashoffset:0}90%,100%{stroke-dashoffset:0;opacity:0}}
+
+/* ── social strip: separate tiles ── */
+.soc{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding-top:14px;border-top:1px solid var(--bone)}
+.soc a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;height:60px;border-radius:12px;
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid var(--rule);transition:background .2s,border-color .2s,transform .2s}
+.soc a:hover{transform:translateY(-2px);border-color:rgba(225,223,217,.4)}
+.soc a span{font-size:8.5px;color:var(--mute);letter-spacing:.06em}
+.soc a.web{background:linear-gradient(180deg,#f4f2ed,#d9d6ce);border-color:transparent;box-shadow:0 1px 0 #fff inset,0 10px 20px -12px rgba(0,0,0,.8)}
+.soc a.web svg{stroke:var(--char)} .soc a.web span{color:var(--char);font-weight:500}
+.soc svg{width:19px;height:19px;fill:none;stroke:var(--bone);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── link cards ── */
+.links{display:grid;gap:9px;margin-top:14px}
+.row{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:8px;padding:16px 14px 16px 12px;border-radius:16px;position:relative;
+  background:linear-gradient(180deg,rgba(255,255,255,.065),rgba(255,255,255,.025));border:1px solid var(--rule);
+  box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 12px 24px -18px rgba(0,0,0,.9);transition:transform .2s,border-color .2s}
+.row .n{color:var(--mute)}
+.row .t{font-family:"Saira Extra Condensed",sans-serif;font-weight:700;font-size:28px;line-height:.95;text-transform:uppercase;letter-spacing:.01em}
+.row .d{font-size:13px;color:var(--mute);margin-top:5px}
+.row .ar{width:32px;height:32px;border-radius:50%;border:1px solid var(--rule);display:grid;place-items:center;font-size:14px;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.row:hover{transform:translateY(-2px);border-color:rgba(225,223,217,.35)}
+.row:hover .ar{background:var(--bone);color:var(--char);border-color:var(--bone);transform:rotate(-45deg)}
+.row.main{border:0;padding:20px 16px 20px 14px;color:#fff;overflow:hidden;
+  background:linear-gradient(160deg,var(--green-hi) 0%,var(--green) 45%,var(--green-lo) 100%);
+  box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 -12px 24px rgba(0,0,0,.14) inset,0 18px 32px -16px rgba(32,157,80,.7)}
+.row.main::after{content:"";position:absolute;left:-40%;top:-120%;width:55%;height:300%;transform:rotate(25deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);animation:sheen 5s ease-in-out infinite}
+@keyframes sheen{0%,60%{left:-40%}100%{left:130%}}
+.row.main .t{font-size:34px}
+.row.main .n,.row.main .d{color:rgba(255,255,255,.85)}
+.row.main .ar{border-color:rgba(255,255,255,.55);color:#fff}
+.row.main:hover .ar{background:#fff;color:var(--green-lo)}
+
+.quad{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}
+.quad a{padding:14px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.065),rgba(255,255,255,.025));border:1px solid var(--rule);
+  box-shadow:0 12px 24px -18px rgba(0,0,0,.9);transition:transform .2s,border-color .2s}
+.quad a:hover{transform:translateY(-2px);border-color:rgba(225,223,217,.35)}
+.quad .n{color:var(--mute)}
+.quad .t{font-family:"Saira Extra Condensed",sans-serif;font-weight:700;font-size:23px;text-transform:uppercase;margin-top:8px;line-height:.95}
+.quad .d{font-size:12px;color:var(--mute);margin-top:5px}
+
+/* ── sections ── */
+.sec{display:flex;justify-content:space-between;align-items:baseline;margin:36px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--bone)}
+.sec h2{font-family:"Saira Extra Condensed",sans-serif;font-weight:700;font-size:32px;text-transform:uppercase;line-height:1}
+.sec .mono{color:var(--mute)}
+
+/* offers: glossy bone cards */
+.offers{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -18px;padding:2px 18px 8px}
+.offers::-webkit-scrollbar{display:none}
+.of{flex:0 0 72%;scroll-snap-align:start;padding:18px;border-radius:16px;color:var(--char);position:relative;overflow:hidden;
+  background:linear-gradient(155deg,#f4f2ed 0%,#e1dfd9 55%,#cfccc4 100%);
+  box-shadow:0 1px 0 #fff inset,0 16px 30px -18px rgba(0,0,0,.7)}
+.of::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 38%)}
+.of .p{font-family:"Saira Extra Condensed",sans-serif;font-weight:700;font-size:60px;line-height:.9;color:var(--green);position:relative}
+.of .x{font-weight:600;margin-top:10px;position:relative}
+.of .w{font-size:12px;color:#6c6860;margin-top:3px;position:relative}
+
+/* instagram */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;border-radius:14px;overflow:hidden}
+.grid a{position:relative;aspect-ratio:1;background:var(--char-hi);overflow:hidden}
+.grid a{background:radial-gradient(circle at 30% 20%,#3d4a40,#262423)}
+.grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s,filter .4s;filter:saturate(.95)}
+.grid a:hover img{transform:scale(1.06);filter:saturate(1.1)}
+.grid a::after{content:"";position:absolute;right:7px;top:7px;width:0;height:0;border-left:8px solid rgba(255,255,255,.9);border-top:5px solid transparent;border-bottom:5px solid transparent;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
+.follow{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:12px 2px;border-bottom:1px solid var(--rule)}
+.follow b{font-weight:600}
+
+/* hours */
+.hours div{display:flex;justify-content:space-between;padding:10px 2px;border-bottom:1px solid var(--rule);font-size:14px}
+.hours .today{font-weight:600}
+.hours .today span:first-child::after{content:" — today";color:var(--green-hi);font-weight:500}
+.small{font-size:12px;color:var(--mute);margin-top:10px;line-height:1.55}
+
+footer{display:flex;justify-content:space-between;gap:12px;margin-top:30px;padding-top:14px;border-top:1px solid var(--bone);color:var(--mute);line-height:1.7}
+footer a{border-bottom:1px solid var(--rule)}
+.cbar{background:var(--green-lo);color:#fff;text-align:center;padding:7px 12px;font-size:10px}
+.concept{margin-top:22px;text-align:center;color:var(--mute);opacity:.7}
+@media (prefers-reduced-motion:reduce){.arc path,.dot,.row.main::after{animation:none}.arc path{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div class="cbar mono">Concept by rh-webatelier · not the official Trafford Golf Centre page</div>
+<main class="wrap">
+
+  <header class="top">
+    <div>
+      <div class="wm">Trafford<br><span>Golf</span> Centre</div>
+      <div class="tag mono">Play · Putt · Practice</div>
+    </div>
+    <div class="pill mono"><span class="dot" id="dot"></span><span id="st">Open now</span></div>
+    <svg class="arc" viewBox="0 0 150 70" aria-hidden="true">
+      <path style="--l:190" d="M20 70 C 45 0, 110 -5, 145 45"/>
+      <path class="b" style="--l:160" d="M20 70 C 40 20, 85 10, 115 60"/>
+    </svg>
+  </header>
+
+  <nav class="soc" aria-label="Website and socials">
+    <a href="https://www.instagram.com/traffordgolfcentre/" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5"/></svg><span class="mono">Insta</span></a>
+    <a href="https://www.tiktok.com/@traffordgolfcentre" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.6 2.3 4.3 5 4.5"/></svg><span class="mono">TikTok</span></a>
+    <a href="https://www.facebook.com/TraffordGolfCentre/" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"/></svg><span class="mono">Facebook</span></a>
+    <a class="web" href="https://www.traffordgolfcentre.co.uk/" aria-label="Website"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span class="mono">Website</span></a>
+    <a href="tel:01617497000" aria-label="Call"><svg viewBox="0 0 24 24"><path d="M5 4h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span class="mono">Call</span></a>
+    <a href="mailto:info@traffordgolfcentre.co.uk" aria-label="Email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="mono">Email</span></a>
+    <a href="https://www.linkedin.com/company/trafford-golf-centre" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v5M8 8v.01M12 16v-5M12 13a2 2 0 0 1 4 0v3"/></svg><span class="mono">LinkedIn</span></a>
+  </nav>
+
+  <nav class="links">
+    <a class="row main" href="https://www.traffordgolfcentre.co.uk/play">
+      <span class="n mono">01</span>
+      <span><div class="t">Play on the range</div><div class="d">Arrive &amp; drive · 53 Toptracer bays · clubs to hire</div></span>
+      <span class="ar">→</span></a>
+    <a class="row" href="https://www.traffordgolfcentre.co.uk/learn">
+      <span class="n mono">02</span>
+      <span><div class="t">Lessons &amp; the Academy</div><div class="d">PGA pros · start with an assessment lesson</div></span>
+      <span class="ar">→</span></a>
+    <a class="row" href="https://dinofalls.co.uk/">
+      <span class="n mono">03</span>
+      <span><div class="t">Dino Falls Adventure Golf</div><div class="d">Two Jurassic mini golf courses</div></span>
+      <span class="ar">→</span></a>
+    <a class="row" href="https://www.traffordgolfcentre.co.uk/s/V4-LR-FOR-WEBSITE-TGC-Bar-and-Kitchen-Menu-June-2026.pdf">
+      <span class="n mono">04</span>
+      <span><div class="t">Bar &amp; Kitchen menu</div><div class="d">Pizza, loaded fries, Starbucks · order to your bay</div></span>
+      <span class="ar">→</span></a>
+  </nav>
+  <div class="quad">
+    <a href="https://www.traffordgolfcentre.co.uk/gift-vouchers"><div class="n mono">05</div><div class="t">Gift vouchers</div><div class="d">Range, lessons &amp; more</div></a>
+    <a href="https://dinofalls.co.uk/parties"><div class="n mono">06</div><div class="t">Kids parties</div><div class="d">At Dino Falls</div></a>
+    <a href="https://www.traffordgolfcentre.co.uk/group-bookings"><div class="n mono">07</div><div class="t">Groups &amp; events</div><div class="d">Work dos, birthdays</div></a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Trafford+Golf+Centre+Old+Park+Lane+M17+8PG"><div class="n mono">08</div><div class="t">Directions</div><div class="d">Free parking · off the M60</div></a>
+  </div>
+
+  <div class="sec"><h2>Offers</h2><span class="mono">Off-peak</span></div>
+  <div class="offers">
+    <a class="of" href="https://www.traffordgolfcentre.co.uk/whats-on-and-latest-offers"><div class="p">£15</div><div class="x">100 balls &amp; a drink</div><div class="w">Small hot or draught soft drink</div></a>
+    <a class="of" href="https://www.traffordgolfcentre.co.uk/whats-on-and-latest-offers"><div class="p">£10</div><div class="x">50 balls &amp; a drink</div><div class="w">Small hot or draught soft drink</div></a>
+    <a class="of" href="https://www.traffordgolfcentre.co.uk/whats-on-and-latest-offers"><div class="p">All →</div><div class="x">Loyalty cards, events &amp; camps</div><div class="w">See what's on</div></a>
+  </div>
+
+  <div class="sec"><h2>Latest on Insta</h2><span class="mono">@traffordgolfcentre</span></div>
+  <div class="grid">
+    <a href="https://www.instagram.com/traffordgolfcentre/" aria-label="Instagram post"><img loading="lazy" alt="" onerror="this.remove()" src="https://images.squarespace-cdn.com/content/v1/691588982e18cb1f330ea4c8/1793434429887-J26Z80GXZO997Y9TE0KS/image-asset.jpeg?format=500w"></a>
+    <a href="https://www.instagram.com/traffordgolfcentre/" aria-label="Instagram post"><img loading="lazy" alt="" onerror="this.remove()" src="https://images.squarespace-cdn.com/content/v1/691588982e18cb1f330ea4c8/1793385330596-N6GURIVRMPK3CFLY9X7F/image-asset.jpeg?format=500w"></a>
+    <a href="https://www.instagram.com/traffordgolfcentre/" aria-label="Instagram post"><img loading="lazy" alt="" onerror="this.remove()" src="https://images.squarespace-cdn.com/content/v1/691588982e18cb1f330ea4c8/1793308198768-WUWCAHOROOKX3RK60934/image-asset.jpeg?format=500w"></a>
+    <a href="https://www.instagram.com/traffordgolfcentre/" aria-label="Instagram post"><img loading="lazy" alt="" onerror="this.remove()" src="https://images.squarespace-cdn.com/content/v1/691588982e18cb1f330ea4c8/1792849127021-DZKJP5DEPQ7FBIZ9GS6U/image-asset.jpeg?format=500w"></a>
+    <a href="https://www.instagram.com/traffordgolfcentre/" aria-label="Instagram post"><img loading="lazy" alt="" onerror="this.remove()" src="https://images.squarespace-cdn.com/content/v1/691588982e18cb1f330ea4c8/1792832395189-HULZY708Y83OWXE5206E/image-asset.jpeg?format=500w"></a>
+    <a href="https://www.instagram.com/traffordgolfcentre/" aria-label="Instagram post"><img loading="lazy" alt="" onerror="this.remove()" src="https://images.squarespace-cdn.com/content/v1/691588982e18cb1f330ea4c8/1792692092831-0RX8J5DQJR1DN8EI7GUW/image-asset.jpeg?format=500w"></a>
+  </div>
+  <a class="follow" href="https://www.instagram.com/traffordgolfcentre/"><b>Follow @traffordgolfcentre</b><span class="mono">Open →</span></a>
+
+  <div class="sec"><h2>Opening times</h2><span class="mono" id="close"></span></div>
+  <div class="hours" id="hours"></div>
+  <p class="small">Last balls 35 mins before closing · Card only · Under 16s need an adult after 6pm</p>
+
+  <footer class="mono">
+    <span>Old Park Lane<br>TraffordCity M17 8PG</span>
+    <span style="text-align:right"><a href="https://www.traffordgolfcentre.co.uk/faqs">FAQs</a><br><a href="https://www.traffordgolfcentre.co.uk/">Full website</a></span>
+  </footer>
+  <p class="concept mono">Concept by rh-webatelier · not an official page</p>
+</main>
+
+<script>
+const H={0:[420,1380],1:[420,1380],2:[420,1380],3:[420,1380],4:[420,1410],5:[420,1410],6:[420,1410]};
+const N=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const f=m=>{const h=Math.floor(m/60),mm=m%60;return ((h+11)%12+1)+(mm?":"+String(mm).padStart(2,"0"):"")+(h>=12?"pm":"am")};
+const now=new Date(),d=now.getDay(),m=now.getHours()*60+now.getMinutes(),[o,c]=H[d];
+const st=document.getElementById("st"),cl=document.getElementById("close");
+if(m>=o&&m<c){st.textContent="Open till "+f(c);cl.textContent="Last balls "+f(c-35);}
+else{document.getElementById("dot").classList.add("off");const nx=m<o?o:H[(d+1)%7][0];st.textContent="Opens "+f(nx);cl.textContent="Opens "+f(nx)+(m<o?" today":" tomorrow");}
+const el=document.getElementById("hours");
+[1,2,3,4,5,6,0].forEach(i=>{const r=document.createElement("div");if(i===d)r.className="today";r.innerHTML="<span>"+N[i]+"</span><span>"+f(H[i][0])+" – "+f(H[i][1])+"</span>";el.appendChild(r);});
+</script>
+</body>
+</html>
