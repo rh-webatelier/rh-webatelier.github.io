@@ -48,11 +48,12 @@ header{padding:22px 0 16px;text-align:center}
 .range{position:relative;display:block;margin-top:12px;border-radius:10px;overflow:hidden;aspect-ratio:16/10;background:#1c1b1a}
 .range img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .range:hover img{transform:scale(1.03)}
-.range .ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;
+.range .ov{position:absolute;inset:0;display:flex;align-items:flex-end;gap:12px;padding:16px;
   background:linear-gradient(0deg,rgba(20,19,18,.9) 0%,rgba(20,19,18,.35) 45%,rgba(20,19,18,0) 70%)}
 .range .h{font-size:38px}
 .range p{margin-top:4px;color:#e9e6e0;font-size:14px}
-.range .go{position:absolute;right:14px;bottom:16px;background:var(--green);color:#fff;font-weight:600;font-size:13px;padding:8px 12px;border-radius:6px}
+.range .txt{flex:1;min-width:0}
+.range .go{flex:none;background:var(--green);color:#fff;font-weight:600;font-size:13px;padding:8px 12px;border-radius:6px;white-space:nowrap}
 
 /* rows with thumbnails */
 .rows{display:grid;gap:8px;margin-top:8px}
@@ -116,10 +117,12 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   <a class="range" href="https://www.traffordgolfcentre.co.uk/play">
     <img src="https://images.squarespace-cdn.com/content/v1/691588982e18cb1f330ea4c8/1a9ff420-5d11-4c5d-b56b-6203d35bd0eb/DSC07415.jpg?format=1000w" alt="Driving range bays at night">
     <div class="ov">
-      <div class="h">Play on the range</div>
-      <p>No booking. 100 balls is about 45 minutes.</p>
+      <div class="txt">
+        <div class="h">Play on the range</div>
+        <p>No booking. 100 balls is about 45 minutes.</p>
+      </div>
+      <span class="go">How it works</span>
     </div>
-    <span class="go">How it works</span>
   </a>
 
   <div class="rows">
