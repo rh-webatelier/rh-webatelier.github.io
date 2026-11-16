@@ -862,6 +862,17 @@ form .btn[disabled]{opacity:.6}
 .xgo{background:var(--stone);color:var(--ink)}
 @media (hover:hover){.xt:hover .xgo{background:var(--ink);color:#fff}}
 @media (max-width:599px){.more-w.open{display:flex;align-items:center;justify-content:center;width:100%;height:50px;margin-top:28px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:15.5px;font-weight:550;color:var(--ink)}}
+
+/* pass 5: the preview builds itself */
+.pv .bx{transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1)}
+.pv.pre .bx{opacity:0;transform:translateY(12px)}
+.try-row input.nudge::placeholder{color:var(--ink)}
+.try-row input.nudge{animation:nudge 1.6s ease-out 2}
+@keyframes nudge{0%{box-shadow:0 0 0 0 rgba(43,59,255,.35)}70%{box-shadow:0 0 0 12px rgba(43,59,255,0)}100%{box-shadow:0 0 0 0 rgba(43,59,255,0)}}
+@media (min-width:480px){.try-row:has(input.nudge){animation:nudge 1.6s ease-out 2}.try-row input.nudge{animation:none}}
+@media (max-width:479px){.stage{margin-top:26px}}
+@media (min-width:860px){.stage{margin-top:44px}}
+@media (min-width:860px){.hero{padding-top:clamp(28px,3.6vw,52px)}.hero h1{font-size:clamp(2.5rem,6.4vw,5.6rem)}}
 .at:before{content:"\40"}
 .at{font-style:normal}
 </style>
@@ -1204,7 +1215,7 @@ form .btn[disabled]{opacity:.6}
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* hero: the visitor plays with a preview of their own site (name, kind of business, colour, light or dark) */
-  var inp=$('t-name'), auto=false, pv=$('pv'), pvName=$('pv-name'), site=pv.querySelector('.pv-site');
+  var ghost='', inp=$('t-name'), auto=false, pv=$('pv'), pvName=$('pv-name'), site=pv.querySelector('.pv-site');
   var KIND={
     barber:['\u2702\uFE0F','Fresh cuts. Walk-ins welcome.','Book a cut',['Skin fade','Beard trim','Kids cut']],
     cafe:['\u2615','Coffee, brunch and bakes.','See the menu',['Menu','Order ahead','Find us']],
@@ -1220,7 +1231,7 @@ form .btn[disabled]{opacity:.6}
     pvName.style.fontSize=(sm?Math.max(w*.085,Math.min(w*.17,w*1.55/n)):Math.max(w*.046,Math.min(w*.1,w*.82/n)))+'px';
   }
   function paintName(){
-    var v=inp.value.replace(/\s+/g,' ').replace(/^ | $/g,'')||'Your Brand';
+    var v=(inp.value||ghost).replace(/\s+/g,' ').replace(/^ | $/g,'')||'Your Brand';
     pvName.textContent=v; $('pv-brand').textContent=v; $('pv-logo').textContent=v.charAt(0).toUpperCase();
     $('pv-url').textContent=(v.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'').slice(0,24)||'yourbrand')+'.co.uk';
     fit();
@@ -1267,6 +1278,33 @@ form .btn[disabled]{opacity:.6}
   var om=$('opt-more'), ol=$('opt-less'), ox=$('opts-x');
   if(om) om.addEventListener('click',function(){ ox.hidden=false; om.hidden=true; var f=ox.querySelector('input'); if(f) f.focus(); });
   if(ol) ol.addEventListener('click',function(){ ox.hidden=true; om.hidden=false; var n=ox.querySelectorAll('input:checked').length; om.textContent='+ 8 more'+(n?' ('+n+' picked)':''); om.focus(); });
+  /* first seconds: the preview builds itself for a few businesses, then hands over to the visitor */
+  (function(){
+    var PH=inp.getAttribute('placeholder'), T=[], on=false, stg=d.querySelector('.stage');
+    var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(RM||inp.value||(window.pageYOffset||0)>200) return;
+    function at(ms,f){T.push(setTimeout(f,ms));}
+    function kind(k){var r=$('k-'+{barber:'b',cafe:'c',garage:'g',trades:'t',beauty:'n'}[k]);if(r){r.checked=true;paintKind(k);showChip(r);}}
+    function col(id){var r=$(id);if(r){r.checked=true;paintColour();}}
+    function put(v,caret){ghost=v;inp.setAttribute('placeholder',(v||'')+(caret?'|':''));paintName();}
+    function word(t0,txt){for(var i=1;i<=txt.length;i++)(function(i){at(t0+i*65,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*65;}
+    function wipe(t0,txt){for(var i=txt.length-1;i>=0;i--)(function(i){at(t0+(txt.length-i)*28,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*28;}
+    var parts=[].slice.call(pv.querySelectorAll('.pv-nav>*,.pv-main>div>*,.pv-art,.pv-serv>div'));
+    function build(){parts.forEach(function(el,i){el.style.transitionDelay=(i*85)+'ms';});pv.classList.remove('pre');at(parts.length*85+700,function(){parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});});}
+    function stop(){if(!on)return;on=false;while(T.length)clearTimeout(T.pop());ghost='';inp.setAttribute('placeholder',PH);pv.classList.remove('pre');parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});inp.classList.remove('nudge');paintName();}
+    on=true; parts.forEach(function(el){el.classList.add('bx');}); pv.classList.add('pre'); kind('garage'); col('c-4'); put('',1);
+    var t=450;
+    at(t,build);
+    t=word(t,"Andy's Garage"); at(t+500,function(){col('c-1');}); t+=1500;
+    t=wipe(t,"Andy's Garage"); at(t,function(){kind('barber');col('c-3');}); t=word(t+120,'Fade Street Barbers'); t+=1500;
+    t=wipe(t,'Fade Street Barbers'); at(t,function(){kind('cafe');col('c-2');}); t=word(t+120,'Bean & Co'); t+=1600;
+    t=wipe(t,'Bean & Co');
+    at(t+80,function(){put('',0);inp.setAttribute('placeholder','Now type yours');inp.classList.add('nudge');});
+    at(t+4200,function(){inp.classList.remove('nudge');inp.setAttribute('placeholder',PH);on=false;});
+    inp.addEventListener('focus',stop); inp.addEventListener('input',stop);
+    if(stg) stg.addEventListener('click',stop);
+    var ctl=d.querySelector('.ctl'); if(ctl) ctl.addEventListener('change',stop);
+  })();
   /* carry what they typed into the form */
   function carry(){ var v=inp.value.replace(/^\s+|\s+$/g,''); if(v&&!auto&&!$('f-name').value) $('f-name').value=v; }
   var gets=d.querySelectorAll('[data-get]');
