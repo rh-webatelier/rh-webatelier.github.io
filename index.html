@@ -873,6 +873,36 @@ form .btn[disabled]{opacity:.6}
 @media (max-width:479px){.stage{margin-top:26px}}
 @media (min-width:860px){.stage{margin-top:44px}}
 @media (min-width:860px){.hero{padding-top:clamp(28px,3.6vw,52px)}.hero h1{font-size:clamp(2.5rem,6.4vw,5.6rem)}}
+
+/* pass 6: the preview looks like a real, finished site */
+.pv-kick{display:flex;align-items:center;font-size:1.3em;color:var(--m)}
+.pv-rt{display:inline-flex;align-items:center;margin-right:.7em;padding:.3em .75em;border-radius:999px;background:var(--c);color:var(--t);font-weight:650;transition:background-color .4s,color .4s}
+.pv-rt b{color:#F5B400;margin-right:.3em;letter-spacing:0}
+.pv-open{display:flex;align-items:center;margin-top:1.5em;font-size:1.3em;color:var(--m)}
+.pv-open i{width:.6em;height:.6em;border-radius:50%;background:#1DB45A;margin-right:.6em;box-shadow:0 0 0 .3em rgba(29,180,90,.18)}
+.pv-art{background:var(--a);background:radial-gradient(120% 90% at 85% 0%,rgba(255,255,255,.26),rgba(255,255,255,0) 55%),linear-gradient(160deg,var(--a),color-mix(in srgb,var(--a) 58%,#000));box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.pv-emo{filter:drop-shadow(0 .25em .5em rgba(0,0,0,.25))}
+.pv-rev{position:absolute;z-index:2;left:1.6em;top:1.6em;max-width:62%;display:flex;align-items:flex-start;padding:1em 1.2em;border-radius:1.3em;background:rgba(255,255,255,.94);color:#0B0B0C;box-shadow:0 1em 2.4em rgba(0,0,0,.18);transform:rotate(-2deg)}
+.pv-av{flex:none;width:2.6em;height:2.6em;line-height:2.6em;text-align:center;border-radius:50%;background:var(--a);color:var(--at);font-size:1.15em;font-weight:650;margin-right:.8em;transition:background-color .4s,color .4s}
+.pv-rev b{display:block;font-size:1.1em;color:#F5B400;letter-spacing:.08em}
+.pv-rev q{display:block;font-size:1.25em;font-weight:550;line-height:1.3;margin-top:.2em;quotes:"\201C" "\201D"}
+.pv-rev small{display:block;font-size:1.05em;color:#77777D;margin-top:.3em}
+.pv-card{box-shadow:0 1.2em 3em rgba(0,0,0,.25)}
+.pv-serv div{align-items:center;background:var(--c);padding:1.4em 1.6em}
+.pv-serv div>span{min-width:0}
+.pv-serv b{display:block}
+.pv-serv small{display:block;font-size:1.2em;color:var(--m);margin-top:.25em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pv-serv em{flex:none;margin-left:.8em;font-style:normal;font-size:1.45em;font-weight:650;letter-spacing:-.02em;color:var(--t)}
+.pv.sm .pv-art{height:23em}
+.pv.sm .pv-rev{max-width:78%}
+.pv.sm .pv-serv div{flex-direction:column;align-items:flex-start;padding:1.1em 1.1em 1.2em}
+.pv.sm .pv-serv em{margin:.5em 0 0;font-size:1.4em}
+.pv.sm .pv-serv small{display:none}
+.pv.sm .pv-emo{top:auto;bottom:8.6em;right:7%}
+.pv-open i{flex:none;display:block}
+.pv.sm .pv-emo{top:.3em;bottom:auto;right:5%;font-size:5.6em}
+.pv.sm .pv-rev{max-width:70%}
+.pv.sm .pv-open i{width:.8em;height:.8em;box-shadow:0 0 0 .25em rgba(29,180,90,.18)}
 .at:before{content:"\40"}
 .at{font-style:normal}
 </style>
@@ -951,17 +981,19 @@ form .btn[disabled]{opacity:.6}
           <div class="pv-nav" aria-hidden="true"><span class="pv-logo" id="pv-logo">Y</span><span class="pv-brand" id="pv-brand">Your Brand</span><span class="pv-links"><em>Services</em><em>Reviews</em><em>Contact</em></span><span class="pv-btn" id="pv-btn">Book a cut</span></div>
           <div class="pv-main">
             <div aria-hidden="true">
-              <p class="pv-kick"><b>★★★★★</b>Your Google reviews</p>
+              <p class="pv-kick"><span class="pv-rt"><b>★</b><span id="pv-rate">4.9</span></span><span id="pv-cnt">212 Google reviews</span></p>
               <p class="pv-name" id="pv-name">Your Brand</p>
               <p class="pv-sub" id="pv-sub">Fresh cuts. Walk-ins welcome.</p>
               <p class="pv-cta"><span class="pv-b1" id="pv-b1">Book a cut</span><span class="pv-b2">Call us</span></p>
+              <p class="pv-open"><i></i><span id="pv-open">Open today until 7pm</span></p>
             </div>
             <div class="pv-art">
               <span class="pv-emo" id="pv-emo" aria-hidden="true">✂️</span>
-              <div class="pv-card"><small>Pick a time</small><div class="pv-slots" id="pv-slots"><button type="button" aria-pressed="false">10:00</button><button type="button" aria-pressed="true">13:30</button><button type="button" aria-pressed="false">16:00</button></div></div>
+              <div class="pv-rev" aria-hidden="true"><span class="pv-av" id="pv-av">J</span><span><b>★★★★★</b><q id="pv-q">Best fade I have had in years</q><small id="pv-who">Jamal R., Google</small></span></div>
+              <div class="pv-card"><small>Next free today</small><div class="pv-slots" id="pv-slots"><button type="button" aria-pressed="false">10:00</button><button type="button" aria-pressed="true">13:30</button><button type="button" aria-pressed="false">16:00</button></div></div>
             </div>
           </div>
-          <div class="pv-serv" aria-hidden="true"><div><b id="pv-s1">Skin fade</b><i></i></div><div><b id="pv-s2">Beard trim</b><i></i></div><div><b id="pv-s3">Kids cut</b><i></i></div></div>
+          <div class="pv-serv" aria-hidden="true"><div><span><b id="pv-s1">Skin fade</b><small id="pv-d1">30 min</small></span><em id="pv-p1">£28</em></div><div><span><b id="pv-s2">Beard trim</b><small id="pv-d2">15 min</small></span><em id="pv-p2">£12</em></div><div><span><b id="pv-s3">Kids cut</b><small id="pv-d3">20 min</small></span><em id="pv-p3">£18</em></div></div>
         </div>
       </div>
     </div>
@@ -1217,11 +1249,11 @@ form .btn[disabled]{opacity:.6}
   /* hero: the visitor plays with a preview of their own site (name, kind of business, colour, light or dark) */
   var ghost='', inp=$('t-name'), auto=false, pv=$('pv'), pvName=$('pv-name'), site=pv.querySelector('.pv-site');
   var KIND={
-    barber:['\u2702\uFE0F','Fresh cuts. Walk-ins welcome.','Book a cut',['Skin fade','Beard trim','Kids cut']],
-    cafe:['\u2615','Coffee, brunch and bakes.','See the menu',['Menu','Order ahead','Find us']],
-    garage:['\uD83D\uDD27','MOT, servicing and repairs.','Book a slot',['MOT','Servicing','Tyres']],
-    trades:['\uD83D\uDEE0\uFE0F','Free quotes. Tidy work.','Get a quote',['Quotes','Recent jobs','Reviews']],
-    beauty:['\uD83D\uDC85','Nails, lashes and brows.','Book now',['Nails','Lashes','Brows']]
+    barber:['\u2702\uFE0F','Fresh cuts. Walk-ins welcome.','Book a cut',[['Skin fade','30 min','\u00A328'],['Beard trim','15 min','\u00A312'],['Kids cut','20 min','\u00A318']],'Best fade I have had in years','Jamal R.','4.9','212','Open today until 7pm'],
+    cafe:['\u2615','Coffee, brunch and bakes.','See the menu',[['Flat white','Oat or dairy','\u00A33.40'],['Full brunch','Until 2pm','\u00A311.50'],['Cinnamon bun','Baked daily','\u00A33.20']],'Our new favourite brunch spot','Ella N.','4.8','341','Open today until 5pm'],
+    garage:['\uD83D\uDD27','MOT, servicing and repairs.','Book a slot',[['MOT','45 min','\u00A354.85'],['Full service','2 hours','\u00A3189'],['Tyres','Fitted today','from \u00A360']],'Honest, quick and fairly priced','Mark T.','4.9','187','Open today until 6pm'],
+    trades:['\uD83D\uDEE0\uFE0F','Free quotes. Tidy work.','Get a quote',[['Free quote','Within 24 hours','\u00A30'],['Small jobs','Half a day','from \u00A3120'],['Full projects','Fixed price','Quoted']],'On time and left it spotless','Sarah K.','5.0','96','Quotes back in 24 hours'],
+    beauty:['\uD83D\uDC85','Nails, lashes and brows.','Book now',[['Gel nails','45 min','\u00A328'],['Lash lift','50 min','\u00A340'],['Brow shape','20 min','\u00A315']],'I always leave feeling amazing','Priya S.','4.9','264','Open today until 8pm']
   };
   function fit(){
     var w=pv.clientWidth; if(!w)return;
@@ -1239,7 +1271,8 @@ form .btn[disabled]{opacity:.6}
   function paintKind(k){
     var d0=KIND[k]||KIND.barber, emo=$('pv-emo');
     emo.textContent=d0[0]; $('pv-sub').textContent=d0[1]; $('pv-b1').textContent=d0[2]; $('pv-btn').textContent=d0[2];
-    for(var i=0;i<3;i++) $('pv-s'+(i+1)).textContent=d0[3][i];
+    for(var i=0;i<3;i++){ $('pv-s'+(i+1)).textContent=d0[3][i][0]; $('pv-d'+(i+1)).textContent=d0[3][i][1]; $('pv-p'+(i+1)).textContent=d0[3][i][2]; }
+    $('pv-q').textContent=d0[4]; $('pv-who').textContent=d0[5]+', Google'; $('pv-av').textContent=d0[5].charAt(0); $('pv-rate').textContent=d0[6]; $('pv-cnt').textContent=d0[7]+' Google reviews'; $('pv-open').textContent=d0[8];
     emo.classList.add('pop'); setTimeout(function(){emo.classList.remove('pop');},260);
   }
   function paintColour(){
@@ -1287,20 +1320,20 @@ form .btn[disabled]{opacity:.6}
     function kind(k){var r=$('k-'+{barber:'b',cafe:'c',garage:'g',trades:'t',beauty:'n'}[k]);if(r){r.checked=true;paintKind(k);showChip(r);}}
     function col(id){var r=$(id);if(r){r.checked=true;paintColour();}}
     function put(v,caret){ghost=v;inp.setAttribute('placeholder',(v||'')+(caret?'|':''));paintName();}
-    function word(t0,txt){for(var i=1;i<=txt.length;i++)(function(i){at(t0+i*65,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*65;}
-    function wipe(t0,txt){for(var i=txt.length-1;i>=0;i--)(function(i){at(t0+(txt.length-i)*28,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*28;}
+    function word(t0,txt){for(var i=1;i<=txt.length;i++)(function(i){at(t0+i*45,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*45;}
+    function wipe(t0,txt){for(var i=txt.length-1;i>=0;i--)(function(i){at(t0+(txt.length-i)*18,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*18;}
     var parts=[].slice.call(pv.querySelectorAll('.pv-nav>*,.pv-main>div>*,.pv-art,.pv-serv>div'));
     function build(){parts.forEach(function(el,i){el.style.transitionDelay=(i*85)+'ms';});pv.classList.remove('pre');at(parts.length*85+700,function(){parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});});}
     function stop(){if(!on)return;on=false;while(T.length)clearTimeout(T.pop());ghost='';inp.setAttribute('placeholder',PH);pv.classList.remove('pre');parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});inp.classList.remove('nudge');paintName();}
     on=true; parts.forEach(function(el){el.classList.add('bx');}); pv.classList.add('pre'); kind('garage'); col('c-4'); put('',1);
     var t=450;
     at(t,build);
-    t=word(t,"Andy's Garage"); at(t+500,function(){col('c-1');}); t+=1500;
-    t=wipe(t,"Andy's Garage"); at(t,function(){kind('barber');col('c-3');}); t=word(t+120,'Fade Street Barbers'); t+=1500;
-    t=wipe(t,'Fade Street Barbers'); at(t,function(){kind('cafe');col('c-2');}); t=word(t+120,'Bean & Co'); t+=1600;
+    t=word(t,"Andy's Garage"); at(t+350,function(){col('c-1');}); t+=1250;
+    t=wipe(t,"Andy's Garage"); at(t,function(){kind('barber');col('c-3');}); t=word(t+100,'Fade Street Barbers'); t+=1150;
+    t=wipe(t,'Fade Street Barbers'); at(t,function(){kind('cafe');col('c-2');}); t=word(t+100,'Bean & Co'); t+=1350;
     t=wipe(t,'Bean & Co');
     at(t+80,function(){put('',0);inp.setAttribute('placeholder','Now type yours');inp.classList.add('nudge');});
-    at(t+4200,function(){inp.classList.remove('nudge');inp.setAttribute('placeholder',PH);on=false;});
+    at(t+2600,function(){inp.classList.remove('nudge');inp.setAttribute('placeholder',PH);on=false;});
     inp.addEventListener('focus',stop); inp.addEventListener('input',stop);
     if(stg) stg.addEventListener('click',stop);
     var ctl=d.querySelector('.ctl'); if(ctl) ctl.addEventListener('change',stop);
