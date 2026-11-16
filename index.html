@@ -648,6 +648,27 @@ form .btn[disabled]{opacity:.6}
   *,*:before,*:after{animation:none!important;transition:none!important}
 }
 @media (min-width:600px) and (max-width:859px){.opts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* reviewer fixes */
+.top{background:rgba(255,255,255,.97)}
+.t-b{font-size:13.5px;line-height:1.35;color:var(--ink2);margin-top:6px}
+.app-nav{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}
+.optd{margin-top:16px;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14)}
+.optd summary{list-style:none;cursor:pointer;padding:14px 0;font-weight:550;font-size:15px;display:flex;align-items:center;justify-content:space-between}
+.optd summary::-webkit-details-marker{display:none}
+.optd summary em{font-style:normal;font-weight:400;opacity:.6;margin-left:6px;margin-right:auto}
+.optd summary:after{content:"+";font-size:22px;font-weight:300;line-height:1}
+.optd[open] summary:after{content:"\2212"}
+.optd .row:first-of-type{margin-top:0}
+.optd[open]{padding-bottom:16px}
+.next{display:none;list-style:none;padding:0;margin:clamp(24px,3vw,36px) 0 0;counter-reset:n}
+.next li{counter-increment:n;position:relative;padding:12px 0 12px 44px;border-top:1px solid rgba(255,255,255,.14)}
+.next li:before{content:counter(n);position:absolute;left:0;top:12px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600}
+.next b{display:block;font-weight:550}
+.next small{display:block;font-size:14px;opacity:.7}
+@media (min-width:860px){.next{display:block}}
+@media (max-width:699px){.me img{width:150px}}
+@media (min-width:860px){.t-b{font-size:15.5px;margin-top:8px}}
 .at:before{content:"\40"}
 .at{font-style:normal}
 </style>
@@ -694,7 +715,7 @@ form .btn[disabled]{opacity:.6}
   <div class="wrap">
     <p class="pill"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Manchester</p>
     <h1>See your website before you pay.</h1>
-    <p class="deal"><span class="vh">Free sample first. Then from £137, paid once.</span><span aria-hidden="true"><b>£0</b>sample</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg><span aria-hidden="true"><b>from £137</b>once</span></p>
+    <p class="deal"><span class="vh">Free sample in 2 days. Then from £137, paid once.</span><span aria-hidden="true"><b>£0</b>sample in 2 days</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg><span aria-hidden="true"><b>from £137</b>once</span></p>
     <div class="try">
       <div class="try-row">
         <label class="vh" for="t-name">Your business name</label>
@@ -785,19 +806,19 @@ form .btn[disabled]{opacity:.6}
     <div class="tiles">
       <div class="tile" data-demo="dash">
         <div class="ill"><div class="ill-a"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-        <div class="t-row"><h3>Dashboard</h3><button class="try-it" type="button" aria-label="Try the dashboard demo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg></button></div>
+        <div class="t-row"><h3>Dashboard</h3><button class="try-it" type="button" aria-label="Try the dashboard demo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg></button></div><p class="t-b">Bookings, takings and customers on one screen</p>
       </div>
       <div class="tile" data-demo="auto">
         <div class="ill"><div class="ill-b"><span class="ln"></span><span class="nd"></span><span class="nd"></span><span class="nd"></span><span class="dot"></span></div></div>
-        <div class="t-row"><h3>Automation</h3><button class="try-it" type="button" aria-label="Try the automations demo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg></button></div>
+        <div class="t-row"><h3>Automation</h3><button class="try-it" type="button" aria-label="Try the automations demo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg></button></div><p class="t-b">Missed calls get a text back on their own</p>
       </div>
       <div class="tile" data-demo="chat">
         <div class="ill"><div class="ill-c"><span class="b1"></span><span class="ty"><i></i><i></i><i></i></span><span class="b2"></span></div></div>
-        <div class="t-row"><h3>AI assistant</h3><button class="try-it" type="button" aria-label="Try the AI assistant demo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg></button></div>
+        <div class="t-row"><h3>AI assistant</h3><button class="try-it" type="button" aria-label="Try the AI assistant demo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg></button></div><p class="t-b">Answers your customers 24/7</p>
       </div>
       <div class="tile" data-demo="cat">
         <div class="ill"><div class="ill-d"><i></i><i></i><i></i><i></i><i></i><i></i><span class="ring"></span></div></div>
-        <div class="t-row"><h3>Catalogue</h3><button class="try-it" type="button" aria-label="Try the catalogue demo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg></button></div>
+        <div class="t-row"><h3>Catalogue</h3><button class="try-it" type="button" aria-label="Try the catalogue demo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg></button></div><p class="t-b">Products and stock online, orders straight to you</p>
       </div>
     </div>
     <ul class="also"><li>Also</li><li><button type="button" data-open="wa">WhatsApp booking bot</button></li><li><button type="button" data-open="auto:call">Missed-call text-back</button></li><li><button type="button" data-open="auto:review">Review requests</button></li><li><button type="button" data-open="book">Online booking</button></li><li><button type="button" data-open="auto:quote">Quotes and invoices</button></li><li><button type="button" data-open="stock">Stock across locations</button></li><li><button type="button" data-open="gprof">Google profile</button></li><li><button type="button" data-open="bio">Link-in-bio page</button></li></ul>
@@ -809,8 +830,8 @@ form .btn[disabled]{opacity:.6}
     <h2>How it works</h2>
     <ol class="how">
       <li><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-edit"/></svg></span><h3>Your name</h3><p>20 sec</p></li>
-      <li><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-build"/></svg></span><h3>I build it</h3><p>£0</p></li>
-      <li><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><h3>You decide</h3><p>from £137 or £0</p></li>
+      <li><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-build"/></svg></span><h3>I build it</h3><p>2 days · £0</p></li>
+      <li><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><h3>You decide</h3><p>Like it: from £137. If not: £0</p></li>
     </ol>
   </div>
 </section>
@@ -843,11 +864,12 @@ form .btn[disabled]{opacity:.6}
       <div>
         <h2>Roman</h2>
         <ul class="facts">
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>6 sites live in Manchester &amp; Yorkshire</li>
           <li><svg class="i" aria-hidden="true"><use href="#i-build"/></svg>I build every site myself</li>
           <li><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg>You message me directly</li>
           <li><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Manchester</li>
-          <li><svg class="i" aria-hidden="true"><use href="#i-cap"/></svg>BSc Digital Business &amp; Technology Innovation, Manchester Met</li>
           <li><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><a class="em nw" href="#get">roman<i class="at"></i>rh-webatelier.co.uk</a><button class="cp" type="button" data-copy="1" aria-label="Copy email address"><svg class="i co" aria-hidden="true"><use href="#i-copy"/></svg><svg class="i ok" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-cap"/></svg>BSc Digital Business &amp; Technology Innovation, Manchester Met</li>
         </ul>
       </div>
     </div>
@@ -873,6 +895,7 @@ form .btn[disabled]{opacity:.6}
     <div>
       <h2>Let's build yours</h2>
       <p class="mail"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><span style="margin-right:5px">Or email me:</span><span style="display:inline-flex;align-items:center;white-space:nowrap"><a class="em nw" href="#get">roman<i class="at"></i>rh-webatelier.co.uk</a><button class="cp" type="button" data-copy="1" aria-label="Copy email address"><svg class="i co" aria-hidden="true"><use href="#i-copy"/></svg><svg class="i ok" aria-hidden="true"><use href="#i-check"/></svg></button></span></p>
+      <ol class="next"><li><b>You send this form</b><small>Takes a minute</small></li><li><b>Sample link in 2 days</b><small>Built from your reviews and photos</small></li><li><b>You decide</b><small>Like it: from £137, paid once. If not: £0</small></li></ol>
     </div>
     <div>
       <div class="gtabs"><button type="button" data-g="f" aria-pressed="true">Free sample</button><button type="button" data-g="m" aria-pressed="false">Just message me</button></div>
@@ -881,9 +904,9 @@ form .btn[disabled]{opacity:.6}
           <div class="row" style="margin-top:0"><label class="lab" for="f-name">Business name</label><input class="field" id="f-name" name="business" type="text" autocomplete="organization" placeholder="e.g. Andy's Garage" required><span class="err">Add your business name.</span></div>
           <div class="row"><label class="lab" for="f-area">Where you work</label><input class="field" id="f-area" name="area" type="text" autocomplete="address-level2" placeholder="e.g. Stockport" required><span class="err">Add your town or area.</span></div>
           <div class="row"><label class="lab" for="f-contact">Phone or email</label><input class="field" id="f-contact" name="contact" type="text" placeholder="So I can send you the link" required><span class="err">Add a phone number or email so I can send the link.</span></div>
-          <div class="row"><label class="lab" for="f-link">Current site or Facebook</label><input class="field" id="f-link" name="link" type="text" autocomplete="url" placeholder="Optional"></div>
+          <details class="optd"><summary>Add details <em>optional</em></summary><div class="row"><label class="lab" for="f-link">Current site or Facebook</label><input class="field" id="f-link" name="link" type="text" autocomplete="url" placeholder="Optional"></div>
           <div class="row"><label class="lab" for="f-ref">Sites or photos you like<em>optional</em></label><input class="field" id="f-ref" name="references" type="text" placeholder="Paste links, so I get your taste"></div>
-          <div class="row"><label class="lab" for="f-com">Comment<em>optional</em></label><textarea class="field" id="f-com" name="comment" rows="3" placeholder="Anything I should know"></textarea></div>
+          <div class="row"><label class="lab" for="f-com">Comment<em>optional</em></label><textarea class="field" id="f-com" name="comment" rows="3" placeholder="Anything I should know"></textarea></div></details>
           <div class="row">
             <span class="lab" id="int-l" style="display:block;font-size:14px;font-weight:600;margin-bottom:6px">What do you need?</span>
             <div class="opts" role="group" aria-labelledby="int-l"><input class="vh" type="checkbox" name="interest" id="i-w" value="Website" checked><label for="i-w"><svg class="i" aria-hidden="true"><use href="#i-build"/></svg><span>Website<small>from £137</small></span><i class="tick"></i></label><input class="vh" type="checkbox" name="interest" id="i-d" value="Dashboard"><label for="i-d"><svg class="i" aria-hidden="true"><use href="#i-chart"/></svg><span>Dashboard<small>priced first</small></span><i class="tick"></i></label><input class="vh" type="checkbox" name="interest" id="i-a" value="Automation"><label for="i-a"><svg class="i" aria-hidden="true"><use href="#i-loop"/></svg><span>Automation<small>priced first</small></span><i class="tick"></i></label><input class="vh" type="checkbox" name="interest" id="i-c" value="AI assistant"><label for="i-c"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg><span>AI assistant<small>priced first</small></span><i class="tick"></i></label><input class="vh" type="checkbox" name="interest" id="i-k" value="Catalogue"><label for="i-k"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span>Catalogue<small>priced first</small></span><i class="tick"></i></label></div>
@@ -894,7 +917,7 @@ form .btn[disabled]{opacity:.6}
           <p class="fail" id="fail" role="alert">That didn't send. Email me at <a class="em nw" href="#get">roman<i class="at"></i>rh-webatelier.co.uk</a> and I'll pick it up from there.</p>
           <p class="small" style="margin-top:12px">No card details. I'll only get in touch about your sample.</p>
         </form>
-        <div class="done" role="status" tabindex="-1" id="done"><h3>Got it, thanks.</h3><p>I'll start on your sample and send you the link.</p></div>
+        <div class="done" role="status" tabindex="-1" id="done"><h3>Got it, thanks.</h3><p>I'll send you the link to your sample within 2 days.</p></div>
       </div>
       <div class="msgp" id="g-m" style="display:none">
         <div id="mm-f">
@@ -1018,11 +1041,14 @@ form .btn[disabled]{opacity:.6}
     if(c==='ink'){ site.style.setProperty('--a',dark?'#fff':'#0B0B0C'); site.style.setProperty('--at',dark?'#0B0B0C':'#fff'); }
     else{ site.style.setProperty('--a',c); site.style.setProperty('--at','#fff'); }
   }
-  inp.addEventListener('input',paintName);
   inp.addEventListener('focus',function(){
     /* on a phone, bring the preview into the space above the keyboard */
     if(window.innerWidth<860) setTimeout(function(){ var y=inp.getBoundingClientRect().top+(window.pageYOffset||d.documentElement.scrollTop)-84; window.scrollTo(0,y); },320); });
   var ks=d.getElementsByName('ptype'), cs=d.getElementsByName('pacc'), q;
+  var GUESS=[[/garage|auto|motor|\bmot\b|tyre|car\b|cars\b|mechanic|body ?shop/i,'garage'],[/caf[eé]|coffee|bakery|bakes|kitchen|deli|brunch|tea ?room|bistro/i,'cafe'],[/nail|beauty|lash|brow|salon|spa\b|aesthetic|skin/i,'beauty'],[/barber|cuts\b|fade|grooming/i,'barber'],[/plumb|electric|build|roof|fenc|joiner|landscap|plaster|decorat|maintenance|heating|handyman|carpent|tiling|garden/i,'trades']];
+  inp.addEventListener('input',function(){ paintName(); var v=inp.value; for(var g=0;g<GUESS.length;g++) if(GUESS[g][0].test(v)){ var r=$('k-'+{barber:'b',cafe:'c',garage:'g',trades:'t',beauty:'n'}[GUESS[g][1]]); if(r&&!r.checked){ r.checked=true; paintKind(GUESS[g][1]); } break; } });
+  var gl=d.querySelectorAll('[data-get]'); for(q=0;q<gl.length;q++) gl[q].addEventListener('click',function(){ setTimeout(function(){ var n=$('f-name'),a=$('f-area'); if(n&&a&&n.value&&!a.value){ try{a.focus({preventScroll:true});}catch(e){} } },700); });
+
   for(q=0;q<ks.length;q++) ks[q].addEventListener('change',function(){paintKind(this.value);});
   for(q=0;q<cs.length;q++) cs[q].addEventListener('change',paintColour);
   $('pmode').addEventListener('click',function(){
@@ -1355,7 +1381,7 @@ function qr(a){return '<div class="chipsx qr">'+a.map(function(x){return '<butto
 
 /* WhatsApp booking bot */
 var wa={s:0,pick:[]},WQ=[['What would you like to book?',['Skin fade','Beard trim','Kids cut']],['Which day works?',['Today','Tomorrow','Saturday']],['What time?',['10:00','13:30','16:00']]];
-function waView(){var h='<div class="bub in">Hi, this is '+brand()+' on WhatsApp. I can book you in right here.</div>';
+function waView(){WQ[0][1]=svc().map(function(x){return x[0];});var h='<div class="bub in">Hi, this is '+brand()+' on WhatsApp. I can book you in right here.</div>';
   for(var i=0;i<wa.s;i++)h+='<div class="bub in">'+WQ[i][0]+'</div><div class="bub me in">'+wa.pick[i]+'</div>';
   if(wa.s<3)h+='<div class="bub in">'+WQ[wa.s][0]+'</div>'+qr(WQ[wa.s][1]);
   else h+='<div class="bub in">Booked: '+wa.pick[0]+', '+wa.pick[1].toLowerCase()+' at '+wa.pick[2]+'. I will remind you the day before. Reply CHANGE to move it.</div>'+qr(['Start again']);
@@ -1365,11 +1391,13 @@ mount('wa',{chat:function(){return head('Try the bot','Tap the replies')+'<div c
   if(t!=='chat')return;main.addEventListener('click',function(e){var b=e.target;if(b.tagName!=='BUTTON'||!b.parentNode.classList.contains('qr'))return;if(wa.s>=3){wa={s:0,pick:[]};}else{wa.pick[wa.s]=b.textContent;wa.s++;}$('wa-th').innerHTML=waView();main.scrollTop=main.scrollHeight;});});
 
 /* online booking */
-var bk={sv:-1,day:-1,tm:'',ok:false},SV=[['Skin fade','30 min','£28'],['Cut and beard','45 min','£38'],['Kids cut','20 min','£18']],DN=['Mon 16','Tue 17','Wed 18','Thu 19','Fri 20','Sat 21'];
-mount('book',{book:function(){
+var KSV={barber:[['Skin fade','30 min','£28'],['Cut and beard','45 min','£38'],['Kids cut','20 min','£18']],cafe:[['Table for 2','1 hour','Free'],['Table for 4','1.5 hours','Free'],['Afternoon tea','1.5 hours','£24']],garage:[['MOT','45 min','£54.85'],['Full service','2 hours','£189'],['Tyre fitting','30 min','from £60']],trades:[['Free quote visit','30 min','Free'],['Small repair','1 hour','£65'],['Half-day job','4 hours','£180']],beauty:[['Gel nails','45 min','£32'],['Lash lift','45 min','£40'],['Brow lamination','40 min','£35']]};
+function svc(){var k=d.querySelector('[name=ptype]:checked');return KSV[k?k.value:'barber']||KSV.barber;}
+var bk={sv:-1,day:-1,tm:'',ok:false},SV=svc(),DN=['Mon 16','Tue 17','Wed 18','Thu 19','Fri 20','Sat 21'];
+mount('book',{book:function(){SV=svc();
   if(bk.ok)return head('Booked','Confirmed')+'<div class="cardx" style="text-align:center;padding:34px 18px"><div class="av" style="margin:0 auto 12px;background:var(--blue);color:#fff;width:48px;height:48px">'+ic('check')+'</div><b style="font-size:19px;letter-spacing:-.02em">'+SV[bk.sv][0]+', '+DN[bk.day]+' at '+bk.tm+'</b><p class="small" style="margin-top:6px">A confirmation text is sent now and a reminder the day before.</p><button class="runb" id="bk-again" type="button" style="max-width:240px">Book another</button></div>';
   return head('Book a time','Takes 20 seconds')+'<div class="cardx"><h4>1. Service</h4>'+SV.map(function(s,i){return '<button class="optx'+(bk.sv===i?' on':'')+'" type="button" data-sv="'+i+'"><span><b>'+s[0]+'</b><small>'+s[1]+'</small></span><em>'+s[2]+'</em></button>';}).join('')+'</div><div class="cardx" style="margin-top:10px"><h4>2. Day</h4><div class="chipsx" id="bk-d">'+DN.map(function(x,i){return '<button type="button" aria-pressed="'+(bk.day===i)+'" data-d="'+i+'">'+x+'</button>';}).join('')+'</div><h4 style="margin-top:8px">3. Time</h4><div class="chipsx" id="bk-t" style="margin-bottom:0">'+['09:00','09:30','10:30','12:00','13:30','15:00','16:00','17:15'].map(function(x,i){var gone=(i+bk.day)%3===0;return '<button type="button" aria-pressed="'+(bk.tm===x)+'"'+(gone?' disabled style="opacity:.35;text-decoration:line-through"':'')+'>'+x+'</button>';}).join('')+'</div><button class="runb" id="bk-go" type="button"'+(bk.sv<0||bk.day<0||!bk.tm?' disabled':'')+'>Confirm booking</button></div>';},
- cal:function(){return head('Your side','Today')+'<div class="cardx">'+[['09:00','Maya Collins','Skin fade','Online'],['10:30','Tom Reid','Cut and beard','Online'],['13:30','Ben Carter','Skin fade','WhatsApp'],['16:00','Sam Okoro','Kids cut','You added']].map(function(r){return '<div class="rowx"><time>'+r[0]+'</time><div><b>'+r[1]+'</b><small>'+r[2]+'</small></div><span class="pillx'+(r[3]==='Online'?' b':'')+'">'+r[3]+'</span></div>';}).join('')+'</div>';}},'book',function(t,main,show){
+ cal:function(){SV=svc();return head('Your side','Today')+'<div class="cardx">'+[['09:00','Maya Collins',SV[0][0],'Online'],['10:30','Tom Reid',SV[1][0],'Online'],['13:30','Ben Carter',SV[0][0],'WhatsApp'],['16:00','Sam Okoro',SV[2][0],'You added']].map(function(r){return '<div class="rowx"><time>'+r[0]+'</time><div><b>'+r[1]+'</b><small>'+r[2]+'</small></div><span class="pillx'+(r[3]==='Online'?' b':'')+'">'+r[3]+'</span></div>';}).join('')+'</div>';}},'book',function(t,main,show){
   if(t!=='book')return;main.addEventListener('click',function(e){var b=e.target.closest?e.target.closest('button'):null;if(!b)return;
     if(b.id==='bk-again'){bk={sv:-1,day:-1,tm:'',ok:false};}else if(b.id==='bk-go'){bk.ok=true;}
     else if(b.hasAttribute('data-sv'))bk.sv=+b.getAttribute('data-sv');else if(b.hasAttribute('data-d')){bk.day=+b.getAttribute('data-d');bk.tm='';}
