@@ -668,6 +668,59 @@ form .btn[disabled]{opacity:.6}
 .next small{display:block;font-size:14px;opacity:.7}
 @media (min-width:860px){.next{display:block}}
 @media (min-width:860px){.t-b{font-size:15.5px;margin-top:8px}}
+
+/* mobile pass 2 */
+.ctl-l,.mode .ml,.pv-cap{display:none}
+.more-w{display:none}
+/* quiet seams between plain white sections */
+#work .wrap,#questions .wrap{border-top:1px solid var(--line);padding-top:clamp(40px,6vw,72px)}
+#work{padding-top:clamp(48px,7vw,96px)}
+#questions{padding-top:clamp(24px,4vw,48px)}
+#about{padding-bottom:clamp(24px,4vw,48px)}
+@media (max-width:479px){
+  .try-row input{flex:none;width:100%}
+}
+@media (max-width:599px){
+  /* preview first, controls docked underneath */
+  .stage{display:flex;flex-direction:column;padding:14px 12px 12px}
+  .pv-cap{display:block;order:0;margin:2px 4px 12px;font-size:13.5px;color:var(--ink2);text-align:center}
+  .pv{order:1;border-radius:1.6em;border-bottom:1px solid rgba(11,11,12,.1);box-shadow:0 1px 2px rgba(11,11,12,.05),0 14px 36px rgba(11,11,12,.10)}
+  .ctl{order:2;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;grid-gap:12px 12px;margin-top:12px;padding:14px;background:#fff;border-radius:18px;border:1px solid rgba(11,11,12,.08)}
+  .ctl-l{display:block;font-size:13px;font-weight:550;color:var(--mute)}
+  .types{position:relative;flex-wrap:nowrap;overflow-x:auto;margin:-3px -14px -3px -3px;padding-right:14px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+  .types::-webkit-scrollbar{display:none}
+  .types label{flex:none;padding:8px 14px;font-size:14.5px;background:#fff}
+  .dots{margin:0}
+  .dots label{width:30px;height:30px;margin-right:12px}
+  .dots input:checked+label{box-shadow:0 0 0 2.5px #fff,0 0 0 4px var(--ink)}
+  .mode{width:auto;height:34px;padding:0 13px;margin-left:auto;background:#fff}
+  .mode .ml{display:inline;margin-left:6px;font-size:14px}
+  /* works: three, then the rest on request */
+  .works.clip .wk:nth-child(n+4){display:none}
+  .works.clip+.more-w{display:flex;align-items:center;justify-content:center;width:100%;height:50px;margin-top:28px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:15.5px;font-weight:550;color:var(--ink)}
+  .more-w:active{background:var(--stone)}
+  .more-w:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+  /* photo: full column width */
+  .me img{width:100%;max-width:none}
+}
+@media (max-width:859px){
+  /* calmer form on dark */
+  .get .lab{font-size:13.5px;font-weight:500;color:#C9C9CF;margin-bottom:6px}
+  .get form .row{margin-top:16px}
+  .get .field{height:48px;padding:0 14px;font-size:16px;background:#1C1C1F;color:#fff;border:1px solid #3A3A40;border-radius:12px}
+  .get textarea.field{height:auto;padding:12px 14px}
+  .get .field::placeholder{color:#7C7C83}
+  .get .field:focus{border-color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.14)}
+  .get .field.bad{border-color:#FF8A80}
+  .gtabs{display:flex;width:100%}
+  .gtabs button{flex:1}
+  .opts{display:flex;flex-wrap:wrap;grid-gap:0;margin:-4px}
+  .opts label{margin:4px;padding:9px 14px 9px 12px;border-radius:999px;border-color:#3A3A40;font-size:14.5px;font-weight:500}
+  .opts .i{width:17px;height:17px;margin-right:8px}
+  .opts small,.opts .tick{display:none}
+  .opts input:checked+label{background:#fff;border-color:#fff;color:var(--ink)}
+  .opts input:checked+label .i{color:var(--blue)}
+}
 .at:before{content:"\40"}
 .at{font-style:normal}
 </style>
@@ -724,21 +777,22 @@ form .btn[disabled]{opacity:.6}
     </div>
     <div class="stage">
       <div class="ctl">
-        <div class="types" role="radiogroup" aria-label="Kind of business">
+        <span class="ctl-l" aria-hidden="true">Business</span><div class="types" role="radiogroup" aria-label="Kind of business">
           <input class="vh" type="radio" name="ptype" id="k-b" value="barber" checked><label for="k-b">Barber</label>
           <input class="vh" type="radio" name="ptype" id="k-c" value="cafe"><label for="k-c">Café</label>
           <input class="vh" type="radio" name="ptype" id="k-g" value="garage"><label for="k-g">Garage</label>
           <input class="vh" type="radio" name="ptype" id="k-t" value="trades"><label for="k-t">Trades</label>
           <input class="vh" type="radio" name="ptype" id="k-n" value="beauty"><label for="k-n">Beauty</label>
         </div>
-        <div class="dots" role="radiogroup" aria-label="Brand colour">
+        <span class="ctl-l" aria-hidden="true">Colour</span><div class="dots" role="radiogroup" aria-label="Brand colour">
           <input class="vh" type="radio" name="pacc" id="c-4" value="ink" checked><label for="c-4" style="--sw:#0B0B0C"><span class="vh">Black</span></label>
           <input class="vh" type="radio" name="pacc" id="c-1" value="#2B3BFF"><label for="c-1" style="--sw:#2B3BFF"><span class="vh">Blue</span></label>
           <input class="vh" type="radio" name="pacc" id="c-2" value="#0E8A5F"><label for="c-2" style="--sw:#0E8A5F"><span class="vh">Green</span></label>
           <input class="vh" type="radio" name="pacc" id="c-3" value="#F2591A"><label for="c-3" style="--sw:#F2591A"><span class="vh">Orange</span></label>
-          <button class="mode" id="pmode" type="button" aria-pressed="false" aria-label="Dark version"><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg></button>
+          <button class="mode" id="pmode" type="button" aria-pressed="false" aria-label="Dark version"><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg><span class="ml" aria-hidden="true">Dark</span></button>
         </div>
       </div>
+      <p class="pv-cap">Live preview of your site. Change it below.</p>
       <div class="pv" id="pv" data-mode="light">
         <div class="pv-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pv-url"><b id="pv-url">yourbrand.co.uk</b></span></div>
         <div class="pv-site">
@@ -769,18 +823,14 @@ form .btn[disabled]{opacity:.6}
       <h2>Selected work</h2>
       <p class="count">6 live sites</p>
     </div>
-    <div class="works">
-      <a class="wk" href="https://rh-webatelier.co.uk/andrews-auto-repairs/" target="_blank" rel="noopener">
-        <div class="wk-s"><img class="d" src="assets/w-andrews-auto-repairs-d.webp" width="960" height="600" alt="Andrew's Auto Repairs website on a laptop"><img class="m" src="assets/w-andrews-auto-repairs-m.webp" width="360" height="779" alt="The same site on a phone"></div>
-        <div class="wk-h"><div><h3>Andrew's Auto Repairs</h3><p>Garage<span class="tag">Redesign</span></p></div><span class="arr" aria-hidden="true"><svg class="i"><use href="#i-out"/></svg></span></div>
-      </a>
+    <div class="works clip" id="works">
       <a class="wk" href="https://rh-webatelier.co.uk/yorkshire-venetian-plastering/" target="_blank" rel="noopener">
         <div class="wk-s"><img class="d" src="assets/w-yorkshire-venetian-plastering-d.webp" width="960" height="600" alt="Yorkshire Venetian Plastering website on a laptop"><img class="m" src="assets/w-yorkshire-venetian-plastering-m.webp" width="360" height="779" alt="The same site on a phone"></div>
         <div class="wk-h"><div><h3>Yorkshire Venetian Plastering</h3><p>Plastering</p></div><span class="arr" aria-hidden="true"><svg class="i"><use href="#i-out"/></svg></span></div>
       </a>
-      <a class="wk" href="https://rh-webatelier.co.uk/jdc-general-maintenance/" target="_blank" rel="noopener">
-        <div class="wk-s"><img class="d" src="assets/w-jdc-general-maintenance-d.webp" width="960" height="600" alt="JDC General Maintenance website on a laptop"><img class="m" src="assets/w-jdc-general-maintenance-m.webp" width="360" height="779" alt="The same site on a phone"></div>
-        <div class="wk-h"><div><h3>JDC General Maintenance</h3><p>Handyman</p></div><span class="arr" aria-hidden="true"><svg class="i"><use href="#i-out"/></svg></span></div>
+      <a class="wk" href="https://rh-webatelier.co.uk/andrews-auto-repairs/" target="_blank" rel="noopener">
+        <div class="wk-s"><img class="d" src="assets/w-andrews-auto-repairs-d.webp" width="960" height="600" alt="Andrew's Auto Repairs website on a laptop"><img class="m" src="assets/w-andrews-auto-repairs-m.webp" width="360" height="779" alt="The same site on a phone"></div>
+        <div class="wk-h"><div><h3>Andrew's Auto Repairs</h3><p>Garage<span class="tag">Redesign</span></p></div><span class="arr" aria-hidden="true"><svg class="i"><use href="#i-out"/></svg></span></div>
       </a>
       <a class="wk" href="https://rh-webatelier.co.uk/bingley-boundaries-keighley/" target="_blank" rel="noopener">
         <div class="wk-s"><img class="d" src="assets/w-bingley-boundaries-keighley-d.webp" width="960" height="600" alt="Bingley Boundaries website on a laptop"><img class="m" src="assets/w-bingley-boundaries-keighley-m.webp" width="360" height="779" alt="The same site on a phone"></div>
@@ -794,7 +844,12 @@ form .btn[disabled]{opacity:.6}
         <div class="wk-s"><img class="d" src="assets/w-jwdsmithart-d.webp" width="960" height="600" alt="JWD Smith Art website on a laptop"><img class="m" src="assets/w-jwdsmithart-m.webp" width="360" height="779" alt="The same site on a phone"></div>
         <div class="wk-h"><div><h3>JWD Smith Art</h3><p>Artist</p></div><span class="arr" aria-hidden="true"><svg class="i"><use href="#i-out"/></svg></span></div>
       </a>
+      <a class="wk" href="https://rh-webatelier.co.uk/jdc-general-maintenance/" target="_blank" rel="noopener">
+        <div class="wk-s"><img class="d" src="assets/w-jdc-general-maintenance-d.webp" width="960" height="600" alt="JDC General Maintenance website on a laptop"><img class="m" src="assets/w-jdc-general-maintenance-m.webp" width="360" height="779" alt="The same site on a phone"></div>
+        <div class="wk-h"><div><h3>JDC General Maintenance</h3><p>Handyman</p></div><span class="arr" aria-hidden="true"><svg class="i"><use href="#i-out"/></svg></span></div>
+      </a>
     </div>
+    <button class="more-w" type="button" id="more-w">Show 3 more sites</button>
   </div>
 </section>
 
@@ -859,7 +914,7 @@ form .btn[disabled]{opacity:.6}
 <section class="sec" id="about">
   <div class="wrap">
     <div class="about">
-      <div class="me"><img src="assets/roman.webp" width="720" height="900" alt="Roman Halabitskyi"></div>
+      <div class="me"><img src="assets/roman.webp" width="960" height="1200" alt="Roman Halabitskyi"></div>
       <div>
         <h2>Roman</h2>
         <ul class="facts">
@@ -868,14 +923,14 @@ form .btn[disabled]{opacity:.6}
           <li><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg>You message me directly</li>
           <li><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Manchester</li>
           <li><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><a class="em nw" href="#get">roman<i class="at"></i>rh-webatelier.co.uk</a><button class="cp" type="button" data-copy="1" aria-label="Copy email address"><svg class="i co" aria-hidden="true"><use href="#i-copy"/></svg><svg class="i ok" aria-hidden="true"><use href="#i-check"/></svg></button></li>
-          <li><svg class="i" aria-hidden="true"><use href="#i-cap"/></svg>BSc Digital Business &amp; Technology Innovation, Manchester Met</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-cap"/></svg>BSc Digital Business &amp; Technology Innovation</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="questions" style="padding-top:0">
+<section class="sec" id="questions">
   <div class="wrap faq-wrap">
     <div><h2>Questions</h2></div>
     <div class="faq">
@@ -1045,7 +1100,7 @@ form .btn[disabled]{opacity:.6}
     if(window.innerWidth<860) setTimeout(function(){ var y=inp.getBoundingClientRect().top+(window.pageYOffset||d.documentElement.scrollTop)-84; window.scrollTo(0,y); },320); });
   var ks=d.getElementsByName('ptype'), cs=d.getElementsByName('pacc'), q;
   var GUESS=[[/garage|auto|motor|\bmot\b|tyre|car\b|cars\b|mechanic|body ?shop/i,'garage'],[/caf[eé]|coffee|bakery|bakes|kitchen|deli|brunch|tea ?room|bistro/i,'cafe'],[/nail|beauty|lash|brow|salon|spa\b|aesthetic|skin/i,'beauty'],[/barber|cuts\b|fade|grooming/i,'barber'],[/plumb|electric|build|roof|fenc|joiner|landscap|plaster|decorat|maintenance|heating|handyman|carpent|tiling|garden/i,'trades']];
-  inp.addEventListener('input',function(){ paintName(); var v=inp.value; for(var g=0;g<GUESS.length;g++) if(GUESS[g][0].test(v)){ var r=$('k-'+{barber:'b',cafe:'c',garage:'g',trades:'t',beauty:'n'}[GUESS[g][1]]); if(r&&!r.checked){ r.checked=true; paintKind(GUESS[g][1]); } break; } });
+  inp.addEventListener('input',function(){ paintName(); var v=inp.value; for(var g=0;g<GUESS.length;g++) if(GUESS[g][0].test(v)){ var r=$('k-'+{barber:'b',cafe:'c',garage:'g',trades:'t',beauty:'n'}[GUESS[g][1]]); if(r&&!r.checked){ r.checked=true; paintKind(GUESS[g][1]); showChip(r); } break; } });
   var gl=d.querySelectorAll('[data-get]'); for(q=0;q<gl.length;q++) gl[q].addEventListener('click',function(){ setTimeout(function(){ var n=$('f-name'),a=$('f-area'); if(n&&a&&n.value&&!a.value){ try{a.focus({preventScroll:true});}catch(e){} } },700); });
 
   for(q=0;q<ks.length;q++) ks[q].addEventListener('change',function(){paintKind(this.value);});
@@ -1059,6 +1114,11 @@ form .btn[disabled]{opacity:.6}
   if(d.fonts&&d.fonts.ready) d.fonts.ready.then(fit);
   paintName(); paintColour();
 
+  /* works: first three on phones, the rest on request */
+  var mw=$('more-w'); if(mw) mw.addEventListener('click',function(){ $('works').classList.remove('clip'); mw.hidden=true; var n=$('works').children[3]; if(n){ var a=n.querySelector('a')||n; a.focus({preventScroll:true}); } });
+  /* keep the chosen business chip in view when the row scrolls */
+  function showChip(r){ var l=r.nextElementSibling, box=l&&l.parentNode; if(!box||box.scrollWidth<=box.clientWidth+2) return; var x=l.offsetLeft-(box.clientWidth-l.offsetWidth)/2; try{ box.scrollTo({left:Math.max(0,x),behavior:'smooth'}); }catch(e){ box.scrollLeft=Math.max(0,x); } }
+  for(var kk=0;kk<ks.length;kk++) ks[kk].addEventListener('change',function(){ showChip(this); });
   /* carry what they typed into the form */
   function carry(){ var v=inp.value.replace(/^\s+|\s+$/g,''); if(v&&!auto&&!$('f-name').value) $('f-name').value=v; }
   var gets=d.querySelectorAll('[data-get]');
