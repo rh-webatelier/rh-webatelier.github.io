@@ -1330,8 +1330,7 @@ form .btn[disabled]{opacity:.6}
     at(t,build);
     t=word(t,"Andy's Garage"); at(t+350,function(){col('c-1');}); t+=1250;
     t=wipe(t,"Andy's Garage"); at(t,function(){kind('barber');col('c-3');}); t=word(t+100,'Fade Street Barbers'); t+=1150;
-    t=wipe(t,'Fade Street Barbers'); at(t,function(){kind('cafe');col('c-2');}); t=word(t+100,'Bean & Co'); t+=1350;
-    t=wipe(t,'Bean & Co');
+    t=wipe(t,'Fade Street Barbers');
     at(t+80,function(){put('',0);inp.setAttribute('placeholder','Now type yours');inp.classList.add('nudge');});
     at(t+2600,function(){inp.classList.remove('nudge');inp.setAttribute('placeholder',PH);on=false;});
     inp.addEventListener('focus',stop); inp.addEventListener('input',stop);
