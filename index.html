@@ -1024,6 +1024,26 @@ form .btn[disabled]{opacity:.6}
 .pv-art{transition:background-color .45s}
 .pv-tap{transition:translate .4s var(--e),opacity .2s,scale .14s}
 .pv[data-mode=tint] .pv-site,.pv[data-mode=tint] .pv-sheet{--b:color-mix(in srgb,var(--a) 17%,#fff);--c:color-mix(in srgb,var(--a) 27%,#fff);--m:#4E5A53}
+
+/* pass 11: phones show the four main services; the rest unfold under "8 more services" */
+.xmore{display:none}
+@media (max-width:719px){
+  .tile[data-demo=auto]{order:-2}
+  .tile[data-demo=chat]{order:-1}
+  .xtra{--ex:cubic-bezier(.22,1,.36,1);display:grid;grid-template-rows:0fr;margin-top:0;transition:grid-template-rows .55s var(--ex),margin-top .55s var(--ex)}
+  .xin{min-height:0;overflow:hidden}
+  .xtra.open{grid-template-rows:1fr;margin-top:24px}
+  .xtra .xtra-h,.xtra .xt{opacity:0;transform:translateY(10px);transition:opacity .3s,transform .45s var(--ex)}
+  .xtra.open .xtra-h,.xtra.open .xt{opacity:1;transform:none}
+  .xtra.open .xt{transition-delay:calc(var(--n) * 35ms + 80ms)}
+  .xmore{display:flex;align-items:center;justify-content:center;width:100%;height:50px;margin-top:16px;border:1px solid rgba(11,11,12,.1);border-radius:999px;background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:15.5px;font-weight:550;color:var(--ink);transition:background-color .2s}
+  .xmore svg{width:18px;height:18px;margin-left:8px;transition:transform .45s var(--ex)}
+  .xmore[aria-expanded=true] svg{transform:rotate(180deg)}
+  .xmore:active{background:#fff}
+  .xmore:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+}
+@media (max-width:719px) and (prefers-reduced-motion:reduce){.xtra,.xtra .xt,.xtra .xtra-h,.xmore svg{transition:none}}
+@media (max-width:719px){.xtra:not(.open) .xin{visibility:hidden;transition:visibility 0s .55s}.xtra.open .xin{visibility:visible}}
 .at:before{content:"\40"}
 .at{font-style:normal}
 </style>
@@ -1182,7 +1202,8 @@ form .btn[disabled]{opacity:.6}
         <div class="t-row"><h3>Catalogue</h3><button class="try-it" type="button" aria-label="Try the catalogue demo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg></button></div><p class="t-b">Products and stock online, orders straight to you</p>
       </div>
     </div>
-    <div class="xtra"><h3 class="xtra-h">Also</h3><div class="xgrid"><button class="xt" type="button" data-open="wa"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg></span><span class="xtx"><b>WhatsApp booking bot</b><small>Customers book inside WhatsApp</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" type="button" data-open="auto:call"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg></span><span class="xtx"><b>Missed-call text-back</b><small>Every missed call gets a text</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" type="button" data-open="auto:review"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg></span><span class="xtx"><b>Review requests</b><small>More Google reviews, on their own</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" type="button" data-open="book"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span class="xtx"><b>Online booking</b><small>Customers book any time</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" type="button" data-open="auto:quote"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-edit"/></svg></span><span class="xtx"><b>Quotes and invoices</b><small>Sent and accepted online</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" type="button" data-open="stock"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-chart"/></svg></span><span class="xtx"><b>Stock across locations</b><small>Every shop in one place</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" type="button" data-open="gprof"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg></span><span class="xtx"><b>Google profile</b><small>Look right on Google Maps</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" type="button" data-open="bio"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-out"/></svg></span><span class="xtx"><b>Link-in-bio page</b><small>One link for Instagram and TikTok</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button></div></div>
+    <div class="xtra" id="xtra"><div class="xin"><h3 class="xtra-h">Also</h3><div class="xgrid"><button class="xt" style="--n:0" type="button" data-open="wa"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg></span><span class="xtx"><b>WhatsApp booking bot</b><small>Customers book inside WhatsApp</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" style="--n:1" type="button" data-open="auto:call"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg></span><span class="xtx"><b>Missed-call text-back</b><small>Every missed call gets a text</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" style="--n:2" type="button" data-open="auto:review"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg></span><span class="xtx"><b>Review requests</b><small>More Google reviews, on their own</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" style="--n:3" type="button" data-open="book"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span class="xtx"><b>Online booking</b><small>Customers book any time</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" style="--n:4" type="button" data-open="auto:quote"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-edit"/></svg></span><span class="xtx"><b>Quotes and invoices</b><small>Sent and accepted online</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" style="--n:5" type="button" data-open="stock"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-chart"/></svg></span><span class="xtx"><b>Stock across locations</b><small>Every shop in one place</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" style="--n:6" type="button" data-open="gprof"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg></span><span class="xtx"><b>Google profile</b><small>Look right on Google Maps</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button><button class="xt" style="--n:7" type="button" data-open="bio"><span class="xi"><svg class="i" aria-hidden="true"><use href="#i-out"/></svg></span><span class="xtx"><b>Link-in-bio page</b><small>One link for Instagram and TikTok</small></span><span class="xgo" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span></button></div></div></div>
+    <button class="xmore" id="xmore" type="button" aria-expanded="false" aria-controls="xtra"><span>8 more services</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   </div>
 </section>
 
@@ -1516,6 +1537,17 @@ form .btn[disabled]{opacity:.6}
   }
   pv.addEventListener('click',function(e){ if(e.target===pvSh){ closeSheet(); return; } var el=e.target.closest?e.target.closest('[data-act]'):null; if(!el||!pv.contains(el))return; var a=el.getAttribute('data-act'); if(a) pvAct(a,el); });
   pv.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!pvSh.hidden){ closeSheet(); return; } if(e.key!=='Enter'&&e.key!==' ')return; var el=e.target; if(el&&el.getAttribute&&el.getAttribute('data-act')!==null&&el.tagName!=='BUTTON'){ e.preventDefault(); el.click(); } });
+  /* phones: the eight smaller services fold out under the four main ones */
+  var xm = $('xmore'), xa = $('xtra');
+  if (xm && xa) xm.addEventListener('click', function () {
+    var open = !xa.classList.contains('open');
+    var set = function () { xa.classList.toggle('open', open); xm.setAttribute('aria-expanded', String(open)); xm.firstChild.textContent = open ? 'Show less' : '8 more services'; };
+    if (open) { set(); return; }
+    // folding away: glide back up to the list first if it starts above the screen, then fold
+    var top = xa.getBoundingClientRect().top;
+    if (top < 70) { try { window.scrollTo({ top: (window.pageYOffset || d.documentElement.scrollTop) + top - 140, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, (window.pageYOffset || 0) + top - 140); } setTimeout(set, 320); }
+    else set();
+  });
   /* carry what they typed into the form */
   function carry(){ var v=inp.value.replace(/^\s+|\s+$/g,''); if(v&&!auto&&!$('f-name').value) $('f-name').value=v; }
   var gets=d.querySelectorAll('[data-get]');
