@@ -903,6 +903,26 @@ form .btn[disabled]{opacity:.6}
 .pv.sm .pv-emo{top:.3em;bottom:auto;right:5%;font-size:5.6em}
 .pv.sm .pv-rev{max-width:70%}
 .pv.sm .pv-open i{width:.8em;height:.8em;box-shadow:0 0 0 .25em rgba(29,180,90,.18)}
+
+/* pass 7: smoother motion, a richer preview */
+.pv{position:relative;--e:cubic-bezier(.16,1,.3,1)}
+.pv .bx,.pv .pvs{transition:opacity .65s var(--e),transform .65s var(--e),filter .65s var(--e),background-color .6s,color .6s,border-color .6s,font-size .4s var(--e)}
+.pv.pre .bx{opacity:0;transform:translateY(16px) scale(.985);filter:blur(8px)}
+.pv-site.swap .pvs{opacity:0;transform:translateY(6px);filter:blur(6px);transition-duration:.22s}
+.pv-site{transition:background-color .6s,color .6s}
+.pv-art{background-color:var(--a);background-image:radial-gradient(120% 90% at 85% 0%,rgba(255,255,255,.28),rgba(255,255,255,0) 55%),linear-gradient(160deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.42));transition:background-color .6s}
+.pv-site[data-kind=cafe] .pv-name,.pv-site[data-kind=cafe] .pv-brand,.pv-site[data-kind=beauty] .pv-name,.pv-site[data-kind=beauty] .pv-brand{font-family:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-weight:500;letter-spacing:-.035em}
+.pv-site[data-kind=beauty] .pv-name{font-style:italic;font-weight:400}
+.pv-site[data-kind=barber] .pv-name,.pv-site[data-kind=garage] .pv-name{font-weight:750;letter-spacing:-.06em}
+.pv-card.done #pv-cl{color:#14995A;font-weight:600}
+.pv-card.done #pv-cl b{display:inline-flex;align-items:center;justify-content:center;width:1.3em;height:1.3em;margin-right:.3em;border-radius:50%;background:#1DB45A;color:#fff;font-size:.85em;animation:pvok .45s var(--e)}
+@keyframes pvok{from{transform:scale(0)}to{transform:scale(1)}}
+.pv-slots button{transition:background-color .3s,color .3s,border-color .3s,transform .3s var(--e)}
+.pv-slots button[aria-pressed=true]{transform:scale(1.03)}
+.pv-tap{position:absolute;left:0;top:0;z-index:6;width:3.4em;height:3.4em;margin:-1.7em 0 0 -1.7em;border-radius:50%;background:rgba(11,11,12,.16);border:.2em solid rgba(255,255,255,.95);box-shadow:0 .5em 1.4em rgba(0,0,0,.25);pointer-events:none;opacity:0;translate:0 0;transition:translate .55s var(--e),opacity .25s,scale .18s;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.pv-tap.on{opacity:1}
+.pv-tap.down{scale:.78}
+@media (prefers-reduced-motion:reduce){.pv .bx,.pv .pvs{transition:none}}
 .at:before{content:"\40"}
 .at{font-style:normal}
 </style>
@@ -990,7 +1010,7 @@ form .btn[disabled]{opacity:.6}
             <div class="pv-art">
               <span class="pv-emo" id="pv-emo" aria-hidden="true">✂️</span>
               <div class="pv-rev" aria-hidden="true"><span class="pv-av" id="pv-av">J</span><span><b>★★★★★</b><q id="pv-q">Best fade I have had in years</q><small id="pv-who">Jamal R., Google</small></span></div>
-              <div class="pv-card"><small>Next free today</small><div class="pv-slots" id="pv-slots"><button type="button" aria-pressed="false">10:00</button><button type="button" aria-pressed="true">13:30</button><button type="button" aria-pressed="false">16:00</button></div></div>
+              <div class="pv-card"><small id="pv-cl">Next free today</small><div class="pv-slots" id="pv-slots"><button type="button" aria-pressed="false">10:00</button><button type="button" aria-pressed="true">13:30</button><button type="button" aria-pressed="false">16:00</button></div></div>
             </div>
           </div>
           <div class="pv-serv" aria-hidden="true"><div><span><b id="pv-s1">Skin fade</b><small id="pv-d1">30 min</small></span><em id="pv-p1">£28</em></div><div><span><b id="pv-s2">Beard trim</b><small id="pv-d2">15 min</small></span><em id="pv-p2">£12</em></div><div><span><b id="pv-s3">Kids cut</b><small id="pv-d3">20 min</small></span><em id="pv-p3">£18</em></div></div>
@@ -1268,7 +1288,15 @@ form .btn[disabled]{opacity:.6}
     $('pv-url').textContent=(v.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'').slice(0,24)||'yourbrand')+'.co.uk';
     fit();
   }
+  var kindReady=false, swT=0;
+  [].forEach.call(pv.querySelectorAll('.pv-name,.pv-brand,.pv-logo,.pv-btn,.pv-sub,.pv-kick,.pv-cta,.pv-open,.pv-rev,.pv-emo,.pv-card,.pv-serv>div'),function(e){e.classList.add('pvs');});
+  site.setAttribute('data-kind','barber');
   function paintKind(k){
+    if(!kindReady){ kindReady=true; site.setAttribute('data-kind',k); fillKind(k); return; }
+    site.classList.add('swap'); clearTimeout(swT);
+    swT=setTimeout(function(){ site.setAttribute('data-kind',k); fillKind(k); fit(); site.classList.remove('swap'); },230);
+  }
+  function fillKind(k){
     var d0=KIND[k]||KIND.barber, emo=$('pv-emo');
     emo.textContent=d0[0]; $('pv-sub').textContent=d0[1]; $('pv-b1').textContent=d0[2]; $('pv-btn').textContent=d0[2];
     for(var i=0;i<3;i++){ $('pv-s'+(i+1)).textContent=d0[3][i][0]; $('pv-d'+(i+1)).textContent=d0[3][i][1]; $('pv-p'+(i+1)).textContent=d0[3][i][2]; }
@@ -1323,13 +1351,28 @@ form .btn[disabled]{opacity:.6}
     function word(t0,txt){for(var i=1;i<=txt.length;i++)(function(i){at(t0+i*45,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*45;}
     function wipe(t0,txt){for(var i=txt.length-1;i>=0;i--)(function(i){at(t0+(txt.length-i)*18,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*18;}
     var parts=[].slice.call(pv.querySelectorAll('.pv-nav>*,.pv-main>div>*,.pv-art,.pv-serv>div'));
-    function build(){parts.forEach(function(el,i){el.style.transitionDelay=(i*85)+'ms';});pv.classList.remove('pre');at(parts.length*85+700,function(){parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});});}
-    function stop(){if(!on)return;on=false;while(T.length)clearTimeout(T.pop());ghost='';inp.setAttribute('placeholder',PH);pv.classList.remove('pre');parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});inp.classList.remove('nudge');paintName();}
+    function build(){parts.forEach(function(el,i){el.style.transitionDelay=(i*65)+'ms';});pv.classList.remove('pre');at(parts.length*65+900,function(){parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});});}
+    function stop(){if(!on)return;on=false;while(T.length)clearTimeout(T.pop());tap.classList.remove('on','down');if(cl.parentNode.classList.contains('done'))unbook();ghost='';inp.setAttribute('placeholder',PH);pv.classList.remove('pre');parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});inp.classList.remove('nudge');paintName();}
+    var tap=d.createElement('span'); tap.className='pv-tap'; tap.setAttribute('aria-hidden','true'); pv.appendChild(tap);
+    var slots=$('pv-slots').children, cl=$('pv-cl');
+    function book(){ for(var k=0;k<slots.length;k++) slots[k].setAttribute('aria-pressed',String(k===2)); cl.innerHTML='<b>\u2713</b> Booked for 16:00'; cl.parentNode.classList.add('done'); }
+    function unbook(){ for(var k=0;k<slots.length;k++) slots[k].setAttribute('aria-pressed',String(k===1)); cl.textContent='Next free today'; cl.parentNode.classList.remove('done'); }
+    function tapOn(el,cb){ var pr=pv.getBoundingClientRect(), r=el.getBoundingClientRect(); if(!r.width){cb();return;}
+      var x=r.left-pr.left+r.width/2, y=r.top-pr.top+r.height/2;
+      tap.style.transition='none'; tap.style.translate=(x+60)+'px '+(y+70)+'px'; void tap.offsetWidth; tap.style.transition='';
+      tap.classList.add('on'); tap.style.translate=x+'px '+y+'px';
+      at(560,function(){tap.classList.add('down');cb();}); at(760,function(){tap.classList.remove('down');}); at(1100,function(){tap.classList.remove('on');}); }
+    function mode(dk){ pv.setAttribute('data-mode',dk?'dark':'light'); $('pmode').setAttribute('aria-pressed',String(dk)); paintColour(); }
     on=true; parts.forEach(function(el){el.classList.add('bx');}); pv.classList.add('pre'); kind('garage'); col('c-4'); put('',1);
-    var t=450;
+    var t=380;
     at(t,build);
-    t=word(t,"Andy's Garage"); at(t+350,function(){col('c-1');}); t+=1250;
-    t=wipe(t,"Andy's Garage"); at(t,function(){kind('barber');col('c-3');}); t=word(t+100,'Fade Street Barbers'); t+=1150;
+    t=word(t+120,"Andy's Garage");
+    at(t+200,function(){col('c-1');});
+    at(t+600,function(){tapOn(slots[2],book);});
+    t+=2200;
+    t=wipe(t,"Andy's Garage");
+    at(t,function(){unbook();kind('barber');col('c-3');mode(true);});
+    t=word(t+160,'Fade Street Barbers'); t+=1200;
     t=wipe(t,'Fade Street Barbers');
     at(t+80,function(){put('',0);inp.setAttribute('placeholder','Now type yours');inp.classList.add('nudge');});
     at(t+2600,function(){inp.classList.remove('nudge');inp.setAttribute('placeholder',PH);on=false;});
