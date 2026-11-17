@@ -923,6 +923,91 @@ form .btn[disabled]{opacity:.6}
 .pv-tap.on{opacity:1}
 .pv-tap.down{scale:.78}
 @media (prefers-reduced-motion:reduce){.pv .bx,.pv .pvs{transition:none}}
+
+/* pass 8: the preview works like a real site */
+.pv-site{height:47em;overflow-y:auto;overscroll-behavior-y:auto;scrollbar-width:thin;scrollbar-color:rgba(127,127,127,.35) transparent;scroll-behavior:smooth}
+.pv.sm .pv-site{height:66em}
+.pv [data-act]{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pv [data-act]:focus-visible{outline:.25em solid var(--blue);outline-offset:.2em}
+.pv-links em{transition:color .2s}
+.pv-links em:hover{color:var(--t)}
+.pv-b1,.pv-b2,.pv-btn{transition:transform .25s var(--e),background-color .6s,color .6s,box-shadow .25s}
+.pv-b1:hover,.pv-btn:hover{transform:translateY(-.15em);box-shadow:0 .6em 1.4em rgba(0,0,0,.15)}
+.pv-b1:active,.pv-b2:active,.pv-btn:active{transform:scale(.96)}
+.pv-serv div{cursor:pointer}
+.pv-serv div:active{transform:scale(.97)}
+.pv-rev{transition:transform .35s var(--e)}
+.pv-rev:hover{transform:rotate(0) scale(1.03)}
+.pv-sec{margin-top:4.4em}
+.pv-sh2{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.6em}
+.pv-sh2 b{font-size:2.6em;font-weight:650;letter-spacing:-.04em}
+.pv-big{font-size:1.6em;font-weight:650}
+.pv-big i{font-style:normal;color:#F5B400;margin-right:.25em}
+.pv-rvs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-gap:1.2em}
+.pv-rvs div{padding:1.6em;border-radius:1.4em;background:var(--c);transition:background-color .6s}
+.pv-rvs b{display:block;font-size:1.1em;color:#F5B400;letter-spacing:.08em}
+.pv-rvs q{display:block;margin-top:.6em;font-size:1.45em;font-weight:550;line-height:1.35;quotes:"\201C" "\201D"}
+.pv-rvs small{display:block;margin-top:.8em;font-size:1.2em;color:var(--m)}
+.pv.sm .pv-rvs{grid-template-columns:minmax(0,1fr)}
+.pv-find{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);grid-gap:1.6em;align-items:stretch}
+.pv.sm .pv-find{grid-template-columns:minmax(0,1fr)}
+.pv-map{position:relative;min-height:17em;border-radius:1.6em;overflow:hidden;background-color:var(--c);background-image:linear-gradient(rgba(127,127,127,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(127,127,127,.12) 1px,transparent 1px);background-size:3em 3em;transition:background-color .6s}
+.pv-rd1,.pv-rd2{position:absolute;background:rgba(255,255,255,.75)}
+.pv[data-mode=dark] .pv-rd1,.pv[data-mode=dark] .pv-rd2{background:rgba(255,255,255,.12)}
+.pv-rd1{left:-10%;right:-10%;top:55%;height:1.6em;transform:rotate(-8deg)}
+.pv-rd2{top:-10%;bottom:-10%;left:38%;width:1.4em;transform:rotate(12deg)}
+.pv-pin{position:absolute;left:46%;top:40%;width:2.6em;height:2.6em;margin:-2.6em 0 0 -1.3em;border-radius:50% 50% 50% 0;background:var(--a);transform:rotate(-45deg);box-shadow:0 .5em 1em rgba(0,0,0,.25);transition:background-color .6s;animation:pvpin 2.4s var(--e) infinite}
+.pv-pin:after{content:"";position:absolute;left:.8em;top:.8em;width:1em;height:1em;border-radius:50%;background:#fff}
+@keyframes pvpin{0%,100%{translate:0 0}50%{translate:0 -.5em}}
+.pv-hrs{display:flex;flex-direction:column;justify-content:center}
+.pv-hrs p{display:flex;justify-content:space-between;padding:1em 0;border-bottom:1px solid rgba(127,127,127,.2);font-size:1.35em}
+.pv-hrs p span{color:var(--m)}
+.pv-hrs .pv-b1{align-self:flex-start;margin-top:1.4em;font-size:1.4em;font-weight:550}
+.pv-foot{display:flex;justify-content:space-between;margin-top:4em;padding-top:1.6em;border-top:1px solid rgba(127,127,127,.2);font-size:1.2em;color:var(--m)}
+.pv-more{position:absolute;left:50%;bottom:1.4em;z-index:4;translate:-50% 0;padding:.6em 1.2em;border-radius:999px;background:rgba(11,11,12,.78);color:#fff;font-size:1.25em;font-weight:550;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);pointer-events:none;transition:opacity .4s,translate .4s var(--e);animation:pvmore 2s var(--e) 3}
+.pv-more.gone,.pv.pre .pv-more{opacity:0;translate:-50% .6em}
+@keyframes pvmore{0%,100%{transform:translateY(0)}50%{transform:translateY(-.35em)}}
+.pv-toast{position:absolute;left:50%;top:6em;z-index:8;translate:-50% -1em;max-width:90%;padding:.8em 1.4em;border-radius:999px;background:#0B0B0C;color:#fff;font-size:1.3em;font-weight:550;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:0 .8em 2em rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .3s,translate .45s var(--e)}
+.pv-toast.on{opacity:1;translate:-50% 0}
+.pv-sheet{--b:#fff;--t:#0B0B0C;--m:#77777D;--c:#F4F3F0;position:absolute;left:0;right:0;top:4.2em;bottom:0;z-index:7;background:rgba(11,11,12,0);transition:background-color .35s}
+.pv[data-mode=dark] .pv-sheet{--b:#16161A;--t:#fff;--m:#A3A3A9;--c:#222227}
+.pv-sheet.open{background:rgba(11,11,12,.38)}
+.pv-shp{position:absolute;left:0;right:0;bottom:0;max-height:92%;overflow-y:auto;padding:2em 2.2em 2.4em;border-radius:2.2em 2.2em 0 0;background:var(--b);color:var(--t);box-shadow:0 -1em 3em rgba(0,0,0,.2);transform:translateY(102%);transition:transform .45s var(--e)}
+.pv-sheet.open .pv-shp{transform:none}
+.pv:not(.sm) .pv-shp{left:50%;right:auto;bottom:2em;width:54em;margin-left:-27em;border-radius:2.2em;transform:translateY(3em) scale(.97);opacity:0;transition:transform .45s var(--e),opacity .3s}
+.pv:not(.sm) .pv-sheet.open .pv-shp{transform:none;opacity:1}
+.pv-shh{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2em}
+.pv-shh b{font-size:2em;font-weight:650;letter-spacing:-.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pv-x{flex:none;display:flex;align-items:center;justify-content:center;width:1.6em;height:1.6em;margin-left:.6em;border-radius:50%;background:var(--c);font-size:1.9em;line-height:1}
+.pv-shl{margin:1.4em 0 .7em;font-size:1.25em;font-weight:600;color:var(--m)}
+.pv-opt{display:flex;align-items:center;justify-content:space-between;padding:1.1em 1.3em;margin-top:.7em;border-radius:1.2em;border:.12em solid rgba(127,127,127,.22);transition:border-color .2s,background-color .2s}
+.pv-opt b{display:block;font-size:1.45em;font-weight:600}
+.pv-opt small{display:block;font-size:1.2em;color:var(--m)}
+.pv-opt em{font-style:normal;font-size:1.45em;font-weight:650}
+.pv-opt.on{border-color:var(--a);background:color-mix(in srgb,var(--a) 8%,transparent)}
+.pv-chips{display:flex;flex-wrap:wrap;margin:-.35em}
+.pv-chips+.pv-chips{margin-top:.5em}
+.pv-chip{margin:.35em;padding:.65em 1.1em;border-radius:999px;border:.12em solid rgba(127,127,127,.25);font-size:1.35em;font-weight:550;transition:background-color .2s,color .2s,border-color .2s}
+.pv-chip.on{background:var(--a);border-color:var(--a);color:var(--at)}
+.pv-chip.gone{opacity:.35;text-decoration:line-through;cursor:default}
+.pv-go{display:block;margin-top:1.8em;text-align:center;font-size:1.5em;font-weight:600}
+.pv-go.off{opacity:.45}
+.pv-go.shake{animation:pvshake .35s}
+@keyframes pvshake{25%{transform:translateX(-.3em)}75%{transform:translateX(.3em)}}
+.pv-ok{display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.6em 0 .6em}
+.pv-okc{display:flex;align-items:center;justify-content:center;width:3.4em;height:3.4em;border-radius:50%;background:#1DB45A;color:#fff;font-size:2em;font-weight:700;animation:pvok .5s var(--e)}
+.pv-ok b{margin-top:.6em;font-size:2.4em;font-weight:650;letter-spacing:-.03em}
+.pv-ok p{margin-top:.3em;font-size:1.5em}
+.pv-ok small{margin-top:.5em;font-size:1.25em;color:var(--m)}
+.pv-ok .pv-b2{margin-top:1.6em;font-size:1.4em;font-weight:550}
+.pv-call{display:flex;flex-direction:column;align-items:center;text-align:center;padding:.6em 0 .4em}
+.pv-cav{display:flex;align-items:center;justify-content:center;width:3.2em;height:3.2em;border-radius:50%;background:var(--a);color:var(--at);font-size:2.2em;font-weight:700}
+.pv-call b{margin-top:.6em;font-size:2em;font-weight:650}
+.pv-call p{margin-top:.2em;font-size:1.5em;color:var(--m)}
+.pv-call .pv-b1{margin-top:1.4em;min-width:14em;text-align:center;font-size:1.45em;font-weight:600;background:#1DB45A;color:#fff}
+.pv-call .pv-b1.on{animation:pvring 1s ease-out infinite}
+@keyframes pvring{0%{box-shadow:0 0 0 0 rgba(29,180,90,.5)}100%{box-shadow:0 0 0 1.2em rgba(29,180,90,0)}}
+.pv-call .pv-b2{margin:.8em 0 0;font-size:1.35em;font-weight:550}
 .at:before{content:"\40"}
 .at{font-style:normal}
 </style>
@@ -994,27 +1079,35 @@ form .btn[disabled]{opacity:.6}
           <button class="mode" id="pmode" type="button" aria-pressed="false" aria-label="Dark version"><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg><span class="ml" aria-hidden="true">Dark</span></button>
         </div>
       </div>
-      <p class="pv-cap">Live preview of your site. Change it below.</p>
-      <div class="pv" id="pv" data-mode="light">
+      <p class="pv-cap">Live preview of your site. Try the buttons, they work.</p>
+      <div class="pv" id="pv" data-mode="light" role="region" aria-label="Example website, try it">
         <div class="pv-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pv-url"><b id="pv-url">yourbrand.co.uk</b></span></div>
-        <div class="pv-site">
-          <div class="pv-nav" aria-hidden="true"><span class="pv-logo" id="pv-logo">Y</span><span class="pv-brand" id="pv-brand">Your Brand</span><span class="pv-links"><em>Services</em><em>Reviews</em><em>Contact</em></span><span class="pv-btn" id="pv-btn">Book a cut</span></div>
+        <div class="pv-site" id="pv-site">
+          <div class="pv-nav"><span class="pv-logo" id="pv-logo" aria-hidden="true">Y</span><span class="pv-brand" id="pv-brand">Your Brand</span><span class="pv-links"><em data-act="go:pv-sv" role="button" tabindex="0">Services</em><em data-act="go:pv-rv" role="button" tabindex="0">Reviews</em><em data-act="go:pv-fd" role="button" tabindex="0">Contact</em></span><span class="pv-btn" id="pv-btn" data-act="book" role="button" tabindex="0">Book a cut</span></div>
           <div class="pv-main">
-            <div aria-hidden="true">
-              <p class="pv-kick"><span class="pv-rt"><b>★</b><span id="pv-rate">4.9</span></span><span id="pv-cnt">212 Google reviews</span></p>
+            <div>
+              <p class="pv-kick"><span class="pv-rt" data-act="go:pv-rv" role="button" tabindex="0"><b aria-hidden="true">★</b><span id="pv-rate">4.9</span></span><span id="pv-cnt">212 Google reviews</span></p>
               <p class="pv-name" id="pv-name">Your Brand</p>
               <p class="pv-sub" id="pv-sub">Fresh cuts. Walk-ins welcome.</p>
-              <p class="pv-cta"><span class="pv-b1" id="pv-b1">Book a cut</span><span class="pv-b2">Call us</span></p>
+              <p class="pv-cta"><span class="pv-b1" id="pv-b1" data-act="book" role="button" tabindex="0">Book a cut</span><span class="pv-b2" data-act="call" role="button" tabindex="0">Call us</span></p>
               <p class="pv-open"><i></i><span id="pv-open">Open today until 7pm</span></p>
             </div>
             <div class="pv-art">
               <span class="pv-emo" id="pv-emo" aria-hidden="true">✂️</span>
-              <div class="pv-rev" aria-hidden="true"><span class="pv-av" id="pv-av">J</span><span><b>★★★★★</b><q id="pv-q">Best fade I have had in years</q><small id="pv-who">Jamal R., Google</small></span></div>
+              <div class="pv-rev" data-act="go:pv-rv" role="button" tabindex="0"><span class="pv-av" id="pv-av" aria-hidden="true">J</span><span><b aria-hidden="true">★★★★★</b><q id="pv-q">Best fade I have had in years</q><small id="pv-who">Jamal R., Google</small></span></div>
               <div class="pv-card"><small id="pv-cl">Next free today</small><div class="pv-slots" id="pv-slots"><button type="button" aria-pressed="false">10:00</button><button type="button" aria-pressed="true">13:30</button><button type="button" aria-pressed="false">16:00</button></div></div>
             </div>
           </div>
-          <div class="pv-serv" aria-hidden="true"><div><span><b id="pv-s1">Skin fade</b><small id="pv-d1">30 min</small></span><em id="pv-p1">£28</em></div><div><span><b id="pv-s2">Beard trim</b><small id="pv-d2">15 min</small></span><em id="pv-p2">£12</em></div><div><span><b id="pv-s3">Kids cut</b><small id="pv-d3">20 min</small></span><em id="pv-p3">£18</em></div></div>
+          <div class="pv-serv" id="pv-sv"><div data-act="book:0" role="button" tabindex="0"><span><b id="pv-s1">Skin fade</b><small id="pv-d1">30 min</small></span><em id="pv-p1">£28</em></div><div data-act="book:1" role="button" tabindex="0"><span><b id="pv-s2">Beard trim</b><small id="pv-d2">15 min</small></span><em id="pv-p2">£12</em></div><div data-act="book:2" role="button" tabindex="0"><span><b id="pv-s3">Kids cut</b><small id="pv-d3">20 min</small></span><em id="pv-p3">£18</em></div></div>
+          <div class="pv-sec" id="pv-rv"><div class="pv-sh2"><b>What customers say</b><span class="pv-big"><i aria-hidden="true">★</i><span id="pv-rate2">4.9</span></span></div>
+            <div class="pv-rvs"><div><b aria-hidden="true">★★★★★</b><q id="pv-q2">Best fade I have had in years</q><small id="pv-who2">Jamal R.</small></div><div><b aria-hidden="true">★★★★★</b><q>Easy to book online, no waiting around</q><small>Sam P.</small></div><div><b aria-hidden="true">★★★★★</b><q>Friendly and spot on every single time</q><small>Leah M.</small></div></div></div>
+          <div class="pv-sec" id="pv-fd"><div class="pv-sh2"><b>Find us</b></div>
+            <div class="pv-find"><div class="pv-map" aria-hidden="true"><i class="pv-rd1"></i><i class="pv-rd2"></i><i class="pv-pin"></i></div><div class="pv-hrs"><p><span>Monday to Friday</span><b>9:00 to 18:00</b></p><p><span>Saturday</span><b>9:00 to 17:00</b></p><p><span>Sunday</span><b>Closed</b></p><span class="pv-b1" data-act="dir" role="button" tabindex="0">Get directions</span></div></div></div>
+          <div class="pv-foot"><span id="pv-fn">© 2026 Your Brand</span><span>Site by rh-webatelier</span></div>
         </div>
+        <span class="pv-more" id="pv-more" aria-hidden="true">Scroll the site</span>
+        <div class="pv-toast" id="pv-toast" role="status"></div>
+        <div class="pv-sheet" id="pv-sheet" hidden><div class="pv-shp" id="pv-shp" role="dialog" aria-label="Example booking"></div></div>
       </div>
     </div>
   </div>
@@ -1284,7 +1377,7 @@ form .btn[disabled]{opacity:.6}
   }
   function paintName(){
     var v=(inp.value||ghost).replace(/\s+/g,' ').replace(/^ | $/g,'')||'Your Brand';
-    pvName.textContent=v; $('pv-brand').textContent=v; $('pv-logo').textContent=v.charAt(0).toUpperCase();
+    pvName.textContent=v; $('pv-brand').textContent=v; $('pv-fn').textContent='\u00A9 2026 '+v; $('pv-logo').textContent=v.charAt(0).toUpperCase();
     $('pv-url').textContent=(v.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'').slice(0,24)||'yourbrand')+'.co.uk';
     fit();
   }
@@ -1300,13 +1393,13 @@ form .btn[disabled]{opacity:.6}
     var d0=KIND[k]||KIND.barber, emo=$('pv-emo');
     emo.textContent=d0[0]; $('pv-sub').textContent=d0[1]; $('pv-b1').textContent=d0[2]; $('pv-btn').textContent=d0[2];
     for(var i=0;i<3;i++){ $('pv-s'+(i+1)).textContent=d0[3][i][0]; $('pv-d'+(i+1)).textContent=d0[3][i][1]; $('pv-p'+(i+1)).textContent=d0[3][i][2]; }
-    $('pv-q').textContent=d0[4]; $('pv-who').textContent=d0[5]+', Google'; $('pv-av').textContent=d0[5].charAt(0); $('pv-rate').textContent=d0[6]; $('pv-cnt').textContent=d0[7]+' Google reviews'; $('pv-open').textContent=d0[8];
+    $('pv-q').textContent=d0[4]; $('pv-who').textContent=d0[5]+', Google'; $('pv-av').textContent=d0[5].charAt(0); $('pv-rate').textContent=d0[6]; $('pv-rate2').textContent=d0[6]; $('pv-q2').textContent=d0[4]; $('pv-who2').textContent=d0[5]; $('pv-cnt').textContent=d0[7]+' Google reviews'; $('pv-open').textContent=d0[8];
     emo.classList.add('pop'); setTimeout(function(){emo.classList.remove('pop');},260);
   }
   function paintColour(){
     var c=d.querySelector('[name=pacc]:checked').value, dark=pv.getAttribute('data-mode')==='dark';
-    if(c==='ink'){ site.style.setProperty('--a',dark?'#fff':'#0B0B0C'); site.style.setProperty('--at',dark?'#0B0B0C':'#fff'); }
-    else{ site.style.setProperty('--a',c); site.style.setProperty('--at','#fff'); }
+    var a=c==='ink'?(dark?'#fff':'#0B0B0C'):c, at=c==='ink'&&dark?'#0B0B0C':'#fff';
+    [site,$('pv-sheet')].forEach(function(el){ if(el){ el.style.setProperty('--a',a); el.style.setProperty('--at',at); } });
   }
   inp.addEventListener('focus',function(){
     /* on a phone, bring the preview into the space above the keyboard */
@@ -1322,7 +1415,8 @@ form .btn[disabled]{opacity:.6}
     var dark=pv.getAttribute('data-mode')!=='dark'; pv.setAttribute('data-mode',dark?'dark':'light'); this.setAttribute('aria-pressed',String(dark)); paintColour(); });
   $('pv-slots').addEventListener('click',function(e){
     var b=e.target; if(!b||b.tagName!=='BUTTON')return;
-    var all=this.children; for(var i=0;i<all.length;i++) all[i].setAttribute('aria-pressed',String(all[i]===b)); });
+    var all=this.children; for(var i=0;i<all.length;i++) all[i].setAttribute('aria-pressed',String(all[i]===b));
+    if(e.isTrusted!==false) setTimeout(function(){ pvBook(-1,b.textContent); },180); });
   window.addEventListener('resize',fit);
   if(d.fonts&&d.fonts.ready) d.fonts.ready.then(fit);
   paintName(); paintColour();
@@ -1374,12 +1468,46 @@ form .btn[disabled]{opacity:.6}
     at(t,function(){unbook();kind('barber');col('c-3');mode(true);});
     t=word(t+160,'Fade Street Barbers'); t+=1200;
     t=wipe(t,'Fade Street Barbers');
-    at(t+80,function(){put('',0);inp.setAttribute('placeholder','Now type yours');inp.classList.add('nudge');});
+    at(t+80,function(){put('',0);mode(false);inp.setAttribute('placeholder','Now type yours');inp.classList.add('nudge');});
     at(t+2600,function(){inp.classList.remove('nudge');inp.setAttribute('placeholder',PH);on=false;});
     inp.addEventListener('focus',stop); inp.addEventListener('input',stop);
     if(stg) stg.addEventListener('click',stop);
     var ctl=d.querySelector('.ctl'); if(ctl) ctl.addEventListener('change',stop);
   })();
+  /* the preview is a working little site: booking, calling, reviews, directions */
+  var pvSh=$('pv-sheet'), pvShp=$('pv-shp'), pvToastEl=$('pv-toast'), pvMore=$('pv-more'), pvSite=$('pv-site'), pvBk=null, pvToT=0, pvShT=0;
+  var PV_T=['10:00','11:30','13:30','15:00','16:00','17:30'], PV_D=['Today','Tomorrow','Saturday'];
+  function curKind(){ var r=d.querySelector('[name=ptype]:checked'); return KIND[r?r.value:'barber']||KIND.barber; }
+  function brandNow(){ return pvName.textContent; }
+  function openSheet(html){ clearTimeout(pvShT); pvShp.innerHTML=html; pvSh.hidden=false; void pvSh.offsetWidth; pvSh.classList.add('open'); var f=pvShp.querySelector('[data-act]'); if(f) try{f.focus({preventScroll:true});}catch(e){} }
+  function closeSheet(){ pvSh.classList.remove('open'); pvShT=setTimeout(function(){ pvSh.hidden=true; pvShp.innerHTML=''; },380); }
+  function pvToast(t){ pvToastEl.textContent=t; pvToastEl.classList.add('on'); clearTimeout(pvToT); pvToT=setTimeout(function(){ pvToastEl.classList.remove('on'); },2200); }
+  function pvHead(t){ return '<div class="pv-shh"><b>'+t+'</b><span class="pv-x" data-act="close" role="button" tabindex="0" aria-label="Close">×</span></div>'; }
+  function bookView(){ var k=curKind(), sv=k[3];
+    return pvHead('Book at '+brandNow())+'<p class="pv-shl">Service</p>'+sv.map(function(x,i){ return '<div class="pv-opt'+(pvBk.s===i?' on':'')+'" data-act="pick:'+i+'" role="button" tabindex="0"><span><b>'+x[0]+'</b><small>'+x[1]+'</small></span><em>'+x[2]+'</em></div>'; }).join('')+
+      '<p class="pv-shl">When</p><div class="pv-chips">'+PV_D.map(function(x,i){ return '<span class="pv-chip'+(pvBk.d===i?' on':'')+'" data-act="day:'+i+'" role="button" tabindex="0">'+x+'</span>'; }).join('')+'</div>'+
+      '<div class="pv-chips">'+PV_T.map(function(x,i){ var gone=pvBk.d===0&&i<2; return '<span class="pv-chip'+(pvBk.t===x?' on':'')+(gone?' gone':'')+'" data-act="'+(gone?'':'time:'+x)+'" role="button" tabindex="0">'+x+'</span>'; }).join('')+'</div>'+
+      '<span class="pv-b1 pv-go'+(pvBk.s<0||!pvBk.t?' off':'')+'" data-act="confirm" role="button" tabindex="0">'+(pvBk.s<0?'Pick a service':(!pvBk.t?'Pick a time':'Confirm booking'))+'</span>'; }
+  function pvBook(s,t){ pvBk={s:s,d:0,t:t||null}; if(t&&PV_T.indexOf(t)>-1&&PV_T.indexOf(t)<2) pvBk.d=1; openSheet(bookView()); }
+  function okView(){ var x=curKind()[3][pvBk.s]; return '<div class="pv-ok"><span class="pv-okc" aria-hidden="true">✓</span><b>You’re booked</b><p>'+x[0]+', '+PV_D[pvBk.d].toLowerCase()+' at '+pvBk.t+'</p><small>A text confirmation is on its way to your phone.</small><span class="pv-b2" data-act="close" role="button" tabindex="0">Done</span></div>'; }
+  function callView(){ var n=brandNow(); return pvHead('Call '+n)+'<div class="pv-call"><span class="pv-cav" aria-hidden="true">'+n.charAt(0).toUpperCase()+'</span><b>'+n+'</b><p>0161 496 0123</p><span class="pv-b1 pv-ring" data-act="ring" role="button" tabindex="0">Call now</span><span class="pv-b2" data-act="wa" role="button" tabindex="0">Message on WhatsApp</span></div>'; }
+  function pvAct(a,el){
+    if(a==='close'){ closeSheet(); return; }
+    if(a==='book'){ pvBook(-1,null); return; }
+    if(a.indexOf('book:')===0){ pvBook(+a.slice(5),null); return; }
+    if(a.indexOf('pick:')===0){ pvBk.s=+a.slice(5); pvShp.innerHTML=bookView(); return; }
+    if(a.indexOf('day:')===0){ pvBk.d=+a.slice(4); if(pvBk.d===0&&PV_T.indexOf(pvBk.t)<2) pvBk.t=null; pvShp.innerHTML=bookView(); return; }
+    if(a.indexOf('time:')===0){ pvBk.t=a.slice(5); pvShp.innerHTML=bookView(); return; }
+    if(a==='confirm'){ if(pvBk.s<0||!pvBk.t){ el.classList.add('shake'); setTimeout(function(){el.classList.remove('shake');},400); return; } pvShp.innerHTML=okView(); return; }
+    if(a==='call'){ openSheet(callView()); return; }
+    if(a==='ring'){ el.classList.add('on'); el.textContent='Calling…'; setTimeout(function(){ closeSheet(); pvToast('On your real site this rings your phone'); },1500); return; }
+    if(a==='wa'){ closeSheet(); pvToast('On your real site this opens WhatsApp'); return; }
+    if(a==='dir'){ pvToast('On your real site this opens Google Maps'); return; }
+    if(a.indexOf('go:')===0){ var t=$(a.slice(3)); if(t){ var y=t.offsetTop-pvSite.offsetTop-12; try{ pvSite.scrollTo({top:y,behavior:'smooth'}); }catch(e){ pvSite.scrollTop=y; } } return; }
+  }
+  pv.addEventListener('click',function(e){ if(e.target===pvSh){ closeSheet(); return; } var el=e.target.closest?e.target.closest('[data-act]'):null; if(!el||!pv.contains(el))return; var a=el.getAttribute('data-act'); if(a) pvAct(a,el); });
+  pv.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!pvSh.hidden){ closeSheet(); return; } if(e.key!=='Enter'&&e.key!==' ')return; var el=e.target; if(el&&el.getAttribute&&el.getAttribute('data-act')!==null&&el.tagName!=='BUTTON'){ e.preventDefault(); el.click(); } });
+  pvSite.addEventListener('scroll',function(){ if(pvSite.scrollTop>20) pvMore.classList.add('gone'); },{passive:true});
   /* carry what they typed into the form */
   function carry(){ var v=inp.value.replace(/^\s+|\s+$/g,''); if(v&&!auto&&!$('f-name').value) $('f-name').value=v; }
   var gets=d.querySelectorAll('[data-get]');
