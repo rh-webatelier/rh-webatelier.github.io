@@ -906,16 +906,16 @@ form .btn[disabled]{opacity:.6}
 
 /* pass 7: smoother motion, a richer preview */
 .pv{position:relative;--e:cubic-bezier(.16,1,.3,1)}
-.pv .bx,.pv .pvs{transition:opacity .65s var(--e),transform .65s var(--e),filter .65s var(--e),background-color .6s,color .6s,border-color .6s,font-size .4s var(--e)}
+.pv .bx,.pv .pvs{transition:opacity .65s var(--e),transform .65s var(--e),filter .65s var(--e),background-color .6s,color .6s,border-color .6s}
 .pv.pre .bx{opacity:0;transform:translateY(16px) scale(.985);filter:blur(8px)}
-.pv-site.swap .pvs{opacity:0;transform:translateY(6px);filter:blur(6px);transition-duration:.22s}
+.pv-site.swap .pvs{opacity:0;transform:translateY(4px);filter:blur(3px);transition-duration:.2s}
 .pv-site{transition:background-color .6s,color .6s}
 .pv-art{background-color:var(--a);background-image:radial-gradient(120% 90% at 85% 0%,rgba(255,255,255,.28),rgba(255,255,255,0) 55%),linear-gradient(160deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.42));transition:background-color .6s}
 .pv-site[data-kind=cafe] .pv-name,.pv-site[data-kind=cafe] .pv-brand,.pv-site[data-kind=beauty] .pv-name,.pv-site[data-kind=beauty] .pv-brand{font-family:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-weight:500;letter-spacing:-.035em}
 .pv-site[data-kind=beauty] .pv-name{font-style:italic;font-weight:400}
 .pv-site[data-kind=barber] .pv-name,.pv-site[data-kind=garage] .pv-name{font-weight:750;letter-spacing:-.06em}
-.pv-card.done #pv-cl{color:#14995A;font-weight:600}
-.pv-card.done #pv-cl b{display:inline-flex;align-items:center;justify-content:center;width:1.3em;height:1.3em;margin-right:.3em;border-radius:50%;background:#1DB45A;color:#fff;font-size:.85em;animation:pvok .45s var(--e)}
+.pv-card.pvok #pv-cl{color:#14995A;font-weight:600}
+.pv-card.pvok #pv-cl b{display:inline-flex;align-items:center;justify-content:center;width:1.3em;height:1.3em;margin-right:.3em;border-radius:50%;background:#1DB45A;color:#fff;font-size:.85em;animation:pvok .45s var(--e)}
 @keyframes pvok{from{transform:scale(0)}to{transform:scale(1)}}
 .pv-slots button{transition:background-color .3s,color .3s,border-color .3s,transform .3s var(--e)}
 .pv-slots button[aria-pressed=true]{transform:scale(1.03)}
@@ -1382,7 +1382,7 @@ form .btn[disabled]{opacity:.6}
     fit();
   }
   var kindReady=false, swT=0;
-  [].forEach.call(pv.querySelectorAll('.pv-name,.pv-brand,.pv-logo,.pv-btn,.pv-sub,.pv-kick,.pv-cta,.pv-open,.pv-rev,.pv-emo,.pv-card,.pv-serv>div'),function(e){e.classList.add('pvs');});
+  [].forEach.call(pv.querySelectorAll('.pv-sub,.pv-kick,.pv-cta,.pv-open,.pv-rev,.pv-emo,.pv-serv>div'),function(e){e.classList.add('pvs');});
   site.setAttribute('data-kind','barber');
   function paintKind(k){
     if(!kindReady){ kindReady=true; site.setAttribute('data-kind',k); fillKind(k); return; }
@@ -1443,32 +1443,32 @@ form .btn[disabled]{opacity:.6}
     function col(id){var r=$(id);if(r){r.checked=true;paintColour();}}
     function put(v,caret){ghost=v;inp.setAttribute('placeholder',(v||'')+(caret?'|':''));paintName();}
     function word(t0,txt){for(var i=1;i<=txt.length;i++)(function(i){at(t0+i*45,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*45;}
-    function wipe(t0,txt){for(var i=txt.length-1;i>=0;i--)(function(i){at(t0+(txt.length-i)*18,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*18;}
+    function wipe(t0,txt,keep){for(var i=txt.length-1;i>=(keep||0);i--)(function(i){at(t0+(txt.length-i)*18,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*18;}
     var parts=[].slice.call(pv.querySelectorAll('.pv-nav>*,.pv-main>div>*,.pv-art,.pv-serv>div'));
     function build(){parts.forEach(function(el,i){el.style.transitionDelay=(i*65)+'ms';});pv.classList.remove('pre');at(parts.length*65+900,function(){parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});});}
-    function stop(){if(!on)return;on=false;while(T.length)clearTimeout(T.pop());tap.classList.remove('on','down');if(cl.parentNode.classList.contains('done'))unbook();ghost='';inp.setAttribute('placeholder',PH);pv.classList.remove('pre');parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});inp.classList.remove('nudge');paintName();}
+    function stop(){if(!on)return;on=false;$('pv-more').classList.remove('gone');while(T.length)clearTimeout(T.pop());tap.classList.remove('on','down');if(cl.parentNode.classList.contains('pvok'))unbook();ghost='';inp.setAttribute('placeholder',PH);pv.classList.remove('pre');parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});inp.classList.remove('nudge');paintName();}
     var tap=d.createElement('span'); tap.className='pv-tap'; tap.setAttribute('aria-hidden','true'); pv.appendChild(tap);
     var slots=$('pv-slots').children, cl=$('pv-cl');
-    function book(){ for(var k=0;k<slots.length;k++) slots[k].setAttribute('aria-pressed',String(k===2)); cl.innerHTML='<b>\u2713</b> Booked for 16:00'; cl.parentNode.classList.add('done'); }
-    function unbook(){ for(var k=0;k<slots.length;k++) slots[k].setAttribute('aria-pressed',String(k===1)); cl.textContent='Next free today'; cl.parentNode.classList.remove('done'); }
+    function book(){ for(var k=0;k<slots.length;k++) slots[k].setAttribute('aria-pressed',String(k===2)); cl.innerHTML='<b>\u2713</b> Booked for 16:00'; cl.parentNode.classList.add('pvok'); }
+    function unbook(){ for(var k=0;k<slots.length;k++) slots[k].setAttribute('aria-pressed',String(k===1)); cl.textContent='Next free today'; cl.parentNode.classList.remove('pvok'); }
     function tapOn(el,cb){ var pr=pv.getBoundingClientRect(), r=el.getBoundingClientRect(); if(!r.width){cb();return;}
       var x=r.left-pr.left+r.width/2, y=r.top-pr.top+r.height/2;
       tap.style.transition='none'; tap.style.translate=(x+60)+'px '+(y+70)+'px'; void tap.offsetWidth; tap.style.transition='';
       tap.classList.add('on'); tap.style.translate=x+'px '+y+'px';
       at(560,function(){tap.classList.add('down');cb();}); at(760,function(){tap.classList.remove('down');}); at(1100,function(){tap.classList.remove('on');}); }
     function mode(dk){ pv.setAttribute('data-mode',dk?'dark':'light'); $('pmode').setAttribute('aria-pressed',String(dk)); paintColour(); }
-    on=true; parts.forEach(function(el){el.classList.add('bx');}); pv.classList.add('pre'); kind('garage'); col('c-4'); put('',1);
+    on=true; $('pv-more').classList.add('gone'); parts.forEach(function(el){el.classList.add('bx');}); pv.classList.add('pre'); kind('garage'); col('c-4'); put('',1);
     var t=380;
     at(t,build);
     t=word(t+120,"Andy's Garage");
     at(t+200,function(){col('c-1');});
     at(t+600,function(){tapOn(slots[2],book);});
     t+=2200;
-    t=wipe(t,"Andy's Garage");
+    t=wipe(t,"Andy's Garage",1);
     at(t,function(){unbook();kind('barber');col('c-3');mode(true);});
     t=word(t+160,'Fade Street Barbers'); t+=1200;
     t=wipe(t,'Fade Street Barbers');
-    at(t+80,function(){put('',0);mode(false);inp.setAttribute('placeholder','Now type yours');inp.classList.add('nudge');});
+    at(t+80,function(){put('',0);mode(false);$('pv-more').classList.remove('gone');inp.setAttribute('placeholder','Now type yours');inp.classList.add('nudge');});
     at(t+2600,function(){inp.classList.remove('nudge');inp.setAttribute('placeholder',PH);on=false;});
     inp.addEventListener('focus',stop); inp.addEventListener('input',stop);
     if(stg) stg.addEventListener('click',stop);
