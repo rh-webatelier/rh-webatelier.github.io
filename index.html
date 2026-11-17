@@ -1008,6 +1008,14 @@ form .btn[disabled]{opacity:.6}
 .pv-call .pv-b1.on{animation:pvring 1s ease-out infinite}
 @keyframes pvring{0%{box-shadow:0 0 0 0 rgba(29,180,90,.5)}100%{box-shadow:0 0 0 1.2em rgba(29,180,90,0)}}
 .pv-call .pv-b2{margin:.8em 0 0;font-size:1.35em;font-weight:550}
+
+/* pass 9: lighter rendering, softer second look */
+.stage{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(242,241,237,.94)}
+.pv-tap{-webkit-backdrop-filter:none;backdrop-filter:none}
+.pv .bx,.pv .pvs{transition:opacity .6s var(--e),transform .6s var(--e),background-color .6s,color .6s,border-color .6s}
+.pv.pre .bx{filter:none;transform:translateY(16px) scale(.985)}
+.pv-site.swap .pvs{filter:none}
+.pv[data-mode=tint] .pv-site,.pv[data-mode=tint] .pv-sheet{--b:color-mix(in srgb,var(--a) 7%,#fff);--c:color-mix(in srgb,var(--a) 14%,#fff);--m:#5F6762}
 .at:before{content:"\40"}
 .at{font-style:normal}
 </style>
@@ -1360,7 +1368,7 @@ form .btn[disabled]{opacity:.6}
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* hero: the visitor plays with a preview of their own site (name, kind of business, colour, light or dark) */
-  var ghost='', inp=$('t-name'), auto=false, pv=$('pv'), pvName=$('pv-name'), site=pv.querySelector('.pv-site');
+  var fitN=0, ghost='', inp=$('t-name'), auto=false, pv=$('pv'), pvName=$('pv-name'), site=pv.querySelector('.pv-site');
   var KIND={
     barber:['\u2702\uFE0F','Fresh cuts. Walk-ins welcome.','Book a cut',[['Skin fade','30 min','\u00A328'],['Beard trim','15 min','\u00A312'],['Kids cut','20 min','\u00A318']],'Best fade I have had in years','Jamal R.','4.9','212','Open today until 7pm'],
     cafe:['\u2615','Coffee, brunch and bakes.','See the menu',[['Flat white','Oat or dairy','\u00A33.40'],['Full brunch','Until 2pm','\u00A311.50'],['Cinnamon bun','Baked daily','\u00A33.20']],'Our new favourite brunch spot','Ella N.','4.8','341','Open today until 5pm'],
@@ -1372,7 +1380,7 @@ form .btn[disabled]{opacity:.6}
     var w=pv.clientWidth; if(!w)return;
     var sm=w<560; pv.classList[sm?'add':'remove']('sm');
     pv.style.fontSize=(sm?w/46:w/100)+'px';
-    var n=Math.max(6,pvName.textContent.length);
+    var n=Math.max(6,fitN||pvName.textContent.length);
     pvName.style.fontSize=(sm?Math.max(w*.085,Math.min(w*.17,w*1.55/n)):Math.max(w*.046,Math.min(w*.1,w*.82/n)))+'px';
   }
   function paintName(){
@@ -1442,11 +1450,11 @@ form .btn[disabled]{opacity:.6}
     function kind(k){var r=$('k-'+{barber:'b',cafe:'c',garage:'g',trades:'t',beauty:'n'}[k]);if(r){r.checked=true;paintKind(k);showChip(r);}}
     function col(id){var r=$(id);if(r){r.checked=true;paintColour();}}
     function put(v,caret){ghost=v;inp.setAttribute('placeholder',(v||'')+(caret?'|':''));paintName();}
-    function word(t0,txt){for(var i=1;i<=txt.length;i++)(function(i){at(t0+i*45,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*45;}
+    function word(t0,txt){at(t0,function(){fitN=txt.length;});for(var i=1;i<=txt.length;i++)(function(i){at(t0+i*45,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*45;}
     function wipe(t0,txt,keep){for(var i=txt.length-1;i>=(keep||0);i--)(function(i){at(t0+(txt.length-i)*18,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*18;}
     var parts=[].slice.call(pv.querySelectorAll('.pv-nav>*,.pv-main>div>*,.pv-art,.pv-serv>div'));
     function build(){parts.forEach(function(el,i){el.style.transitionDelay=(i*65)+'ms';});pv.classList.remove('pre');at(parts.length*65+900,function(){parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});});}
-    function stop(){if(!on)return;on=false;$('pv-more').classList.remove('gone');while(T.length)clearTimeout(T.pop());tap.classList.remove('on','down');if(cl.parentNode.classList.contains('pvok'))unbook();ghost='';inp.setAttribute('placeholder',PH);pv.classList.remove('pre');parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});inp.classList.remove('nudge');paintName();}
+    function stop(){if(!on)return;on=false;fitN=0;$('pv-more').classList.remove('gone');while(T.length)clearTimeout(T.pop());tap.classList.remove('on','down');if(cl.parentNode.classList.contains('pvok'))unbook();ghost='';inp.setAttribute('placeholder',PH);pv.classList.remove('pre');parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});inp.classList.remove('nudge');paintName();}
     var tap=d.createElement('span'); tap.className='pv-tap'; tap.setAttribute('aria-hidden','true'); pv.appendChild(tap);
     var slots=$('pv-slots').children, cl=$('pv-cl');
     function book(){ for(var k=0;k<slots.length;k++) slots[k].setAttribute('aria-pressed',String(k===2)); cl.innerHTML='<b>\u2713</b> Booked for 16:00'; cl.parentNode.classList.add('pvok'); }
@@ -1456,7 +1464,7 @@ form .btn[disabled]{opacity:.6}
       tap.style.transition='none'; tap.style.translate=(x+60)+'px '+(y+70)+'px'; void tap.offsetWidth; tap.style.transition='';
       tap.classList.add('on'); tap.style.translate=x+'px '+y+'px';
       at(560,function(){tap.classList.add('down');cb();}); at(760,function(){tap.classList.remove('down');}); at(1100,function(){tap.classList.remove('on');}); }
-    function mode(dk){ pv.setAttribute('data-mode',dk?'dark':'light'); $('pmode').setAttribute('aria-pressed',String(dk)); paintColour(); }
+    function mode(m){ pv.setAttribute('data-mode',m); $('pmode').setAttribute('aria-pressed',String(m==='dark')); paintColour(); }
     on=true; $('pv-more').classList.add('gone'); parts.forEach(function(el){el.classList.add('bx');}); pv.classList.add('pre'); kind('garage'); col('c-4'); put('',1);
     var t=380;
     at(t,build);
@@ -1465,10 +1473,10 @@ form .btn[disabled]{opacity:.6}
     at(t+600,function(){tapOn(slots[2],book);});
     t+=2200;
     t=wipe(t,"Andy's Garage",1);
-    at(t,function(){unbook();kind('barber');col('c-3');mode(true);});
+    at(t,function(){unbook();kind('barber');col('c-2');mode('tint');});
     t=word(t+160,'Fade Street Barbers'); t+=1200;
     t=wipe(t,'Fade Street Barbers');
-    at(t+80,function(){put('',0);mode(false);$('pv-more').classList.remove('gone');inp.setAttribute('placeholder','Now type yours');inp.classList.add('nudge');});
+    at(t+80,function(){fitN=0;put('',0);mode('light');$('pv-more').classList.remove('gone');inp.setAttribute('placeholder','Now type yours');inp.classList.add('nudge');});
     at(t+2600,function(){inp.classList.remove('nudge');inp.setAttribute('placeholder',PH);on=false;});
     inp.addEventListener('focus',stop); inp.addEventListener('input',stop);
     if(stg) stg.addEventListener('click',stop);
