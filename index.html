@@ -1016,6 +1016,14 @@ form .btn[disabled]{opacity:.6}
 .pv.pre .bx{filter:none;transform:translateY(16px) scale(.985)}
 .pv-site.swap .pvs{filter:none}
 .pv[data-mode=tint] .pv-site,.pv[data-mode=tint] .pv-sheet{--b:color-mix(in srgb,var(--a) 7%,#fff);--c:color-mix(in srgb,var(--a) 14%,#fff);--m:#5F6762}
+
+/* pass 10: a preview header, not a mini site; quicker; a clearer second look */
+.pv-site,.pv.sm .pv-site{height:auto;overflow:visible}
+.pv .bx,.pv .pvs{transition:opacity .45s var(--e),transform .45s var(--e),background-color .45s,color .45s,border-color .45s}
+.pv-site{transition:background-color .45s,color .45s}
+.pv-art{transition:background-color .45s}
+.pv-tap{transition:translate .4s var(--e),opacity .2s,scale .14s}
+.pv[data-mode=tint] .pv-site,.pv[data-mode=tint] .pv-sheet{--b:color-mix(in srgb,var(--a) 17%,#fff);--c:color-mix(in srgb,var(--a) 27%,#fff);--m:#4E5A53}
 .at:before{content:"\40"}
 .at{font-style:normal}
 </style>
@@ -1087,14 +1095,14 @@ form .btn[disabled]{opacity:.6}
           <button class="mode" id="pmode" type="button" aria-pressed="false" aria-label="Dark version"><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg><span class="ml" aria-hidden="true">Dark</span></button>
         </div>
       </div>
-      <p class="pv-cap">Live preview of your site. Try the buttons, they work.</p>
+      <p class="pv-cap">Live preview of your site. Try the buttons.</p>
       <div class="pv" id="pv" data-mode="light" role="region" aria-label="Example website, try it">
         <div class="pv-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pv-url"><b id="pv-url">yourbrand.co.uk</b></span></div>
         <div class="pv-site" id="pv-site">
-          <div class="pv-nav"><span class="pv-logo" id="pv-logo" aria-hidden="true">Y</span><span class="pv-brand" id="pv-brand">Your Brand</span><span class="pv-links"><em data-act="go:pv-sv" role="button" tabindex="0">Services</em><em data-act="go:pv-rv" role="button" tabindex="0">Reviews</em><em data-act="go:pv-fd" role="button" tabindex="0">Contact</em></span><span class="pv-btn" id="pv-btn" data-act="book" role="button" tabindex="0">Book a cut</span></div>
+          <div class="pv-nav"><span class="pv-logo" id="pv-logo" aria-hidden="true">Y</span><span class="pv-brand" id="pv-brand">Your Brand</span><span class="pv-links"><em>Services</em><em>Reviews</em><em>Contact</em></span><span class="pv-btn" id="pv-btn" data-act="book" role="button" tabindex="0">Book a cut</span></div>
           <div class="pv-main">
             <div>
-              <p class="pv-kick"><span class="pv-rt" data-act="go:pv-rv" role="button" tabindex="0"><b aria-hidden="true">★</b><span id="pv-rate">4.9</span></span><span id="pv-cnt">212 Google reviews</span></p>
+              <p class="pv-kick"><span class="pv-rt"><b aria-hidden="true">★</b><span id="pv-rate">4.9</span></span><span id="pv-cnt">212 Google reviews</span></p>
               <p class="pv-name" id="pv-name">Your Brand</p>
               <p class="pv-sub" id="pv-sub">Fresh cuts. Walk-ins welcome.</p>
               <p class="pv-cta"><span class="pv-b1" id="pv-b1" data-act="book" role="button" tabindex="0">Book a cut</span><span class="pv-b2" data-act="call" role="button" tabindex="0">Call us</span></p>
@@ -1102,18 +1110,12 @@ form .btn[disabled]{opacity:.6}
             </div>
             <div class="pv-art">
               <span class="pv-emo" id="pv-emo" aria-hidden="true">✂️</span>
-              <div class="pv-rev" data-act="go:pv-rv" role="button" tabindex="0"><span class="pv-av" id="pv-av" aria-hidden="true">J</span><span><b aria-hidden="true">★★★★★</b><q id="pv-q">Best fade I have had in years</q><small id="pv-who">Jamal R., Google</small></span></div>
+              <div class="pv-rev"><span class="pv-av" id="pv-av" aria-hidden="true">J</span><span><b aria-hidden="true">★★★★★</b><q id="pv-q">Best fade I have had in years</q><small id="pv-who">Jamal R., Google</small></span></div>
               <div class="pv-card"><small id="pv-cl">Next free today</small><div class="pv-slots" id="pv-slots"><button type="button" aria-pressed="false">10:00</button><button type="button" aria-pressed="true">13:30</button><button type="button" aria-pressed="false">16:00</button></div></div>
             </div>
           </div>
           <div class="pv-serv" id="pv-sv"><div data-act="book:0" role="button" tabindex="0"><span><b id="pv-s1">Skin fade</b><small id="pv-d1">30 min</small></span><em id="pv-p1">£28</em></div><div data-act="book:1" role="button" tabindex="0"><span><b id="pv-s2">Beard trim</b><small id="pv-d2">15 min</small></span><em id="pv-p2">£12</em></div><div data-act="book:2" role="button" tabindex="0"><span><b id="pv-s3">Kids cut</b><small id="pv-d3">20 min</small></span><em id="pv-p3">£18</em></div></div>
-          <div class="pv-sec" id="pv-rv"><div class="pv-sh2"><b>What customers say</b><span class="pv-big"><i aria-hidden="true">★</i><span id="pv-rate2">4.9</span></span></div>
-            <div class="pv-rvs"><div><b aria-hidden="true">★★★★★</b><q id="pv-q2">Best fade I have had in years</q><small id="pv-who2">Jamal R.</small></div><div><b aria-hidden="true">★★★★★</b><q>Easy to book online, no waiting around</q><small>Sam P.</small></div><div><b aria-hidden="true">★★★★★</b><q>Friendly and spot on every single time</q><small>Leah M.</small></div></div></div>
-          <div class="pv-sec" id="pv-fd"><div class="pv-sh2"><b>Find us</b></div>
-            <div class="pv-find"><div class="pv-map" aria-hidden="true"><i class="pv-rd1"></i><i class="pv-rd2"></i><i class="pv-pin"></i></div><div class="pv-hrs"><p><span>Monday to Friday</span><b>9:00 to 18:00</b></p><p><span>Saturday</span><b>9:00 to 17:00</b></p><p><span>Sunday</span><b>Closed</b></p><span class="pv-b1" data-act="dir" role="button" tabindex="0">Get directions</span></div></div></div>
-          <div class="pv-foot"><span id="pv-fn">© 2026 Your Brand</span><span>Site by rh-webatelier</span></div>
         </div>
-        <span class="pv-more" id="pv-more" aria-hidden="true">Scroll the site</span>
         <div class="pv-toast" id="pv-toast" role="status"></div>
         <div class="pv-sheet" id="pv-sheet" hidden><div class="pv-shp" id="pv-shp" role="dialog" aria-label="Example booking"></div></div>
       </div>
@@ -1385,7 +1387,7 @@ form .btn[disabled]{opacity:.6}
   }
   function paintName(){
     var v=(inp.value||ghost).replace(/\s+/g,' ').replace(/^ | $/g,'')||'Your Brand';
-    pvName.textContent=v; $('pv-brand').textContent=v; $('pv-fn').textContent='\u00A9 2026 '+v; $('pv-logo').textContent=v.charAt(0).toUpperCase();
+    pvName.textContent=v; $('pv-brand').textContent=v; $('pv-logo').textContent=v.charAt(0).toUpperCase();
     $('pv-url').textContent=(v.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'').slice(0,24)||'yourbrand')+'.co.uk';
     fit();
   }
@@ -1401,7 +1403,7 @@ form .btn[disabled]{opacity:.6}
     var d0=KIND[k]||KIND.barber, emo=$('pv-emo');
     emo.textContent=d0[0]; $('pv-sub').textContent=d0[1]; $('pv-b1').textContent=d0[2]; $('pv-btn').textContent=d0[2];
     for(var i=0;i<3;i++){ $('pv-s'+(i+1)).textContent=d0[3][i][0]; $('pv-d'+(i+1)).textContent=d0[3][i][1]; $('pv-p'+(i+1)).textContent=d0[3][i][2]; }
-    $('pv-q').textContent=d0[4]; $('pv-who').textContent=d0[5]+', Google'; $('pv-av').textContent=d0[5].charAt(0); $('pv-rate').textContent=d0[6]; $('pv-rate2').textContent=d0[6]; $('pv-q2').textContent=d0[4]; $('pv-who2').textContent=d0[5]; $('pv-cnt').textContent=d0[7]+' Google reviews'; $('pv-open').textContent=d0[8];
+    $('pv-q').textContent=d0[4]; $('pv-who').textContent=d0[5]+', Google'; $('pv-av').textContent=d0[5].charAt(0); $('pv-rate').textContent=d0[6];  $('pv-cnt').textContent=d0[7]+' Google reviews'; $('pv-open').textContent=d0[8];
     emo.classList.add('pop'); setTimeout(function(){emo.classList.remove('pop');},260);
   }
   function paintColour(){
@@ -1450,11 +1452,11 @@ form .btn[disabled]{opacity:.6}
     function kind(k){var r=$('k-'+{barber:'b',cafe:'c',garage:'g',trades:'t',beauty:'n'}[k]);if(r){r.checked=true;paintKind(k);showChip(r);}}
     function col(id){var r=$(id);if(r){r.checked=true;paintColour();}}
     function put(v,caret){ghost=v;inp.setAttribute('placeholder',(v||'')+(caret?'|':''));paintName();}
-    function word(t0,txt){at(t0,function(){fitN=txt.length;});for(var i=1;i<=txt.length;i++)(function(i){at(t0+i*45,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*45;}
-    function wipe(t0,txt,keep){for(var i=txt.length-1;i>=(keep||0);i--)(function(i){at(t0+(txt.length-i)*18,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*18;}
+    function word(t0,txt){at(t0,function(){fitN=txt.length;});for(var i=1;i<=txt.length;i++)(function(i){at(t0+i*32,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*32;}
+    function wipe(t0,txt,keep){for(var i=txt.length-1;i>=(keep||0);i--)(function(i){at(t0+(txt.length-i)*12,function(){put(txt.slice(0,i),1);});})(i);return t0+txt.length*12;}
     var parts=[].slice.call(pv.querySelectorAll('.pv-nav>*,.pv-main>div>*,.pv-art,.pv-serv>div'));
-    function build(){parts.forEach(function(el,i){el.style.transitionDelay=(i*65)+'ms';});pv.classList.remove('pre');at(parts.length*65+900,function(){parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});});}
-    function stop(){if(!on)return;on=false;fitN=0;$('pv-more').classList.remove('gone');while(T.length)clearTimeout(T.pop());tap.classList.remove('on','down');if(cl.parentNode.classList.contains('pvok'))unbook();ghost='';inp.setAttribute('placeholder',PH);pv.classList.remove('pre');parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});inp.classList.remove('nudge');paintName();}
+    function build(){parts.forEach(function(el,i){el.style.transitionDelay=(i*42)+'ms';});pv.classList.remove('pre');at(parts.length*42+700,function(){parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});});}
+    function stop(){if(!on)return;on=false;fitN=0;while(T.length)clearTimeout(T.pop());tap.classList.remove('on','down');if(cl.parentNode.classList.contains('pvok'))unbook();ghost='';inp.setAttribute('placeholder',PH);pv.classList.remove('pre');parts.forEach(function(el){el.style.transitionDelay='';el.classList.remove('bx');});inp.classList.remove('nudge');paintName();}
     var tap=d.createElement('span'); tap.className='pv-tap'; tap.setAttribute('aria-hidden','true'); pv.appendChild(tap);
     var slots=$('pv-slots').children, cl=$('pv-cl');
     function book(){ for(var k=0;k<slots.length;k++) slots[k].setAttribute('aria-pressed',String(k===2)); cl.innerHTML='<b>\u2713</b> Booked for 16:00'; cl.parentNode.classList.add('pvok'); }
@@ -1463,27 +1465,27 @@ form .btn[disabled]{opacity:.6}
       var x=r.left-pr.left+r.width/2, y=r.top-pr.top+r.height/2;
       tap.style.transition='none'; tap.style.translate=(x+60)+'px '+(y+70)+'px'; void tap.offsetWidth; tap.style.transition='';
       tap.classList.add('on'); tap.style.translate=x+'px '+y+'px';
-      at(560,function(){tap.classList.add('down');cb();}); at(760,function(){tap.classList.remove('down');}); at(1100,function(){tap.classList.remove('on');}); }
+      at(420,function(){tap.classList.add('down');cb();}); at(580,function(){tap.classList.remove('down');}); at(850,function(){tap.classList.remove('on');}); }
     function mode(m){ pv.setAttribute('data-mode',m); $('pmode').setAttribute('aria-pressed',String(m==='dark')); paintColour(); }
-    on=true; $('pv-more').classList.add('gone'); parts.forEach(function(el){el.classList.add('bx');}); pv.classList.add('pre'); kind('garage'); col('c-4'); put('',1);
-    var t=380;
+    on=true; parts.forEach(function(el){el.classList.add('bx');}); pv.classList.add('pre'); kind('garage'); col('c-4'); put('',1);
+    var t=250;
     at(t,build);
-    t=word(t+120,"Andy's Garage");
-    at(t+200,function(){col('c-1');});
-    at(t+600,function(){tapOn(slots[2],book);});
-    t+=2200;
+    t=word(t+80,"Andy's Garage");
+    at(t+120,function(){col('c-1');});
+    at(t+300,function(){tapOn(slots[2],book);});
+    t+=1500;
     t=wipe(t,"Andy's Garage",1);
     at(t,function(){unbook();kind('barber');col('c-2');mode('tint');});
-    t=word(t+160,'Fade Street Barbers'); t+=1200;
+    t=word(t+120,'Fade Street Barbers'); t+=900;
     t=wipe(t,'Fade Street Barbers');
-    at(t+80,function(){fitN=0;put('',0);mode('light');$('pv-more').classList.remove('gone');inp.setAttribute('placeholder','Now type yours');inp.classList.add('nudge');});
-    at(t+2600,function(){inp.classList.remove('nudge');inp.setAttribute('placeholder',PH);on=false;});
+    at(t+80,function(){fitN=0;put('',0);mode('light');col('c-4');inp.setAttribute('placeholder','Now type yours');inp.classList.add('nudge');});
+    at(t+2000,function(){inp.classList.remove('nudge');inp.setAttribute('placeholder',PH);on=false;});
     inp.addEventListener('focus',stop); inp.addEventListener('input',stop);
     if(stg) stg.addEventListener('click',stop);
     var ctl=d.querySelector('.ctl'); if(ctl) ctl.addEventListener('change',stop);
   })();
   /* the preview is a working little site: booking, calling, reviews, directions */
-  var pvSh=$('pv-sheet'), pvShp=$('pv-shp'), pvToastEl=$('pv-toast'), pvMore=$('pv-more'), pvSite=$('pv-site'), pvBk=null, pvToT=0, pvShT=0;
+  var pvSh=$('pv-sheet'), pvShp=$('pv-shp'), pvToastEl=$('pv-toast'), pvBk=null, pvToT=0, pvShT=0;
   var PV_T=['10:00','11:30','13:30','15:00','16:00','17:30'], PV_D=['Today','Tomorrow','Saturday'];
   function curKind(){ var r=d.querySelector('[name=ptype]:checked'); return KIND[r?r.value:'barber']||KIND.barber; }
   function brandNow(){ return pvName.textContent; }
@@ -1511,11 +1513,9 @@ form .btn[disabled]{opacity:.6}
     if(a==='ring'){ el.classList.add('on'); el.textContent='Calling…'; setTimeout(function(){ closeSheet(); pvToast('On your real site this rings your phone'); },1500); return; }
     if(a==='wa'){ closeSheet(); pvToast('On your real site this opens WhatsApp'); return; }
     if(a==='dir'){ pvToast('On your real site this opens Google Maps'); return; }
-    if(a.indexOf('go:')===0){ var t=$(a.slice(3)); if(t){ var y=t.offsetTop-pvSite.offsetTop-12; try{ pvSite.scrollTo({top:y,behavior:'smooth'}); }catch(e){ pvSite.scrollTop=y; } } return; }
   }
   pv.addEventListener('click',function(e){ if(e.target===pvSh){ closeSheet(); return; } var el=e.target.closest?e.target.closest('[data-act]'):null; if(!el||!pv.contains(el))return; var a=el.getAttribute('data-act'); if(a) pvAct(a,el); });
   pv.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!pvSh.hidden){ closeSheet(); return; } if(e.key!=='Enter'&&e.key!==' ')return; var el=e.target; if(el&&el.getAttribute&&el.getAttribute('data-act')!==null&&el.tagName!=='BUTTON'){ e.preventDefault(); el.click(); } });
-  pvSite.addEventListener('scroll',function(){ if(pvSite.scrollTop>20) pvMore.classList.add('gone'); },{passive:true});
   /* carry what they typed into the form */
   function carry(){ var v=inp.value.replace(/^\s+|\s+$/g,''); if(v&&!auto&&!$('f-name').value) $('f-name').value=v; }
   var gets=d.querySelectorAll('[data-get]');
