@@ -78,7 +78,8 @@ nav.cats{position:sticky;top:60px;z-index:15;background:var(--paper);border-bott
 
 /* layout */
 .layout{display:grid;grid-template-columns:1fr;gap:32px;padding-top:22px;padding-bottom:120px}
-@media (min-width:980px){.layout{grid-template-columns:1fr 340px}}
+@media (min-width:980px){.layout{grid-template-columns:minmax(0,1fr) 340px}}
+#menu{min-width:0}
 section.cat{margin-bottom:30px}
 section.cat h2{font-family:var(--display);font-weight:400;font-size:28px;line-height:1;margin-bottom:12px}
 .items{display:grid;grid-template-columns:1fr;gap:10px}
