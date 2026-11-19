@@ -165,6 +165,29 @@ footer{background:var(--char);color:#CDBFA9;padding:28px 0 110px;font-size:14px}
 footer .mark{color:var(--mustard)}
 footer a{color:#fff}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* photos + personal */
+.kick{display:inline-block;background:var(--mustard);color:var(--char);font-weight:700;font-size:13px;border-radius:999px;padding:5px 12px;margin-bottom:14px;position:relative;z-index:1}
+.rates{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;font-size:14px;color:#D9D2C5;position:relative;z-index:1}
+.rates b{color:var(--mustard);font-size:16px;margin-right:2px}
+.hero-ph{position:absolute;right:26px;top:50%;transform:translateY(-50%);width:min(36%,360px);aspect-ratio:1;object-fit:cover;border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+@media (max-width:720px){.hero-ph{position:relative;right:auto;top:auto;transform:none;width:100%;aspect-ratio:16/10;margin-top:20px;border-radius:18px}}
+.item .ph{position:relative;flex:none;width:96px;height:96px}
+.item .ph img{width:96px;height:96px;object-fit:cover;border-radius:14px;display:block;background:var(--soft)}
+.item .ph .plus{position:absolute;right:-6px;bottom:-6px;box-shadow:0 0 0 3px #fff}
+.pcard{padding:0;overflow:hidden;width:220px}
+.pcard img{width:100%;height:140px;object-fit:cover;display:block;background:var(--soft)}
+.pcard .h,.pcard small{padding:0 14px}.pcard .price{margin:0 14px 14px}
+.pcard .h{margin-top:12px}
+.sh-ph{display:block;width:calc(100% + 40px);margin:-22px -20px 16px;height:220px;object-fit:cover;border-radius:22px 22px 0 0}
+.tag.fan{background:var(--char);color:var(--mustard)}
+.findus{display:grid;gap:18px;grid-template-columns:1fr;padding-bottom:40px}
+@media (min-width:820px){.findus{grid-template-columns:1fr 1.3fr;align-items:center}}
+.findus h2{font-weight:800;letter-spacing:-.035em;font-size:28px;margin-bottom:8px}
+.findus p{color:var(--char-2)}
+.findus iframe{width:100%;height:280px;border:0;border-radius:22px;box-shadow:var(--shadow)}
+.cta.ghost{display:inline-block;width:auto;background:var(--mustard);color:var(--char);padding:12px 20px;font-size:15px}
+.cta.ghost:hover{background:var(--mustard-d)}
+
 /* modern pass */
 :root{--display:'Bricolage Grotesque',system-ui,sans-serif;--paper:#FAF8F3;--line:#ECE6D8;--soft:#EFEADD;--shadow:0 1px 2px rgba(29,23,18,.06),0 8px 24px rgba(29,23,18,.06)}
 header.top{background:rgba(250,248,243,.96);box-shadow:0 1px 0 var(--line)}
@@ -182,8 +205,8 @@ header.top{background:rgba(250,248,243,.96);box-shadow:0 1px 0 var(--line)}
 .facts span{background:rgba(255,255,255,.09);color:#F3EEE4;font-weight:600}
 .facts .open{background:#B9F36B;color:var(--char)}
 .patty{right:28px;top:50%;transform:translateY(-50%);width:250px;opacity:1}
-@media (max-width:720px){.hcard{padding:28px 22px 24px;border-radius:24px}.patty{width:150px;right:-30px;top:auto;bottom:-20px;transform:none;opacity:.22}}
-@media (min-width:721px){.hero h1{max-width:calc(100% - 260px)}}
+@media (max-width:720px){.hcard{padding:28px 22px 24px;border-radius:24px}}
+@media (min-width:721px){.hero h1,.hero p,.hcard .facts,.rates{max-width:calc(62% - 20px)}.hcard{min-height:430px}}
 nav.cats{background:rgba(250,248,243,.97);border-bottom:0;box-shadow:0 1px 0 var(--line)}
 .cats a{border:0;background:var(--soft);font-weight:600}
 .cats a.on{background:var(--char);color:#fff}
@@ -232,22 +255,16 @@ footer .mark{font-weight:800}
 
 <section class="hero">
   <div class="wrap"><div class="hcard">
+    <div class="kick">The little smash-burger spot on Bloom Street</div>
     <h1>Smashed fresh. <span>Ordered direct.</span></h1>
-    <p>Smashed beef, crispy chicken and proper shakes from Bloom Street. Order here and it goes straight to the kitchen.</p>
+    <p>Double-smashed patties, the Cheetos Chicken everyone talks about and thick shakes, made at 41 Bloom Street. Order here and it goes straight to our kitchen.</p>
+    <div class="rates"><span><b>5★</b> Just Eat · 664 reviews</span><span><b>4.7</b> Deliveroo · 500+ reviews</span></div>
     <div class="facts">
       <span class="open">● Taking orders</span>
       <span id="etaFact">Ready in about 15 min</span>
-      <span>Pay by card, Apple Pay or Google Pay</span>
+      <span>Card, Apple Pay, Google Pay</span>
     </div>
-    <svg class="patty" viewBox="0 0 300 220" aria-hidden="true">
-      <path d="M20 96c0-50 58-82 130-82s130 32 130 82z" fill="#E8902B"/>
-      <g fill="#FFE9A8"><ellipse cx="90" cy="52" rx="6" ry="3" transform="rotate(-20 90 52)"/><ellipse cx="140" cy="38" rx="6" ry="3"/><ellipse cx="190" cy="50" rx="6" ry="3" transform="rotate(20 190 50)"/><ellipse cx="120" cy="70" rx="6" ry="3" transform="rotate(10 120 70)"/><ellipse cx="170" cy="74" rx="6" ry="3" transform="rotate(-12 170 74)"/></g>
-      <path d="M14 104h272l-10 14H24z" fill="#5C7A1F"/>
-      <path d="M22 118h256c0 8-6 14-14 14l-30 16-26-16H58c-10 0-20-4-26-14z" fill="#FFE14D"/>
-      <rect x="18" y="132" width="264" height="30" rx="15" fill="#4A2A17"/>
-      <rect x="22" y="160" width="256" height="24" rx="12" fill="#3B2112"/>
-      <path d="M24 190h252c0 16-14 24-30 24H54c-16 0-30-8-30-24z" fill="#E8902B"/>
-    </svg>
+    <img class="hero-ph" src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=900&h=900&fit=crop&auto=format&q=72" alt="Double smashed cheeseburger with pickles" width="450" height="450">
   </div></div>
 </section>
 
@@ -260,11 +277,21 @@ footer .mark{font-weight:800}
 
 <div class="bbar" id="bbar"><button type="button" onclick="openBasket()"><span id="bbarCount">View basket</span><span id="bbarTotal"></span></button></div>
 
+<section class="wrap findus" id="find">
+  <div class="fu-txt">
+    <h2>Find us</h2>
+    <p><b>41 Bloom Street, Manchester M1 3LY</b><br>In the Village, a couple of minutes from Chorlton Street and Piccadilly. Order ahead and it's ready when you walk in.</p>
+    <a class="cta ghost" href="https://www.google.com/maps/search/?api=1&query=Roadie%27s%2041%20Bloom%20Street%20Manchester%20M1%203LY" target="_blank" rel="noopener">Open in Google Maps</a>
+  </div>
+  <iframe title="Map: 41 Bloom Street, Manchester" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-2.2420%2C53.4755%2C-2.2320%2C53.4800&amp;layer=mapnik&amp;marker=53.47775%2C-2.23695"></iframe>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="mark">Roadie's</div>
     <p style="margin-top:8px">41 Bloom Street, Manchester M1 3LY</p>
-    <p style="margin-top:14px">Ordering site by <a href="https://rh-webatelier.co.uk/">rh-webatelier</a>. Your menu, your customers, your money.</p>
+    <p style="margin-top:14px;font-size:12px;opacity:.7">Food photos are stand-ins from Unsplash. Your own photos go here.</p>
+    <p style="margin-top:10px">Ordering site by <a href="https://rh-webatelier.co.uk/">rh-webatelier</a>. Your menu, your customers, your money.</p>
   </div>
 </footer>
 
@@ -297,7 +324,7 @@ const MENU = [
   ["Belly Booster", "Two smashed patties, double cheese, hash brown, lettuce, tomato, red onion, Roadie's sauce.", 8.49, ""],
   ["Cheetos Smashed Burger", "Two smashed patties, lettuce, tomato, red onion, crunchy Cheetos, house sauce.", 9.49, ""]]],
  ["Chicken burgers", [
-  ["Cheetos Chicken", "Crispy chicken, lettuce, hot cheese, crunchy Cheetos, Roadie's sauce.", 8.99, "p"],
+  ["Cheetos Chicken", "Crispy chicken, lettuce, hot cheese, crunchy Cheetos, Roadie's sauce. The one regulars rave about.", 8.99, "pF"],
   ["Crispy Chicken", "Buttermilk crispy chicken, lettuce, mayo, brioche bun.", 7.49, ""],
   ["Chicken Tower", "Crispy chicken, lettuce, Americana cheese, hash brown, ketchup and mayo.", 7.99, ""],
   ["Nashville Hot", "Buttermilk chicken dipped in Nashville sauce, lettuce, pickle, sriracha mayo.", 7.99, "h"],
@@ -347,7 +374,35 @@ const MENU = [
   ["Rubicon Mango", "", 1.50, ""], ["Vimto", "", 1.50, ""], ["Water", "", 1.50, ""], ["Red Bull 250ml", "", 2.99, ""]]]
 ];
 
+const U = id => 'https://images.unsplash.com/photo-' + id;
+const PICS = {
+  beef: ['1568901346375-23c9450c58cd','1572802419224-296b0aeee0d9','1607013251379-e6eecfffe234','1564362411991-472954b39f56','1603508102983-99b101395d1a','1547584370-2cc98b8b8dc8','1713330801172-03f8d1c0dde7'],
+  chicken: ['1692737349870-e3bfc704ebf9','1671522635501-f03491b207e6','1615297928064-24977384d0da'],
+  wrap: ['1626700051175-6818013e1d4f','1778168199427-4e839943d20f','1773620494884-940e0db95e46'],
+  dog: ['1638368593249-7cadb261e8b3','1599599810694-b5b37304c041','1776260486395-2173d61e344c','1721648373511-fb220d7f043f'],
+  shake: ['1641665271888-575e46923776','1572490122747-3968b75cc699','1553787499-6f9133860278','1594488506255-a8bbfdeedbaf','1619158401201-8fa932695178'],
+  fries: ['1768215610440-fcb9631c7ee2','1639744210631-209fce3e256c','1639744211106-6dd155bd96b6'],
+  fried: ['1625938146369-adc83368bda7','1627662236973-4fd8358fa206']
+};
+const BY_NAME = {
+  'Chicken & fries box': '1639744210631-209fce3e256c', 'Donner & fries box': '1763208385612-fbbf89e4a5ed',
+  'The Bacon Cheese': '1761712826134-7a96fe3f68fb', 'Breakfast Burger': '1761712826134-7a96fe3f68fb', 'Jack Pot': '1572802419224-296b0aeee0d9', 'Five Star': '1572802419224-296b0aeee0d9',
+  'Boneless tenders (4)': '1605291581926-df4bf7ee3e89', 'Wings (5)': '1567620832903-9fc6debc209f', 'New York Dog': '1721648373511-fb220d7f043f',
+  'Onion Rings (5)': '1639024471283-03518883512d', 'Chicken Nuggets (5)': '1627662236973-4fd8358fa206', 'Oreo Delicious': '1572490122747-3968b75cc699',
+  'Lotus Biscoff Shake': '1641665271888-575e46923776', 'Coke': '1592892111425-15e04305f961', 'Coke Zero': '1592892111425-15e04305f961'
+};
+const GROUP = { 'Smashed beef burgers': 'beef', 'Chicken burgers': 'chicken', 'Wraps': 'wrap', 'Hot dogs': 'dog', 'Shakes': 'shake', 'Tenders & wings': 'fried' };
+function pic(i, w, h) {
+  let id = BY_NAME[i.n];
+  if (!id && /fries/i.test(i.n)) id = PICS.fries[i.id % 3];
+  if (!id && /mozzarella|mac|hash/i.test(i.n)) id = PICS.fried[0];
+  if (!id && /veggie|fish/i.test(i.n)) id = PICS.beef[5];
+  if (!id && GROUP[i.cat]) { const g = PICS[GROUP[i.cat]]; id = g[i.id % g.length]; }
+  if (!id && i.cat === 'Dips & drinks' && i.p >= 1.5) id = '1696739696220-8d2e27465662';
+  return id && w ? U(id) + '?w=' + w + '&h=' + h + '&fit=crop&auto=format&q=70' : id;
+}
 const $ = s => document.querySelector(s);
+
 const money = n => '£' + n.toFixed(2);
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -355,13 +410,13 @@ const ITEMS = [];
 let basket = [], mode = 'collect', current = null;
 
 function tags(f) {
-  return (f.includes('p') ? '<span class="tag pop">Popular</span>' : '') + (f.includes('h') ? '<span class="tag hot">Hot</span>' : '') + (f.includes('v') ? '<span class="tag veg">Veggie</span>' : '');
+  return (f.includes('F') ? '<span class="tag fan">Fan favourite</span>' : f.includes('p') ? '<span class="tag pop">Popular</span>' : '') + (f.includes('h') ? '<span class="tag hot">Hot</span>' : '') + (f.includes('v') ? '<span class="tag veg">Veggie</span>' : '');
 }
 function render() {
   let nav = '', html = '<section class="cat" id="popular"><h2>Most ordered</h2><div class="pop-strip">';
   MENU.forEach(([cat, list]) => list.forEach(([n, d, p, f]) => ITEMS.push({ id: ITEMS.length, cat, n, d, p, f })));
   ITEMS.filter(i => i.f.includes('p')).forEach(i => {
-    html += `<button class="pcard" type="button" onclick="openItem(${i.id})"><span class="h">${esc(i.n)}</span><small>${esc(i.d)}</small><span class="price">${money(i.p)}</span></button>`;
+    html += `<button class="pcard" type="button" onclick="openItem(${i.id})"><img src="${pic(i, 480, 320)}" alt="" loading="lazy"><span class="h">${esc(i.n)}</span><small>${esc(i.d)}</small><span class="price">${money(i.p)}</span></button>`;
   });
   html += '</div></section>';
   nav += '<li><a href="#popular" class="on">Most ordered</a></li>';
@@ -369,7 +424,7 @@ function render() {
     nav += `<li><a href="#${slug(cat)}">${esc(cat)}</a></li>`;
     html += `<section class="cat" id="${slug(cat)}"><h2>${esc(cat)}</h2><div class="items">`;
     ITEMS.filter(i => i.cat === cat).forEach(i => {
-      html += `<button class="item" type="button" onclick="openItem(${i.id})"><span class="txt"><span class="h">${esc(i.n)}</span>${i.d ? `<span class="dd">${esc(i.d)}</span>` : ''}<span class="meta"><span class="price">${money(i.p)}</span>${tags(i.f)}</span></span><span class="plus" aria-hidden="true">+</span></button>`;
+      html += `<button class="item" type="button" onclick="openItem(${i.id})"><span class="txt"><span class="h">${esc(i.n)}</span>${i.d ? `<span class="dd">${esc(i.d)}</span>` : ''}<span class="meta"><span class="price">${money(i.p)}</span>${tags(i.f)}</span></span>${pic(i) ? `<span class="ph"><img src="${pic(i, 220, 220)}" alt="" loading="lazy"><span class="plus" aria-hidden="true">+</span></span>` : '<span class="plus" aria-hidden="true">+</span>'}</button>`;
     });
     html += '</div></section>';
   });
@@ -384,7 +439,7 @@ function openItem(id) {
   if (i.f.includes('f')) opts += `<fieldset class="opts"><legend>Pick a flavour</legend><div class="chips">${FLAVOURS.map((x, k) => `<label><input type="radio" name="fl" value="${esc(x)}" ${k ? '' : 'checked'}><span>${esc(x)}</span></label>`).join('')}</div></fieldset>`;
   if (i.f.includes('s')) opts += `<fieldset class="opts"><legend>Dips (up to 3)</legend><div class="chips">${SAUCES.map(x => `<label><input type="checkbox" name="dip" value="${esc(x)}"><span>${esc(x)}</span></label>`).join('')}</div></fieldset>`;
   showSheet(`<button class="x" type="button" aria-label="Close" onclick="closeSheet()">✕</button>
-    <h2 id="sheetTitle">${esc(i.n)}</h2>${i.d ? `<p class="d">${esc(i.d)}</p>` : ''}${opts}
+    ${pic(i) ? `<img class="sh-ph" src="${pic(i, 900, 560)}" alt="">` : ''}<h2 id="sheetTitle">${esc(i.n)}</h2>${i.d ? `<p class="d">${esc(i.d)}</p>` : ''}${opts}
     <label class="field"><span>Anything we should know?</span><input id="note" placeholder="e.g. no onions" maxlength="80"></label>
     <div class="row"><div class="qty"><button type="button" aria-label="One less" onclick="step(-1)">−</button><output id="q">1</output><button type="button" aria-label="One more" onclick="step(1)">+</button></div>
     <button class="cta" type="button" id="addBtn" onclick="addCurrent()">Add · ${money(i.p)}</button></div>`);
