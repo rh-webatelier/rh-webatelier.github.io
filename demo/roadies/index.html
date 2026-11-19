@@ -65,6 +65,8 @@ header.top{position:sticky;top:0;z-index:20;background:var(--mustard)}
 .facts .open{background:var(--char);color:#B9F36B}
 .patty{position:absolute;right:-40px;top:40px;width:300px;opacity:.95;pointer-events:none}
 .hero .wrap{position:relative}
+.hero h1,.hero p,.facts{position:relative;z-index:1}
+@media (min-width:721px){.hero h1{font-size:clamp(46px,8.4vw,96px);max-width:calc(100% - 290px)}.patty{right:0;top:26px;width:270px}}
 @media (max-width:720px){.patty{width:190px;right:-60px;top:auto;bottom:-40px;opacity:.35}}
 
 /* category nav */
