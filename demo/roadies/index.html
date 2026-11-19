@@ -6,7 +6,7 @@
 <title>Roadie's · Order direct</title>
 <meta name="description" content="Smashed burgers, chicken and shakes from 41 Bloom Street, Manchester. Order direct for collection or delivery.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#FFC529">
+<meta name="theme-color" content="#FAF8F3">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Roadie's">
 <meta property="og:url" content="https://rh-webatelier.co.uk/demo/roadies/">
@@ -21,7 +21,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFC529'/%3E%3Ctext x='32' y='45' font-family='Arial Black,Arial' font-weight='900' font-size='38' text-anchor='middle' fill='%231D1712'%3ER%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
 <style>
 :root{
   --mustard:#FFC529; --mustard-d:#F2B200; --ketchup:#D7261E; --ketchup-d:#B31C15;
@@ -165,6 +165,51 @@ footer{background:var(--char);color:#CDBFA9;padding:28px 0 110px;font-size:14px}
 footer .mark{color:var(--mustard)}
 footer a{color:#fff}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* modern pass */
+:root{--display:'Bricolage Grotesque',system-ui,sans-serif;--paper:#FAF8F3;--line:#ECE6D8;--soft:#EFEADD;--shadow:0 1px 2px rgba(29,23,18,.06),0 8px 24px rgba(29,23,18,.06)}
+header.top{background:rgba(250,248,243,.96);box-shadow:0 1px 0 var(--line)}
+.mark{font-weight:800;font-size:22px;letter-spacing:-.04em}
+.mark small{letter-spacing:0;font-weight:500}
+.mode{background:var(--soft)}
+.mode button[aria-pressed=true]{background:var(--char);color:#fff}
+.bag{background:var(--mustard);color:var(--char)}
+.bag b{background:var(--char)}
+.hero{background:transparent;padding:10px 0 6px}
+.hcard{position:relative;overflow:hidden;background:var(--char);color:#fff;border-radius:28px;padding:38px 30px 32px}
+.hero h1{font-weight:800;letter-spacing:-.045em;line-height:.95;font-size:clamp(42px,9vw,84px);color:#fff;max-width:none}
+.hero h1 span{color:var(--mustard)}
+.hero p{color:#D9D2C5;font-size:17px}
+.facts span{background:rgba(255,255,255,.09);color:#F3EEE4;font-weight:600}
+.facts .open{background:#B9F36B;color:var(--char)}
+.patty{right:28px;top:50%;transform:translateY(-50%);width:250px;opacity:1}
+@media (max-width:720px){.hcard{padding:28px 22px 24px;border-radius:24px}.patty{width:150px;right:-30px;top:auto;bottom:-20px;transform:none;opacity:.22}}
+@media (min-width:721px){.hero h1{max-width:calc(100% - 260px)}}
+nav.cats{background:rgba(250,248,243,.97);border-bottom:0;box-shadow:0 1px 0 var(--line)}
+.cats a{border:0;background:var(--soft);font-weight:600}
+.cats a.on{background:var(--char);color:#fff}
+section.cat h2{font-weight:800;letter-spacing:-.035em;font-size:26px}
+.item{border:0;box-shadow:var(--shadow);border-radius:18px;transition:transform .15s,box-shadow .15s}
+.item:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(29,23,18,.06),0 14px 30px rgba(29,23,18,.09)}
+.item .h{font-weight:700;letter-spacing:-.015em}
+.plus{background:var(--char);color:#fff;font-size:20px;font-weight:600}
+.item:hover .plus{background:var(--ketchup)}
+.tag{border-radius:999px;padding:2px 8px;font-weight:700;letter-spacing:0}
+.pcard{background:#fff;color:var(--char);box-shadow:var(--shadow);border-radius:18px;width:210px}
+.pcard .h{font-family:var(--display);font-weight:800;letter-spacing:-.03em;color:var(--char);font-size:18px}
+.pcard small{color:var(--char-2)}
+.pcard .price{color:var(--char);background:var(--mustard);align-self:flex-start;border-radius:999px;padding:3px 10px;font-size:14px}
+aside.side{border:0;box-shadow:var(--shadow);border-radius:22px}
+.side h2,.sheet h2{font-weight:800;letter-spacing:-.035em}
+.sheet{background:#fff}
+.sheet .x,.qty button{border-color:var(--soft);background:var(--soft)}
+.chips span,.field input,.field textarea,.pay span{border-color:var(--soft)}
+.cta{background:var(--char);letter-spacing:-.01em}
+.cta:hover{background:#000}
+.bbar button{background:var(--char);box-shadow:0 12px 30px rgba(29,23,18,.3)}
+.bbar #bbarTotal{background:var(--mustard);color:var(--char);border-radius:999px;padding:4px 10px}
+.done .tick{background:var(--mustard)}
+footer .mark{font-weight:800}
+@media (prefers-reduced-motion:reduce){.item:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -186,7 +231,7 @@ footer a{color:#fff}
 </header>
 
 <section class="hero">
-  <div class="wrap">
+  <div class="wrap"><div class="hcard">
     <h1>Smashed fresh. <span>Ordered direct.</span></h1>
     <p>Smashed beef, crispy chicken and proper shakes from Bloom Street. Order here and it goes straight to the kitchen.</p>
     <div class="facts">
@@ -203,7 +248,7 @@ footer a{color:#fff}
       <rect x="22" y="160" width="256" height="24" rx="12" fill="#3B2112"/>
       <path d="M24 190h252c0 16-14 24-30 24H54c-16 0-30-8-30-24z" fill="#E8902B"/>
     </svg>
-  </div>
+  </div></div>
 </section>
 
 <nav class="cats" aria-label="Menu sections"><ul id="catNav"></ul></nav>
