@@ -6,7 +6,7 @@
 <title>Zaytoni · Order direct</title>
 <meta name="description" content="Shawarma, bowls, pizza and fatayer from 127A Oxford Road, Manchester. Order direct for collection or delivery.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#FAF8F3">
+<meta name="theme-color" content="#0E5B3A">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Zaytoni">
 <meta property="og:url" content="https://rh-webatelier.co.uk/demo/zaytoni/">
@@ -21,7 +21,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E2715'/%3E%3Ctext x='32' y='45' font-family='Arial Black,Arial' font-weight='900' font-size='38' text-anchor='middle' fill='%23E9B949'%3EZ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --mustard:#FFC529; --mustard-d:#F2B200; --ketchup:#D7261E; --ketchup-d:#B31C15;
@@ -233,6 +233,48 @@ aside.side{border:0;box-shadow:var(--shadow);border-radius:22px}
 .done .tick{background:var(--mustard)}
 footer .mark{font-weight:800}
 @media (prefers-reduced-motion:reduce){.item:hover{transform:none}}
+
+/* Zaytoni brand: shop-sign green, lime trim, white wide lettering */
+:root{--char:#0B3A25;--green:#0E5B3A;--green-d:#0A4229;--mustard:#A8CF3A;--mustard-d:#94BA2C;--ketchup:#F28C28;--ketchup-d:#D9771A;--soft:#E9F0E4;--paper:#F6F8F3;--line:#DCE6D5;--wide:'Unbounded',system-ui,sans-serif}
+body{background:var(--paper)}
+header.top{background:var(--green);box-shadow:none}
+.mark{font-family:var(--wide);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;font-size:20px}
+.mark small{color:#CFE5D3;letter-spacing:.02em;text-transform:none;font-family:var(--body);font-weight:500}
+.mode{background:rgba(255,255,255,.14)}
+.mode button{color:#fff}
+.mode button[aria-pressed=true]{background:var(--mustard);color:var(--char)}
+.bag{background:var(--mustard);color:var(--char)}
+.bag b{background:var(--ketchup);color:#fff}
+.hero{padding-top:0}
+.hcard{background:linear-gradient(160deg,var(--green) 0%,var(--green-d) 70%);border-radius:0 0 32px 32px;min-height:460px}
+.kick{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-family:var(--wide);font-weight:600}
+.hero h1{font-family:var(--wide);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:1.02;font-size:clamp(30px,5.6vw,60px)}
+.hero h1 span{color:var(--mustard)}
+.rates b{color:var(--mustard)}
+.facts .open{background:var(--mustard);color:var(--char)}
+.plates{position:absolute;right:28px;top:50%;transform:translateY(-50%);width:min(38%,400px);height:380px}
+.plates img{position:absolute;border-radius:50%;object-fit:cover;border:6px solid rgba(255,255,255,.95);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.plates img:nth-child(1){width:250px;height:250px;right:70px;top:0}
+.plates img:nth-child(2){width:180px;height:180px;right:0;bottom:0}
+.plates img:nth-child(3){width:160px;height:160px;left:0;bottom:30px}
+@media (max-width:720px){.plates{position:relative;right:auto;top:auto;transform:none;width:100%;height:230px;margin-top:22px}.plates img:nth-child(1){width:170px;height:170px;left:50%;right:auto;margin-left:-85px}.plates img:nth-child(2){width:120px;height:120px}.plates img:nth-child(3){width:110px;height:110px;bottom:10px}}
+nav.cats{background:rgba(246,248,243,.97)}
+.cats a{background:#fff;box-shadow:0 0 0 1.5px var(--line)}
+.cats a.on{background:var(--green);color:#fff;box-shadow:none}
+section.cat h2,.findus h2,.side h2,.sheet h2{font-family:var(--wide);font-weight:700;text-transform:uppercase;letter-spacing:.01em;font-size:20px}
+.plus{background:var(--green)}
+.item:hover .plus{background:var(--ketchup)}
+.pcard .price,.tag.fan{background:var(--mustard);color:var(--char)}
+.tag.pop{background:#EAF4D2;color:#4A6B12}
+.cta{background:var(--green)}
+.cta:hover{background:var(--green-d)}
+.cta.ghost{background:var(--mustard);color:var(--char)}
+.bbar button{background:var(--green);box-shadow:0 12px 30px rgba(14,91,58,.35)}
+.bbar #bbarTotal{background:var(--mustard)}
+.done .tick{background:var(--mustard)}
+footer{background:var(--green-d)}
+footer .mark{color:#fff}
+.demo{background:#06261A}
 </style>
 </head>
 <body>
@@ -255,16 +297,20 @@ footer .mark{font-weight:800}
 
 <section class="hero">
   <div class="wrap"><div class="hcard">
-    <div class="kick">Shawarma on Oxford Road, by the Aquatics Centre</div>
-    <h1>Fire-roasted. <span>Ordered direct.</span></h1>
-    <p>Chicken and lamb shawarma, the Messy Fries Bowl, fresh falafel and 10-inch pizzas from Oxford Road and Oldham Street. Order here and it goes straight to our kitchen.</p>
-    <div class="rates"><span><b>4.6</b> Deliveroo · 500+ reviews</span><span><b>4.2</b> Google · 500+ reviews</span></div>
+    <div class="kick">Shawarma · Falafel · Pizza · Kebab · Burger</div>
+    <h1>Fire-roasted shawarma. <span>Ordered direct.</span></h1>
+    <p>Oxford Road's late-night shawarma spot, between the universities. Chicken and lamb shawarma, the Messy Fries Bowl, fresh falafel and 10-inch pizzas. Order here and it goes straight to our kitchen.</p>
+    <div class="rates"><span><b>4.6</b> Deliveroo · 500+ reviews</span><span><b>4.1</b> Google · 658 reviews</span></div>
     <div class="facts">
-      <span class="open">● Taking orders</span>
+      <span class="open">● Open till 4am</span>
       <span id="etaFact">Ready in about 15 min</span>
       <span>Card, Apple Pay, Google Pay</span>
     </div>
-    <img class="hero-ph" src="https://images.unsplash.com/photo-1786174045055-1eb50942e273?w=900&h=900&fit=crop&auto=format&q=72" alt="Platter of hummus, falafel and grilled meat" width="450" height="450">
+    <div class="plates" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1786174045055-1eb50942e273?w=600&h=600&fit=crop&auto=format&q=72" alt="">
+      <img src="https://images.unsplash.com/photo-1719282431565-3b30bb7d2658?w=600&h=600&fit=crop&auto=format&q=72" alt="">
+      <img src="https://images.unsplash.com/photo-1786174045076-1cd880429ef1?w=600&h=600&fit=crop&auto=format&q=72" alt="">
+    </div>
   </div></div>
 </section>
 
