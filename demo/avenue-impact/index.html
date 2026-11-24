@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Avenue Impact · Managed transformation delivery teams (concept)</title>
+<meta name="description" content="Concept redesign for Avenue Impact: managed business analysts, project managers, data and change specialists, deployed into your programme in an average of 14 days.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0c1733">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="rh-webatelier">
+<meta property="og:url" content="https://rh-webatelier.co.uk/demo/avenue-impact/">
+<meta property="og:title" content="Avenue Impact · a concept redesign">
+<meta property="og:description" content="You planned the change. We deliver it. A new take on the Avenue Impact website, by rh-webatelier.">
+<meta property="og:image" content="https://rh-webatelier.co.uk/demo/avenue-impact/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Avenue Impact concept: the talent route from Identify to Measure">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Avenue Impact · a concept redesign">
+<meta name="twitter:description" content="You planned the change. We deliver it.">
+<meta name="twitter:image" content="https://rh-webatelier.co.uk/demo/avenue-impact/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c1733'/%3E%3Cpath d='M18 50 32 18l14 32h-7l-7-17-7 17z' fill='%23fff'/%3E%3Cpath d='M32 8l5 8h-10z' fill='%23d0163f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0c1733; --navy-2:#16234a; --navy-3:#24315a;
+  --crimson:#d0163f; --crimson-d:#ad0f32;
+  --stone:#f4f2ee; --white:#fff;
+  --ink:#0c1733; --ink-2:#4f586e; --ink-3:#7a8296; --line:#e3e0d9; --line-2:#d5d1c8;
+  --serif:'Source Serif 4',Georgia,serif; --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.22,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+:focus-visible{outline:3px solid var(--crimson);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.015em;line-height:1.08;font-optical-sizing:auto}
+h2{font-size:clamp(32px,3.6vw,50px)}
+.lede{color:var(--ink-2);font-size:clamp(17px,1.4vw,19px);max-width:56ch}
+section{padding:112px 0}
+.stone{background:var(--stone)}
+.dark{background:var(--navy);color:#fff}
+.dark .lede{color:#b9c1d6}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 64px;align-items:end;margin-bottom:56px}
+.head p{color:var(--ink-2);max-width:48ch;justify-self:end}
+.dark .head p{color:#b9c1d6}
+@media (max-width:860px){section{padding:76px 0}.head{grid-template-columns:1fr;margin-bottom:36px}.head p{justify-self:start}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap;transition:background .2s,color .2s,box-shadow .2s,transform .2s var(--ease)}
+.btn:active{transform:scale(.98)}
+.btn.red{background:var(--crimson);color:#fff}
+.btn.red:hover{background:var(--crimson-d)}
+.btn.ghost{box-shadow:inset 0 0 0 1.5px var(--line-2);color:var(--ink)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--navy)}
+.btn.white{background:#fff;color:var(--navy)}
+.tlink{font-weight:600;text-decoration:none;color:var(--crimson);display:inline-flex;align-items:center;gap:8px;border-bottom:1.5px solid transparent;transition:border-color .2s}
+.tlink:hover{border-color:currentColor}
+.tlink svg{transition:transform .25s var(--ease)}
+.tlink:hover svg{transform:translateX(3px)}
+
+/* concept ribbon */
+.concept{background:#070e22;color:#c9cfdf;font-size:13.5px;padding:9px 0}
+.concept .wrap{display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;text-align:center}
+.concept a,.concept button{color:#fff;text-decoration:underline;text-underline-offset:3px}
+
+/* header */
+.top{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);transition:box-shadow .3s}
+.top.scrolled{box-shadow:0 1px 0 var(--line)}
+.bar{display:flex;align-items:center;gap:28px;height:76px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+.brand b{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:-.01em}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{text-decoration:none;font-size:15px;font-weight:500;color:var(--ink-2);padding:8px 12px;border-radius:8px;transition:color .2s,background .2s}
+.nav a:hover{color:var(--ink);background:var(--stone)}
+.bar .btn{min-height:44px;padding:0 20px;font-size:15px}
+.burger{display:none;width:44px;height:44px;border-radius:12px;margin-left:auto;place-items:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:var(--navy);border-radius:2px;position:relative;transition:transform .3s var(--ease),background .2s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.top.open .burger span{background:transparent}
+.top.open .burger span::before{transform:translateY(6px) rotate(45deg)}
+.top.open .burger span::after{transform:translateY(-6px) rotate(-45deg)}
+.menu{display:none}
+@media (max-width:980px){
+  .nav,.bar>.btn{display:none}
+  .burger{display:grid}
+  .bar{height:66px}
+  .menu{display:block;position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--line);box-shadow:0 24px 40px rgba(12,23,51,.12);padding:12px 24px 24px;opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .25s,transform .3s var(--ease)}
+  .top.open .menu{opacity:1;transform:none;pointer-events:auto}
+  .menu a:not(.btn){display:block;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;font-family:var(--serif);font-size:22px}
+  .menu .btn{width:100%;margin-top:20px}
+}
+
+/* hero */
+.hero{padding:72px 0 96px;overflow:hidden}
+.hgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:56px;align-items:center}
+.motto{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--ink-2)}
+.motto i{width:28px;height:2px;background:linear-gradient(90deg,var(--navy) 50%,var(--crimson) 50%)}
+.hero h1{font-size:clamp(46px,5.5vw,80px);line-height:1.01;margin:22px 0 24px;letter-spacing:-.022em}
+.hero h1 span{display:block}
+.hero .lede{max-width:48ch}
+.checks{list-style:none;display:grid;gap:10px;margin:28px 0 34px}
+.checks li{display:flex;gap:12px;align-items:center;font-weight:500}
+.checks svg{flex:none;color:var(--crimson)}
+.acts{display:flex;flex-wrap:wrap;gap:12px}
+
+/* the route panel */
+.route{position:relative;background:var(--navy);border-radius:28px;padding:22px 22px 18px;color:#fff;box-shadow:0 40px 80px -30px rgba(12,23,51,.55)}
+.route .legend{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:13px;color:#b9c1d6}
+.route .legend span{display:inline-flex;align-items:center;gap:8px}
+.route .legend i{width:22px;height:4px;border-radius:2px;background:#fff}
+.route .legend span+span i{background:var(--crimson)}
+.route svg text{font-family:var(--serif);font-size:17px;fill:#fff}
+.route .mob{display:none}
+.route svg .sub text{font-family:var(--sans);font-size:12.5px;fill:#9aa4c0}
+.route .note{font-size:12px;color:#8590ad;margin-top:2px}
+.ui{position:absolute;background:#fff;color:var(--ink);border-radius:16px;padding:14px 16px;box-shadow:0 20px 40px -12px rgba(4,9,24,.55);font-size:13px;line-height:1.35;width:clamp(200px,42%,250px)}
+.ui .k{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-3);margin-bottom:6px}
+.ui .k b{font-weight:600;color:var(--ink)}
+.ui strong{display:block;font-size:15px;font-weight:600}
+.ui .bar2{height:6px;border-radius:3px;background:#ece9e2;margin:10px 0 6px;overflow:hidden}
+.ui .bar2 i{display:block;height:100%;width:75%;background:var(--navy);border-radius:3px}
+.ui .row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.ui .row span{background:var(--stone);border-radius:999px;padding:3px 9px;font-size:12px;font-weight:500}
+.ui .ok{display:inline-flex;align-items:center;gap:6px;color:#18794e;font-weight:600}
+.ui .ok::before{content:"";width:8px;height:8px;border-radius:50%;background:#2fb67a}
+.ui .dot{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;background:var(--stone);color:var(--navy)}
+.ui.a{left:8%;top:34%}
+.ui.b{left:47%;top:51%}
+.ui.c{right:-22px;bottom:-26px}
+@media (max-width:980px){
+  .hgrid{grid-template-columns:1fr;gap:44px}
+  .hero{padding:44px 0 72px}
+}
+@media (max-width:640px){
+  .route{padding:20px 18px 18px;border-radius:24px}
+  .route .desk{display:none}
+  .route .mob{display:block;margin-top:10px}
+  .route .uis{display:grid;gap:10px;margin-top:14px}
+  .ui{position:static;width:auto;box-shadow:none}
+  .route .note{margin-top:12px}
+  .acts .btn{flex:1 1 100%}
+}
+@media (min-width:641px){.route svg.desk{margin:8px -6px 0}}
+
+/* hero load: one moment */
+.in{opacity:0;transform:translateY(18px)}
+.ready .in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*80ms)}
+.route .seg{stroke-dasharray:1;stroke-dashoffset:1}
+.ready .route .seg{stroke-dashoffset:0;transition:stroke-dashoffset 1.4s var(--ease) .35s}
+.ready .route .seg.r{transition-delay:1.1s}
+
+/* proof */
+.proof{padding:0 0 96px}
+.clients{display:flex;flex-wrap:wrap;align-items:center;gap:18px 44px;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.clients p{font-size:14px;color:var(--ink-3);margin-right:4px}
+.clients span{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);opacity:.82}
+.figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:40px}
+.figs div{padding-left:18px;border-left:2px solid var(--line)}
+.figs b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(30px,3vw,42px);line-height:1.1;letter-spacing:-.02em}
+.figs span{font-size:14.5px;color:var(--ink-2)}
+@media (max-width:860px){.figs{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 20px}.figs b{font-size:27px}.clients span{font-size:18px}}
+
+/* services */
+.ways{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:16px;align-items:stretch}
+.way{background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px 30px 30px;display:flex;flex-direction:column;gap:14px}
+.way .v{font-family:var(--serif);font-size:15px;color:var(--crimson);font-weight:600}
+.way h3{font-size:27px}
+.way p{color:var(--ink-2);font-size:16px}
+.way .fit{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-2)}
+.way.lead{background:var(--navy);border-color:var(--navy);color:#fff;transform:translateY(-14px);box-shadow:0 30px 60px -28px rgba(12,23,51,.6)}
+.way.lead p,.way.lead .fit{color:#c3cadc}
+.way.lead .fit{border-color:var(--navy-3)}
+.way.lead .v{color:#ff6d8a}
+.way.lead .tlink{color:#fff}
+.tag{display:inline-block;font-size:12.5px;font-weight:600;border-radius:999px;padding:4px 10px;background:var(--stone);color:var(--ink-2);align-self:flex-start}
+.way.lead .tag{background:var(--crimson);color:#fff}
+.roles{margin-top:44px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.roles p{font-weight:600;margin-right:8px}
+.chip{border:1px solid var(--line-2);border-radius:999px;padding:7px 15px;font-size:14.5px;font-weight:500;background:#fff}
+@media (max-width:980px){.ways{grid-template-columns:1fr}.way.lead{transform:none;order:-1}}
+
+/* results */
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.case{background:#fff;border-radius:24px;padding:30px;display:flex;flex-direction:column;gap:14px;border:1px solid var(--line)}
+.case .sec{font-size:13.5px;color:var(--ink-3)}
+.case h3{font-size:24px;line-height:1.15}
+.case p{color:var(--ink-2);font-size:15.5px}
+.case blockquote{font-family:var(--serif);font-size:17px;line-height:1.5;color:var(--ink);padding-left:16px;border-left:2px solid var(--crimson)}
+.case .type{margin-top:auto;font-size:13.5px;color:var(--ink-3);padding-top:14px;border-top:1px solid var(--line)}
+.case.big{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px 56px;padding:44px;background:var(--navy);color:#fff;border:0}
+.case.big h3{font-size:clamp(30px,3.2vw,44px);line-height:1.08}
+.case.big .sec{color:#9aa4c0}
+.case.big blockquote{font-size:clamp(19px,1.7vw,23px);color:#fff}
+.case.big .meta{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-top:10px;font-size:14.5px;color:#c3cadc}
+.case.big .meta b{display:block;color:#fff;font-weight:600}
+.case.big .r{display:flex;flex-direction:column;gap:24px;justify-content:space-between}
+@media (max-width:980px){.cases{grid-template-columns:1fr}.case.big{grid-template-columns:1fr;padding:30px}}
+
+/* process */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;position:relative;padding-top:34px}
+.steps::before{content:"";position:absolute;top:10px;left:11px;right:0;height:3px;border-radius:2px;background:var(--crimson)}
+.steps li{position:relative}
+.steps li::before{content:"";position:absolute;top:-34px;left:0;width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid var(--crimson)}
+.steps b{display:block;font-family:var(--serif);font-size:13px;font-weight:600;color:var(--crimson);margin-bottom:6px}
+.steps h3{font-size:26px;margin-bottom:8px}
+.steps p{color:var(--ink-2);font-size:16px}
+@media (max-width:860px){
+  .steps{grid-template-columns:1fr;gap:30px;padding:0 0 0 40px}
+  .steps::before{top:6px;bottom:6px;left:9px;right:auto;width:3px;height:auto}
+  .steps li::before{top:4px;left:-40px}
+}
+
+/* talent */
+.path{list-style:none;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:14px;position:relative;padding-top:40px;margin-bottom:64px}
+.path::before{content:"";position:absolute;top:13px;left:calc(100%/14);right:calc(100%/14);height:4px;border-radius:2px;background:linear-gradient(90deg,#fff 0 50%,var(--crimson) 50% 100%)}
+.path li{position:relative;text-align:center}
+.path li::before{content:"";position:absolute;top:-36px;left:50%;margin-left:-12px;width:24px;height:24px;border-radius:50%;background:var(--navy);border:4px solid #fff}
+.path li.d::before{border-color:var(--crimson)}
+.path h3{font-size:21px;margin-bottom:6px}
+.path p{font-size:14px;color:#b9c1d6;line-height:1.5}
+.half{display:flex;gap:28px;justify-content:space-between;font-size:14px;color:#8f9abb;margin:-44px 0 64px;padding:0 calc(100%/14)}
+.half span:last-child{color:#ff8aa1}
+.eco{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.eco a{display:flex;flex-direction:column;gap:8px;text-decoration:none;background:var(--navy-2);border:1px solid var(--navy-3);border-radius:22px;padding:28px;transition:border-color .2s,background .2s}
+.eco a:hover{border-color:#47557f;background:#1a2853}
+.eco h3{font-size:24px}
+.eco p{color:#b9c1d6;font-size:15.5px}
+.eco small{margin-top:auto;padding-top:12px;color:#8f9abb;font-size:13.5px}
+.nolow{margin-top:40px;font-family:var(--serif);font-size:clamp(21px,2vw,27px);line-height:1.35;max-width:36ch}
+@media (max-width:980px){
+  .path{grid-template-columns:1fr;gap:22px;padding:0 0 0 44px}
+  .path::before{top:6px;bottom:6px;left:10px;right:auto;width:4px;height:auto;background:linear-gradient(180deg,#fff 0 54%,var(--crimson) 54% 100%)}
+  .path li{text-align:left}
+  .path li::before{top:2px;left:-44px;margin:0}
+  .half{display:none}
+  .eco{grid-template-columns:1fr}
+}
+
+/* founder */
+.founder{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:64px;align-items:start}
+.quote{font-family:var(--serif);font-size:clamp(28px,3.2vw,46px);line-height:1.18;letter-spacing:-.015em;font-weight:400}
+.quote::before{content:"\201C";display:block;font-size:2.3em;line-height:.6;color:var(--crimson);margin-bottom:14px}
+.who{display:flex;gap:14px;align-items:center;margin-top:32px}
+.mono{width:52px;height:52px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:18px}
+.who b{display:block}
+.who div span{color:var(--ink-2);font-size:15px}
+.recog{display:grid;gap:12px}
+.recog div{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 24px}
+.recog b{display:block;font-family:var(--serif);font-size:20px;font-weight:500;line-height:1.25;margin-bottom:4px}
+.recog span{color:var(--ink-2);font-size:15px}
+.recog div:first-child{border-color:var(--crimson);box-shadow:inset 4px 0 0 var(--crimson)}
+@media (max-width:980px){.founder{grid-template-columns:1fr;gap:40px}}
+
+/* who + industries */
+.fit2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
+.gaps{list-style:none;display:grid;gap:0;border-top:1px solid var(--line)}
+.gaps li{display:flex;gap:16px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line);font-size:18px}
+.gaps li::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;border:2.5px solid var(--crimson);transform:translateY(-1px)}
+.contacts h3,.inds h3{font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:0;margin-bottom:16px;color:var(--ink-2)}
+.contacts div{display:flex;flex-wrap:wrap;gap:10px}
+.inds{margin-top:72px}
+.inds ul{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.inds li{padding:22px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-family:var(--serif);font-size:21px}
+@media (max-width:860px){.fit2{grid-template-columns:1fr;gap:40px}.inds ul{grid-template-columns:repeat(2,minmax(0,1fr))}.inds li{font-size:18px;padding:18px 16px}}
+
+/* contact */
+.cta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
+.cta h2{font-size:clamp(34px,4vw,56px)}
+.alt{margin-top:32px;display:grid;gap:10px;font-size:16px;color:#c3cadc}
+.alt a{white-space:nowrap;color:#fff;font-weight:600;text-decoration:none;border-bottom:1px solid #47557f}
+.alt a:hover{border-color:#fff}
+form{background:#fff;color:var(--ink);border-radius:26px;padding:32px;display:grid;gap:16px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:grid;gap:7px;font-size:14px;font-weight:600}
+input,select,textarea{width:100%;border:1.5px solid var(--line-2);border-radius:12px;padding:13px 14px;font-weight:400;font-size:16px;background:#fff;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--navy)}
+textarea{resize:vertical;min-height:110px}
+form .btn{width:100%}
+form small{color:var(--ink-3);font-size:13px;text-align:center}
+.sent{text-align:center;padding:24px 8px}
+.sent .tick{width:60px;height:60px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;margin:0 auto 18px}
+.sent h3{font-size:26px;margin-bottom:8px}
+.sent p{color:var(--ink-2)}
+@media (max-width:980px){.cta{grid-template-columns:1fr;gap:40px}}
+@media (max-width:520px){.two{grid-template-columns:1fr}form{padding:24px 20px}}
+
+/* footer */
+footer{background:#070e22;color:#aab2c8;padding:72px 0 40px;font-size:15px}
+.fgrid{display:grid;grid-template-columns:1.4fr repeat(3,minmax(0,1fr));gap:40px}
+.fgrid h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:14px}
+.fgrid ul{list-style:none;display:grid;gap:9px}
+.fgrid a{text-decoration:none}
+.fgrid a:hover{color:#fff}
+.fgrid .brand b{color:#fff}
+.fgrid em{display:block;font-style:normal;font-family:var(--serif);color:#fff;font-size:18px;margin:16px 0 8px}
+.fbot{margin-top:56px;padding-top:22px;border-top:1px solid #1c2747;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;font-size:13px;color:#7c86a3}
+.fbot a{color:#fff}
+@media (max-width:860px){.fgrid{grid-template-columns:1fr 1fr}.fgrid>div:first-child{grid-column:1/-1}}
+
+/* concept notes */
+dialog{border:0;border-radius:24px;padding:0;width:min(560px,calc(100% - 32px));color:var(--ink);box-shadow:0 40px 80px rgba(4,9,24,.4)}
+dialog::backdrop{background:rgba(7,14,34,.6);backdrop-filter:blur(3px)}
+dialog .in2{padding:30px 30px 26px}
+dialog h2{font-size:28px;margin-bottom:6px}
+dialog p{color:var(--ink-2);font-size:15.5px}
+dialog ol{margin:18px 0 22px 20px;display:grid;gap:10px;font-size:15.5px}
+dialog ol b{font-weight:600}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .in{opacity:1!important;transform:none!important}
+  .route .seg{stroke-dashoffset:0!important}
+}
+</style>
+</head>
+<body>
+
+<div class="concept"><div class="wrap"><span>Concept redesign by <a href="https://rh-webatelier.co.uk/" target="_blank" rel="noopener">rh-webatelier</a> for Avenue Impact. Not the live site.</span><button type="button" id="notesBtn">What changed</button></div></div>
+
+<header class="top" id="top">
+  <div class="wrap bar">
+    <a class="brand" href="#home" aria-label="Avenue Impact, back to top">
+      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 56 32 12l22 44H43L32 32 21 56z" fill="#0c1733"/><path d="M32 2l6.5 10h-13z" fill="#d0163f"/></svg>
+      <b>Avenue Impact</b>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a><a href="#results">Results</a><a href="#process">How we work</a><a href="#talent">Our talent</a><a href="#about">About</a>
+    </nav>
+    <a class="btn red" href="#contact">Book a discovery call</a>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+  </div>
+  <div class="menu" id="menu">
+    <a href="#services">Services</a><a href="#results">Results</a><a href="#process">How we work</a><a href="#talent">Our talent</a><a href="#about">About</a>
+    <a class="btn red" href="#contact">Book a discovery call</a>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="wrap hgrid">
+    <div>
+      <p class="motto in" style="--d:0"><i></i>UK strategy. Global delivery. Local impact.</p>
+      <h1 class="in" style="--d:1"><span>You planned</span><span>the change.</span><span>We deliver it.</span></h1>
+      <p class="lede in" style="--d:2">Managed business analysts, project managers, data and change specialists. We recruit, vet and manage them, and deploy them into your programme in an average of 14 days.</p>
+      <ul class="checks in" style="--d:3">
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6"/></svg>Transformation delivery teams</li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6"/></svg>Workforce capability diagnostics</li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6"/></svg>Global delivery pilots, UK and Africa</li>
+      </ul>
+      <div class="acts in" style="--d:4">
+        <a class="btn red" href="#contact">Book a discovery call</a>
+        <a class="btn ghost" href="#results">See our results</a>
+      </div>
+    </div>
+
+    <figure class="route in" style="--d:2" aria-label="The Avenue route: we identify, assess, develop and certify talent, then deploy, manage and measure it in your programme.">
+      <div class="legend"><span><i></i>We develop the talent</span><span><i></i>We deliver it to you</span></div>
+      <svg class="desk" viewBox="0 0 560 450" aria-hidden="true">
+        <path d="M56 104 H420" stroke="rgba(255,255,255,.12)" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <path class="seg" pathLength="1" d="M56 104 H420" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path class="seg r" pathLength="1" d="M420 104 H444 A60 60 0 0 1 504 164 V300 A60 60 0 0 1 444 360 H56" stroke="#d0163f" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <g fill="#0c1733" stroke="#fff" stroke-width="4">
+          <circle cx="56" cy="104" r="9"/><circle cx="177" cy="104" r="9"/><circle cx="298" cy="104" r="9"/><circle cx="420" cy="104" r="9"/>
+        </g>
+        <g fill="#0c1733" stroke="#d0163f" stroke-width="4">
+          <circle cx="444" cy="360" r="12"/><circle cx="250" cy="360" r="9"/><circle cx="56" cy="360" r="9"/>
+        </g>
+        <g text-anchor="middle">
+          <text x="62" y="76">Identify</text><text x="177" y="76">Assess</text><text x="298" y="76">Develop</text><text x="420" y="76">Certify</text>
+          <text x="444" y="400">Deploy</text><text x="250" y="396">Manage</text><text x="64" y="396">Measure</text>
+        </g>
+        <circle class="mover" r="7" fill="#fff" stroke="#d0163f" stroke-width="3">
+          <animateMotion dur="11s" repeatCount="indefinite" begin="1.8s" path="M56 104 H444 A60 60 0 0 1 504 164 V300 A60 60 0 0 1 444 360 H56"/>
+        </circle>
+      </svg>
+      <svg class="mob" viewBox="0 0 320 446" aria-hidden="true">
+        <path class="seg" pathLength="1" d="M22 18 V216" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path class="seg r" pathLength="1" d="M22 216 V414" stroke="#d0163f" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <g fill="#0c1733" stroke="#fff" stroke-width="4"><circle cx="22" cy="18" r="8"/><circle cx="22" cy="84" r="8"/><circle cx="22" cy="150" r="8"/><circle cx="22" cy="216" r="8"/></g>
+        <g fill="#0c1733" stroke="#d0163f" stroke-width="4"><circle cx="22" cy="282" r="10"/><circle cx="22" cy="348" r="8"/><circle cx="22" cy="414" r="8"/></g>
+        <g class="lbl"><text x="48" y="20">Identify</text><text x="48" y="86">Assess</text><text x="48" y="152">Develop</text><text x="48" y="218">Certify</text><text x="48" y="284">Deploy</text><text x="48" y="350">Manage</text><text x="48" y="416">Measure</text></g>
+        <g class="sub"><text x="48" y="39">find promising people</text><text x="48" y="105">test skills and readiness</text><text x="48" y="171">train and mentor</text><text x="48" y="237">CPD-accredited</text><text x="48" y="303">into your team</text><text x="48" y="369">we own quality</text><text x="48" y="435">against your KPIs</text></g>
+        <circle class="mover" r="6" fill="#fff" stroke="#d0163f" stroke-width="3">
+          <animateMotion dur="8s" repeatCount="indefinite" begin="1.8s" path="M22 18 V414"/>
+        </circle>
+      </svg>
+      <div class="uis">
+        <div class="ui a"><div class="k"><span class="dot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5l8 4 8-4v14l-8 4z"/></svg></span><b>Learning Hub</b></div><strong>Business analysis pathway</strong><div class="bar2"><i></i></div>Module 6 of 8 · mentor sessions booked</div>
+        <div class="ui b"><div class="k"><span class="dot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 4.5a3.5 3.5 0 0 1 0 7M21 20c0-2.8-1.7-5.1-4-5.8"/></svg></span><b>Delivery team</b></div><strong>Ready to start · Day 14</strong><div class="row"><span>BA</span><span>PM</span><span>Data</span><span>Change</span></div></div>
+        <div class="ui c"><div class="k"><span class="dot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><b>Monthly KPI review</b></div><span class="ok">On track</span></div>
+      </div>
+      <figcaption class="note">Illustrative view</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="proof">
+  <div class="wrap">
+    <div class="clients"><p>Trusted by</p><span>East Midlands Railway</span><span>Central Bank of Nigeria</span><span>NIDCOM</span><span>Rudby Hall</span></div>
+    <div class="figs">
+      <div><b>14 days</b><span>average team deployment</span></div>
+      <div><b>2015</b><span>developing talent since</span></div>
+      <div><b>CPD</b><span>accredited practitioner talent</span></div>
+      <div><b>UK + Africa</b><span>UK leadership, international delivery hubs</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="stone" id="services">
+  <div class="wrap">
+    <div class="head"><h2>Three ways to close your delivery gap</h2><p>Start where you are. Get clarity first, bring in a team now, or test global delivery once we're already working together.</p></div>
+    <div class="ways">
+      <article class="way">
+        <span class="v">Diagnose</span>
+        <h3>Workforce Transformation Diagnostic</h3>
+        <p>A structured assessment of your workforce capability and skills gaps, ending in a clear, practical transformation roadmap.</p>
+        <p class="fit">Best when you're planning a change programme and want clarity before committing budget.</p>
+        <a class="tlink" href="#contact">Ask about a diagnostic <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="way lead">
+        <span class="tag">Our core service</span>
+        <span class="v">Deliver</span>
+        <h3>Transformation Delivery Team</h3>
+        <p>Managed business analyst, project manager, data and change capability, deployed into your programme. We recruit, vet, manage and hold quality to account, so you get delivery capacity without the risk and overhead of hiring individual contractors.</p>
+        <p class="fit">Best when your programme needs delivery resource now.</p>
+        <a class="tlink" href="#contact">Discuss your delivery needs <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="way">
+        <span class="tag">By invitation</span>
+        <span class="v">Scale</span>
+        <h3>Global Delivery Pilot</h3>
+        <p>A small, Africa-based managed team delivering one defined business process. A controlled, low-risk way to explore global delivery capability.</p>
+        <p class="fit">Open to organisations we already work with, once trust and delivery quality are established.</p>
+        <a class="tlink" href="#contact">Discuss a pilot <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+    </div>
+    <div class="roles"><p>Roles we deploy</p>
+      <span class="chip">Business analysts</span><span class="chip">Project managers</span><span class="chip">Data engineers</span><span class="chip">Data scientists</span><span class="chip">AI engineers</span><span class="chip">Software testers</span><span class="chip">Developers</span><span class="chip">Change and operations support</span>
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <div class="head"><h2>Results our clients put their names to</h2><p>Capability development, workforce transformation and digital delivery for public and private sector organisations in the UK and Nigeria.</p></div>
+    <div class="cases">
+      <article class="case big">
+        <div>
+          <p class="sec">Transport, United Kingdom</p>
+          <h3>East Midlands Railway's HR processes now run automatically</h3>
+          <div class="meta"><div><b>Engagement</b>Employee development programme</div><div><b>Tools</b>Power BI, Power Automate, Power Apps</div></div>
+        </div>
+        <div class="r">
+          <blockquote>“Avenue Impact Limited transformed our business, making us more experienced in PowerBI, Power Automate and Power Apps. The expert has helped improve our HR Processes which are now automated.”<br><small style="font-family:var(--sans);font-size:14px;color:#9aa4c0">East Midlands Railway</small></blockquote>
+          <a class="btn white" href="emr.html" style="align-self:flex-start">Read the case study</a>
+        </div>
+      </article>
+      <article class="case">
+        <p class="sec">Central banking, Nigeria</p>
+        <h3>Central Bank of Nigeria saw an immediate improvement in project delivery</h3>
+        <p>Operational excellence development for staff across the country: customer service, communication, emotional intelligence, digital skills and team building.</p>
+        <blockquote>“…we saw immediate improvement in our project delivery.”</blockquote>
+        <p class="type">Capability development, nationwide</p>
+      </article>
+      <article class="case">
+        <p class="sec">Government, Nigeria and diaspora</p>
+        <h3>A federal commission developed its people at home and across the diaspora</h3>
+        <p>Staff development for the Nigerians in Diaspora Commission (NIDCOM), part of the Federal Government of Nigeria, which also recognised Avenue Impact with its ICT &amp; Education Diaspora Award.</p>
+        <p class="type">Workforce development, domestic and diaspora</p>
+      </article>
+      <article class="case">
+        <p class="sec">Hospitality, Yorkshire</p>
+        <h3>A luxury hotel launched its own web, mobile and booking apps</h3>
+        <p>A customised web and mobile application for Rudby Hall, with a booking app now complete.</p>
+        <blockquote>“…all platforms are user friendly. Our customers are pleased with our services.”</blockquote>
+        <p class="type">Digital product delivery</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="stone" id="process">
+  <div class="wrap">
+    <div class="head"><h2>Accountability, not just headcount</h2><p>One clear process from the first conversation to the monthly review, with a single team responsible for the result.</p></div>
+    <ol class="steps">
+      <li><b>Step 1</b><h3>Understand</h3><p>We take time to understand your delivery gap, workforce challenge or transformation goal.</p></li>
+      <li><b>Step 2</b><h3>Deploy</h3><p>We provide vetted professionals or a managed team, matched to your specific need.</p></li>
+      <li><b>Step 3</b><h3>Manage</h3><p>We own quality, performance and reporting, so you deal with one accountable partner.</p></li>
+      <li><b>Step 4</b><h3>Measure</h3><p>We track outcomes against clear KPIs, so you always know the value being delivered.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="dark" id="talent">
+  <div class="wrap">
+    <div class="head"><h2>Talent we develop ourselves</h2><p>Every person we deploy has travelled the same route, through our own learning, mentoring and readiness programmes. They arrive prepared, and stay supported throughout the engagement.</p></div>
+    <ol class="path">
+      <li><h3>Identify</h3><p>We find promising professionals in the UK and Africa.</p></li>
+      <li><h3>Assess</h3><p>Skills and readiness are tested before anyone moves on.</p></li>
+      <li><h3>Develop</h3><p>Structured training through Learning Hub, mentoring through Mentiiv.</p></li>
+      <li><h3>Certify</h3><p>CPD-accredited practitioners, prepared for interviews with PrepnHire.</p></li>
+      <li class="d"><h3>Deploy</h3><p>Into your programme, in an average of 14 days.</p></li>
+      <li class="d"><h3>Manage</h3><p>We own quality, performance and reporting.</p></li>
+      <li class="d"><h3>Measure</h3><p>Outcomes tracked against the KPIs you set.</p></li>
+    </ol>
+    <div class="half" aria-hidden="true"><span>We develop the talent</span><span>We deliver it to you</span></div>
+    <div class="eco">
+      <a href="https://avenueimpact.com/digital-learning-hub" target="_blank" rel="noopener"><h3>Learning Hub</h3><p>Industry-aligned training programmes that build skills, leadership and digital capability.</p><small>Training</small></a>
+      <a href="https://mentiiv.com/" target="_blank" rel="noopener"><h3>Mentiiv</h3><p>Structured mentoring and coaching for the professionals on our pathway.</p><small>Mentoring</small></a>
+      <a href="https://prepnhire.com/" target="_blank" rel="noopener"><h3>PrepnHire</h3><p>Interview preparation and professional readiness before anyone joins a client team.</p><small>Readiness</small></a>
+    </div>
+    <p class="nolow">This isn't about low-cost labour. It's skilled, well-developed professional talent, through a structured and accountable delivery model.</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap founder">
+    <div>
+      <p class="quote">We began with a belief: talent thrives when opportunity meets technology. In 2015, we empowered one student. Today, we empower thousands.</p>
+      <div class="who"><span class="mono" aria-hidden="true">FA</span><div><b>Funso Akinwunmi</b><span>Founder &amp; CEO, Avenue Impact</span></div></div>
+    </div>
+    <div class="recog">
+      <div><b>ICT &amp; Education Diaspora Award</b><span>NIDCOM, Federal Government of Nigeria</span></div>
+      <div><b>CPD-accredited practitioner talent</b><span>Our talent is trained and certified through our own pathway</span></div>
+      <div><b>UK leadership, international hubs</b><span>Strategy and client engagement in the UK, delivery capability across Africa</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="stone" id="who">
+  <div class="wrap">
+    <div class="head"><h2>Built for organisations navigating change</h2><p>We work with UK organisations going through digital or operational transformation, and with public bodies building capability.</p></div>
+    <div class="fit2">
+      <ul class="gaps">
+        <li>Gaps in transformation delivery capability</li>
+        <li>Difficulty recruiting specific professional skills</li>
+        <li>Pressure to improve productivity and cost efficiency</li>
+        <li>Customer operations or back-office functions under review</li>
+      </ul>
+      <div class="contacts"><h3>The people we usually work with</h3>
+        <div><span class="chip">COOs</span><span class="chip">CIOs</span><span class="chip">Transformation Directors</span><span class="chip">Heads of Change</span><span class="chip">Customer Operations Directors</span><span class="chip">HR and People Directors</span><span class="chip">L&amp;D and capability leaders</span></div>
+      </div>
+    </div>
+    <div class="inds"><h3>Sectors we serve</h3>
+      <ul><li>Government</li><li>Financial services</li><li>Transport</li><li>Healthcare</li><li>Technology</li><li>Hospitality</li><li>Automotive</li><li>Oil and gas</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="contact">
+  <div class="wrap cta">
+    <div>
+      <h2>Bring us your delivery gap. We'll show you the team that closes it.</h2>
+      <p class="lede" style="margin-top:20px">Tell us what your programme needs. Our UK team will talk you through the roles and the people who could close the gap.</p>
+      <div class="alt">
+        <span>Prefer to message us? <a href="https://wa.me/447305284671?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20delivery%20team." target="_blank" rel="noopener">WhatsApp +44 7305 284671</a></span>
+        <span>Or find us on <a href="https://uk.linkedin.com/company/avenueimpact" target="_blank" rel="noopener">LinkedIn</a></span>
+      </div>
+    </div>
+    <form id="form" novalidate>
+      <div class="two">
+        <label>Name<input name="name" autocomplete="name" required></label>
+        <label>Work email<input name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <label>Organisation<input name="org" autocomplete="organization" required></label>
+      <label>What do you need?
+        <select name="need"><option>A delivery team for a current programme</option><option>A workforce capability diagnostic</option><option>Not sure yet, let's talk</option></select>
+      </label>
+      <label>Tell us about the gap<textarea name="msg" placeholder="For example: two business analysts and a change lead for a CRM migration starting in March"></textarea></label>
+      <button class="btn red" type="submit">Request a discovery call</button>
+      <small>Concept form: nothing is sent.</small>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="#home"><svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 56 32 12l22 44H43L32 32 21 56z" fill="#fff"/><path d="M32 2l6.5 10h-13z" fill="#d0163f"/></svg><b>Avenue Impact</b></a>
+        <em>Dream. Act. Emerge.</em>
+        <p>Workforce transformation and managed delivery teams. UK strategy, global delivery, local impact.</p>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="#services">Transformation Delivery Team</a></li><li><a href="#services">Workforce Diagnostic</a></li><li><a href="#services">Global Delivery Pilot</a></li><li><a href="emr.html">Case study: EMR</a></li></ul></div>
+      <div><h4>For individuals</h4><ul><li><a href="https://avenueimpact.com/digital-learning-hub" target="_blank" rel="noopener">Learning Hub</a></li><li><a href="https://mentiiv.com/" target="_blank" rel="noopener">Mentiiv</a></li><li><a href="https://prepnhire.com/" target="_blank" rel="noopener">PrepnHire</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="https://wa.me/447305284671" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://uk.linkedin.com/company/avenueimpact" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/avenueimpact/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/avenueimpact" target="_blank" rel="noopener">X</a></li></ul></div>
+    </div>
+    <div class="fbot"><span>Concept redesign by <a href="https://rh-webatelier.co.uk/" target="_blank" rel="noopener">rh-webatelier</a>. All facts, quotes and figures come from avenueimpact.com.</span><span>Avenue Impact Limited</span></div>
+  </div>
+</footer>
+
+<dialog id="notes" aria-labelledby="notesTitle">
+  <div class="in2">
+    <h2 id="notesTitle">What changed in this concept</h2>
+    <p>Same company, same facts. The site now speaks to one buyer and proves its case faster.</p>
+    <ol>
+      <li><b>One audience.</b> Written for the organisations that buy delivery teams. Learners are pointed to Learning Hub, Mentiiv and PrepnHire instead of sharing the same pages.</li>
+      <li><b>The lead offer comes first.</b> The headline sells the managed delivery team and the 14-day deployment, not a general list of capabilities.</li>
+      <li><b>Proof before promises.</b> Named clients, their own words, and results written as headlines.</li>
+      <li><b>Services and sectors are separated.</b> No placeholders, broken links or internal notes on show.</li>
+      <li><b>A brand idea.</b> Avenue means route: the talent pathway from Identify to Measure becomes the visual signature.</li>
+    </ol>
+    <button class="btn red" type="button" id="notesClose">Back to the site</button>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  var top = document.getElementById('top');
+  var onScroll = function () { top.classList.toggle('scrolled', window.scrollY > 8); };
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+  var burger = top.querySelector('.burger');
+  var setMenu = function (open) { top.classList.toggle('open', open); burger.setAttribute('aria-expanded', open); burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); };
+  burger.addEventListener('click', function () { setMenu(!top.classList.contains('open')); });
+  document.querySelectorAll('#menu a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) document.querySelectorAll('animateMotion').forEach(function (a) { a.remove(); });
+  document.querySelectorAll('.mover').forEach(function (c) { if (reduce) c.remove(); });
+
+  var notes = document.getElementById('notes');
+  document.getElementById('notesBtn').addEventListener('click', function () { notes.showModal(); });
+  document.getElementById('notesClose').addEventListener('click', function () { notes.close(); });
+  notes.addEventListener('click', function (e) { if (e.target === notes) notes.close(); });
+
+  var form = document.getElementById('form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    form.innerHTML = '<div class="sent" role="status"><div class="tick"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div><h3>Thanks, that’s everything we need</h3><p>This is a concept, so nothing was sent. On the live site, your request would go straight to the Avenue Impact team.</p></div>';
+  });
+
+  requestAnimationFrame(function () { requestAnimationFrame(function () { document.documentElement.classList.add('ready'); }); });
+})();
+</script>
+</body>
+</html>
