@@ -115,7 +115,7 @@ section{padding:112px 0}
 .acts{display:flex;flex-wrap:wrap;gap:12px}
 
 /* the route panel */
-.route{position:relative;background:var(--navy);border-radius:28px;padding:22px 22px 18px;color:#fff;box-shadow:0 40px 80px -30px rgba(12,23,51,.55)}
+.route{container-type:inline-size;position:relative;background:var(--navy);border-radius:28px;padding:22px 22px 18px;color:#fff;box-shadow:0 40px 80px -30px rgba(12,23,51,.55)}
 .route .legend{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:13px;color:#b9c1d6}
 .route .legend span{display:inline-flex;align-items:center;gap:8px}
 .route .legend i{width:22px;height:4px;border-radius:2px;background:#fff}
@@ -138,9 +138,17 @@ section{padding:112px 0}
 .ui.a{left:8%;top:34%}
 .ui.b{left:47%;top:51%}
 .ui.c{right:-22px;bottom:-26px}
-@media (max-width:980px){
-  .hgrid{grid-template-columns:1fr;gap:44px}
-  .hero{padding:44px 0 72px}
+@media (min-width:641px){
+  .ui{width:40cqi;padding:2.4cqi 2.8cqi;font-size:clamp(10.5px,2.3cqi,13px)}
+  .ui strong{font-size:clamp(12px,2.75cqi,15px)}
+  .ui .k{font-size:clamp(10.5px,2.2cqi,12px)}
+  .ui.b{top:47%}
+}
+@media (max-width:1100px){
+  .hgrid{grid-template-columns:1fr;gap:48px}
+  .hero{padding:44px 0 80px}
+  .route{max-width:620px;width:100%;margin-inline:auto}
+  .ui.c{right:-12px}
 }
 @media (max-width:640px){
   .route{padding:20px 18px 18px;border-radius:24px}
@@ -381,7 +389,7 @@ dialog ol b{font-weight:600}
           <text x="444" y="400">Deploy</text><text x="250" y="396">Manage</text><text x="64" y="396">Measure</text>
         </g>
         <circle class="mover" r="7" fill="#fff" stroke="#d0163f" stroke-width="3">
-          <animateMotion dur="11s" repeatCount="indefinite" begin="1.8s" path="M56 104 H444 A60 60 0 0 1 504 164 V300 A60 60 0 0 1 444 360 H56"/>
+          <animateMotion dur="11s" repeatCount="indefinite" begin="0s" path="M56 104 H444 A60 60 0 0 1 504 164 V300 A60 60 0 0 1 444 360 H56"/>
         </circle>
       </svg>
       <svg class="mob" viewBox="0 0 320 446" aria-hidden="true">
@@ -392,7 +400,7 @@ dialog ol b{font-weight:600}
         <g class="lbl"><text x="48" y="20">Identify</text><text x="48" y="86">Assess</text><text x="48" y="152">Develop</text><text x="48" y="218">Certify</text><text x="48" y="284">Deploy</text><text x="48" y="350">Manage</text><text x="48" y="416">Measure</text></g>
         <g class="sub"><text x="48" y="39">find promising people</text><text x="48" y="105">test skills and readiness</text><text x="48" y="171">train and mentor</text><text x="48" y="237">CPD-accredited</text><text x="48" y="303">into your team</text><text x="48" y="369">we own quality</text><text x="48" y="435">against your KPIs</text></g>
         <circle class="mover" r="6" fill="#fff" stroke="#d0163f" stroke-width="3">
-          <animateMotion dur="8s" repeatCount="indefinite" begin="1.8s" path="M22 18 V414"/>
+          <animateMotion dur="8s" repeatCount="indefinite" begin="0s" path="M22 18 V414"/>
         </circle>
       </svg>
       <div class="uis">
